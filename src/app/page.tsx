@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   courseInfo,
   holes,
@@ -7,15 +8,16 @@ import {
   getTotalPar,
   getTotalYardage,
 } from "@/lib/course-data";
+import { images } from "@/lib/images";
 
 function HeroSection() {
   return (
     <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
-      {/* Background Image Placeholder - Using gradient for now */}
+      {/* Background Image from actual course */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(135deg, #1e5631 0%, #143d22 50%, #0d2815 100%)`,
+          backgroundImage: `url('${images.slider[0]}')`,
         }}
       />
       <div className="absolute inset-0 hero-overlay" />
@@ -229,42 +231,51 @@ function CourseHighlights() {
           <div className="grid grid-cols-2 gap-4">
             {[8, 3, 9, 14].map((holeNum) => {
               const hole = holes.find((h) => h.number === holeNum)!;
+              const holeImage = images.holes[holeNum as keyof typeof images.holes];
               return (
                 <Link
                   key={hole.number}
                   href={`/course/hole/${hole.number}`}
-                  className="group relative bg-[var(--cream)] rounded-2xl p-6 hover:shadow-xl transition-all hover:-translate-y-1"
+                  className="group relative bg-[var(--cream)] rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1"
                 >
-                  <div className="absolute top-4 right-4 w-10 h-10 bg-[var(--pine-green)] rounded-full flex items-center justify-center text-white font-bold">
-                    {hole.number}
+                  {/* Hole Image */}
+                  <div className="relative h-32 overflow-hidden">
+                    <img
+                      src={holeImage.thumbnail}
+                      alt={`Hole ${hole.number}`}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    <div className="absolute top-3 right-3 w-10 h-10 bg-[var(--pine-green)] rounded-full flex items-center justify-center text-white font-bold shadow-lg">
+                      {hole.number}
+                    </div>
                   </div>
-                  <div className="text-6xl font-bold text-[var(--pine-green)]/10 mb-2">
-                    #{hole.number}
-                  </div>
-                  <div className="text-sm text-[var(--gold)] font-semibold uppercase tracking-wider mb-1">
-                    {hole.signature ? "Signature Hole" : `Par ${hole.par}`}
-                  </div>
-                  <div className="text-gray-700 font-medium mb-2">
-                    {hole.yardage.white || hole.yardage.tips} yards
-                  </div>
-                  <div className="text-gray-500 text-sm line-clamp-2">
-                    {hole.description.split(".")[0]}.
-                  </div>
-                  <div className="mt-4 text-[var(--pine-green)] font-semibold text-sm group-hover:translate-x-2 transition-transform inline-flex items-center gap-1">
-                    View Details
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
+                  <div className="p-4">
+                    <div className="text-sm text-[var(--gold)] font-semibold uppercase tracking-wider mb-1">
+                      {hole.signature ? "Signature Hole" : `Par ${hole.par}`}
+                    </div>
+                    <div className="text-gray-700 font-medium mb-2">
+                      {hole.yardage.white || hole.yardage.tips} yards
+                    </div>
+                    <div className="text-gray-500 text-sm line-clamp-2">
+                      {hole.description.split(".")[0]}.
+                    </div>
+                    <div className="mt-3 text-[var(--pine-green)] font-semibold text-sm group-hover:translate-x-2 transition-transform inline-flex items-center gap-1">
+                      View Details
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </div>
                   </div>
                 </Link>
               );
@@ -446,10 +457,10 @@ function LocationPreview() {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Map placeholder */}
+          {/* Map */}
           <div className="bg-[var(--cream)] rounded-3xl overflow-hidden h-[400px] relative">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2837.8!2d-91.1!3d44.95!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDTCsDU3JzAwLjAiTiA5McKwMDYnMDAuMCJX!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus"
+              src="https://maps.google.com/maps?q=Whispering+Pines+Golf+Course+24700+County+Highway+X+Cadott+WI&t=&z=14&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}

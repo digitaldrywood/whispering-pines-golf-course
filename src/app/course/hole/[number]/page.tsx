@@ -1,7 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { holes } from "@/lib/course-data";
+import { getHoleImage } from "@/lib/images";
 
 interface PageProps {
   params: Promise<{ number: string }>;
@@ -41,6 +43,7 @@ export default async function HolePage({ params }: PageProps) {
 
   const prevHole = holes.find((h) => h.number === holeNumber - 1);
   const nextHole = holes.find((h) => h.number === holeNumber + 1);
+  const holeImages = getHoleImage(holeNumber);
 
   return (
     <div className="pt-20">
@@ -139,14 +142,81 @@ export default async function HolePage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Hole Images Section */}
+      {holeImages && (
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-8">
+              {/* Hole Photo */}
+              <div>
+                <h2 className="text-2xl font-bold text-[var(--pine-green)] mb-6 flex items-center gap-3">
+                  <div className="w-10 h-10 bg-[var(--cream)] rounded-full flex items-center justify-center">
+                    <svg
+                      className="w-5 h-5 text-[var(--pine-green)]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </div>
+                  Hole View
+                </h2>
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
+                  <img
+                    src={holeImages.photo}
+                    alt={`Hole ${hole.number} at Whispering Pines Golf Course`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Hole Layout Map */}
+              <div>
+                <h2 className="text-2xl font-bold text-[var(--pine-green)] mb-6 flex items-center gap-3">
+                  <div className="w-10 h-10 bg-[var(--gold)]/20 rounded-full flex items-center justify-center">
+                    <svg
+                      className="w-5 h-5 text-[var(--gold)]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+                      />
+                    </svg>
+                  </div>
+                  Hole Layout
+                </h2>
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-white">
+                  <img
+                    src={holeImages.layout}
+                    alt={`Hole ${hole.number} layout map`}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Details Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[var(--cream)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Features */}
             <div>
               <h2 className="text-2xl font-bold text-[var(--pine-green)] mb-6 flex items-center gap-3">
-                <div className="w-10 h-10 bg-[var(--cream)] rounded-full flex items-center justify-center">
+                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
                   <svg
                     className="w-5 h-5 text-[var(--pine-green)]"
                     fill="none"
@@ -205,7 +275,7 @@ export default async function HolePage({ params }: PageProps) {
                 </div>
                 Playing Tips
               </h2>
-              <div className="bg-[var(--cream)] rounded-2xl p-6">
+              <div className="bg-white rounded-2xl p-6 shadow-sm">
                 <p className="text-gray-700 leading-relaxed">{hole.tips}</p>
               </div>
             </div>

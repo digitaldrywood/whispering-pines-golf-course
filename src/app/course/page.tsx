@@ -9,6 +9,7 @@ import {
   courseInfo,
   HoleData,
 } from "@/lib/course-data";
+import { images, getHoleImage } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "The Course | Whispering Pines Golf Course",
@@ -17,67 +18,61 @@ export const metadata: Metadata = {
 };
 
 function HoleCard({ hole }: { hole: HoleData }) {
+  const holeImage = getHoleImage(hole.number);
   return (
     <Link
       href={`/course/hole/${hole.number}`}
       className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all hover:-translate-y-1"
     >
-      {/* Hole Number Header */}
-      <div className="hole-card-gradient p-6 text-white relative">
-        <div className="absolute top-4 right-4">
+      {/* Hole Image */}
+      {holeImage && (
+        <div className="relative h-40 overflow-hidden">
+          <img
+            src={holeImage.thumbnail}
+            alt={`Hole ${hole.number}`}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+          <div className="absolute top-3 left-3 w-12 h-12 bg-[var(--pine-green)] rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
+            {hole.number}
+          </div>
           {hole.signature && (
-            <span className="bg-[var(--gold)] text-[var(--pine-green-dark)] text-xs font-bold px-3 py-1 rounded-full">
+            <span className="absolute top-3 right-3 bg-[var(--gold)] text-[var(--pine-green-dark)] text-xs font-bold px-3 py-1 rounded-full shadow-lg">
               SIGNATURE
             </span>
           )}
+          <div className="absolute bottom-3 left-3 flex gap-4 text-white">
+            <div>
+              <div className="text-xs uppercase tracking-wider text-white/70">Par</div>
+              <div className="text-xl font-bold">{hole.par}</div>
+            </div>
+            <div>
+              <div className="text-xs uppercase tracking-wider text-white/70">Yards</div>
+              <div className="text-xl font-bold">{hole.yardage.white || hole.yardage.tips}</div>
+            </div>
+          </div>
         </div>
-        <div className="text-6xl font-bold opacity-20 absolute right-4 bottom-2">
-          {hole.number}
-        </div>
-        <div className="text-sm uppercase tracking-wider text-white/70 mb-1">
-          Hole
-        </div>
-        <div className="text-4xl font-bold">{hole.number}</div>
-      </div>
+      )}
 
       {/* Hole Details */}
-      <div className="p-6">
-        <div className="flex justify-between items-center mb-4">
-          <div className="flex gap-6">
-            <div>
-              <div className="text-xs text-gray-500 uppercase tracking-wider">
-                Par
-              </div>
-              <div className="text-2xl font-bold text-[var(--pine-green)]">
-                {hole.par}
-              </div>
-            </div>
-            <div>
-              <div className="text-xs text-gray-500 uppercase tracking-wider">
-                Yards
-              </div>
-              <div className="text-2xl font-bold text-[var(--pine-green)]">
-                {hole.yardage.white || hole.yardage.tips}
-              </div>
-            </div>
-          </div>
-          <div className="w-12 h-12 bg-[var(--cream)] rounded-full flex items-center justify-center group-hover:bg-[var(--pine-green)] transition-colors">
-            <svg
-              className="w-5 h-5 text-[var(--pine-green)] group-hover:text-white transition-colors"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </div>
+      <div className="p-5">
+        <p className="text-gray-600 text-sm line-clamp-2 mb-3">{hole.description}</p>
+        <div className="text-[var(--pine-green)] font-semibold text-sm group-hover:translate-x-2 transition-transform inline-flex items-center gap-1">
+          View Details
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
         </div>
-        <p className="text-gray-600 text-sm line-clamp-3">{hole.description}</p>
       </div>
     </Link>
   );
@@ -220,11 +215,38 @@ export default function CoursePage() {
         </div>
       </section>
 
+      {/* Course Map Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-[var(--pine-green)] mb-8 text-center">
+            Course Map & Scorecard
+          </h2>
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            <div className="bg-[var(--cream)] rounded-2xl p-4 shadow-lg">
+              <h3 className="text-lg font-semibold text-[var(--pine-green)] mb-4 text-center">Course Layout</h3>
+              <img
+                src={images.courseMap.outside}
+                alt="Whispering Pines Golf Course Map"
+                className="w-full h-auto rounded-lg"
+              />
+            </div>
+            <div className="bg-[var(--cream)] rounded-2xl p-4 shadow-lg">
+              <h3 className="text-lg font-semibold text-[var(--pine-green)] mb-4 text-center">Scorecard</h3>
+              <img
+                src={images.courseMap.inside}
+                alt="Whispering Pines Scorecard"
+                className="w-full h-auto rounded-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Scorecard Section */}
       <section className="py-16 bg-[var(--cream)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-[var(--pine-green)] mb-8 text-center">
-            Course Scorecard
+            Detailed Scorecard
           </h2>
           <div className="space-y-8">
             <Scorecard holes={frontNine} title="Front Nine" />

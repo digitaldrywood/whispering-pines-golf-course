@@ -7,9 +7,10 @@ import { courseInfo } from "@/lib/course-data";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/course", label: "The Course" },
-  { href: "/rates", label: "Rates & Membership" },
-  { href: "/simulator", label: "Indoor Simulator" },
-  { href: "/events", label: "Events & Leagues" },
+  { href: "/clubhouse", label: "Clubhouse" },
+  { href: "/rates", label: "Rates" },
+  { href: "/simulator", label: "Simulator" },
+  { href: "/events", label: "Events" },
   { href: "/contact", label: "Contact" },
 ];
 

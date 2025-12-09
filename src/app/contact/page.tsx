@@ -268,7 +268,7 @@ export default function ContactPage() {
             {/* Map */}
             <div className="bg-[var(--cream)] rounded-3xl overflow-hidden h-[500px]">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2837.8!2d-91.1!3d44.95!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDTCsDU3JzAwLjAiTiA5McKwMDYnMDAuMCJX!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus"
+                src="https://maps.google.com/maps?q=Whispering+Pines+Golf+Course+24700+County+Highway+X+Cadott+WI&t=&z=14&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
