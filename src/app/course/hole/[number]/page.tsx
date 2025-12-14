@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { holes } from "@/lib/course-data";

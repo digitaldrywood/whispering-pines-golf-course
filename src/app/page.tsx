@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import {
   courseInfo,
   holes,
@@ -13,39 +12,39 @@ import ImageSlider from "@/components/ImageSlider";
 
 function HeroSection() {
   return (
-    <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden group">
+    <section className="relative h-[100svh] min-h-[600px] sm:min-h-[700px] flex items-center justify-center overflow-hidden group">
       {/* Background Image Slider */}
       <ImageSlider autoPlayInterval={6000} />
       <div className="absolute inset-0 hero-overlay z-10" />
 
-      {/* Animated pine trees silhouette */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 opacity-20 z-10">
+      {/* Animated pine trees silhouette - hidden on mobile */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 opacity-20 z-10 hidden sm:block">
         <svg viewBox="0 0 1440 120" fill="currentColor" className="text-black w-full h-full">
           <path d="M0,120 L0,80 L30,80 L45,40 L60,80 L90,80 L90,120 Z M100,120 L100,60 L130,60 L150,20 L170,60 L200,60 L200,120 Z M220,120 L220,70 L250,70 L270,30 L290,70 L320,70 L320,120 Z M350,120 L350,85 L380,85 L395,50 L410,85 L440,85 L440,120 Z M480,120 L480,65 L510,65 L530,25 L550,65 L580,65 L580,120 Z M620,120 L620,75 L650,75 L670,35 L690,75 L720,75 L720,120 Z M760,120 L760,80 L790,80 L805,45 L820,80 L850,80 L850,120 Z M890,120 L890,60 L920,60 L940,15 L960,60 L990,60 L990,120 Z M1030,120 L1030,70 L1060,70 L1080,30 L1100,70 L1130,70 L1130,120 Z M1170,120 L1170,85 L1200,85 L1215,50 L1230,85 L1260,85 L1260,120 Z M1300,120 L1300,65 L1330,65 L1350,20 L1370,65 L1400,65 L1400,120 Z M1440,120 L1440,75 L1410,75 L1395,40 L1380,75 L1350,75 Z" />
         </svg>
       </div>
 
       {/* Content */}
-      <div className="relative z-20 text-center text-white px-4 max-w-5xl mx-auto">
-        <p className="text-[var(--gold)] text-lg md:text-xl tracking-[0.3em] uppercase mb-4 animate-fade-in">
+      <div className="relative z-20 text-center text-white px-4 sm:px-6 max-w-5xl mx-auto pt-16 sm:pt-0">
+        <p className="text-[var(--gold)] text-sm sm:text-lg md:text-xl tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-3 sm:mb-4 animate-fade-in">
           Welcome to
         </p>
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 animate-fade-in animate-delay-100">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 sm:mb-6 animate-fade-in animate-delay-100">
           Whispering Pines
         </h1>
-        <p className="text-2xl md:text-3xl lg:text-4xl font-light italic mb-8 animate-fade-in animate-delay-200">
+        <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light italic mb-6 sm:mb-8 animate-fade-in animate-delay-200">
           {courseInfo.tagline}
         </p>
-        <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-12 animate-fade-in animate-delay-300">
+        <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-8 sm:mb-12 animate-fade-in animate-delay-300 px-2">
           Experience premier 18-hole golf in Wisconsin&apos;s beautiful Chippewa Valley,
           just 12 miles east of Eau Claire.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in animate-delay-300">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-fade-in animate-delay-300 px-4 sm:px-0">
           <a
             href="https://foreupsoftware.com/index.php/booking/19498/1021#/teetimes"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-secondary px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center gap-2"
+            className="btn-secondary px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-semibold text-base sm:text-lg inline-flex items-center justify-center gap-2"
           >
             <svg
               className="w-5 h-5"
@@ -64,7 +63,7 @@ function HeroSection() {
           </a>
           <Link
             href="/course"
-            className="px-8 py-4 rounded-full font-semibold text-lg border-2 border-white text-white hover:bg-white hover:text-[var(--pine-green)] transition-all inline-flex items-center justify-center gap-2"
+            className="px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-semibold text-base sm:text-lg border-2 border-white text-white hover:bg-white hover:text-[var(--pine-green)] transition-all inline-flex items-center justify-center gap-2"
           >
             Explore the Course
             <svg
@@ -84,10 +83,10 @@ function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-20">
+      {/* Scroll indicator - hidden on very small screens */}
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-20 hidden sm:block">
         <svg
-          className="w-8 h-8 text-white/50"
+          className="w-6 h-6 sm:w-8 sm:h-8 text-white/50"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -106,42 +105,42 @@ function HeroSection() {
 
 function CourseHighlights() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Stats Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
-          <div className="text-center">
-            <div className="text-5xl font-bold text-[var(--pine-green)] mb-2">18</div>
-            <div className="text-gray-600 uppercase tracking-wider text-sm">Holes</div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 mb-12 sm:mb-20">
+          <div className="text-center p-4 sm:p-0">
+            <div className="text-3xl sm:text-5xl font-bold text-[var(--pine-green)] mb-1 sm:mb-2">18</div>
+            <div className="text-gray-600 uppercase tracking-wider text-xs sm:text-sm">Holes</div>
           </div>
-          <div className="text-center">
-            <div className="text-5xl font-bold text-[var(--pine-green)] mb-2">
+          <div className="text-center p-4 sm:p-0">
+            <div className="text-3xl sm:text-5xl font-bold text-[var(--pine-green)] mb-1 sm:mb-2">
               {getTotalPar(holes)}
             </div>
-            <div className="text-gray-600 uppercase tracking-wider text-sm">Par</div>
+            <div className="text-gray-600 uppercase tracking-wider text-xs sm:text-sm">Par</div>
           </div>
-          <div className="text-center">
-            <div className="text-5xl font-bold text-[var(--pine-green)] mb-2">
+          <div className="text-center p-4 sm:p-0">
+            <div className="text-3xl sm:text-5xl font-bold text-[var(--pine-green)] mb-1 sm:mb-2">
               {getTotalYardage(holes).toLocaleString()}
             </div>
-            <div className="text-gray-600 uppercase tracking-wider text-sm">Yards</div>
+            <div className="text-gray-600 uppercase tracking-wider text-xs sm:text-sm">Yards</div>
           </div>
-          <div className="text-center">
-            <div className="text-5xl font-bold text-[var(--pine-green)] mb-2">50+</div>
-            <div className="text-gray-600 uppercase tracking-wider text-sm">Years</div>
+          <div className="text-center p-4 sm:p-0">
+            <div className="text-3xl sm:text-5xl font-bold text-[var(--pine-green)] mb-1 sm:mb-2">50+</div>
+            <div className="text-gray-600 uppercase tracking-wider text-xs sm:text-sm">Years</div>
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Text Content */}
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-[var(--pine-green)] mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--pine-green)] mb-4 sm:mb-6">
               A Championship Experience
             </h2>
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6 leading-relaxed">
               {courseInfo.description}
             </p>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
               Our course features challenging holes through towering 50-year-old pine
               trees, strategic water hazards, and meticulously maintained greens that
               will test golfers of all skill levels.

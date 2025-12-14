@@ -26,47 +26,73 @@
   --font-body: var(--font-lato), Arial, sans-serif;
 }
 
+/* Reset and base styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-body), Arial, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-sans), Georgia, serif;
+  line-height: 1.2;
+}
+
+/* Prevent horizontal overflow on mobile */
+main {
+  overflow-x: hidden;
+}
+
+/* Improve image rendering */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Hero gradient overlay */
 .hero-overlay {
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.5) 0%,
     rgba(0, 0, 0, 0.2) 50%,
-    rgba(0, 0, 0, 0.5) 100%
+    rgba(0, 0, 0, 0.6) 100%
   );
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
+/* Custom scrollbar - desktop only */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
+  ::-webkit-scrollbar-track {
+    background: var(--cream);
+  }
 
-::-webkit-scrollbar-track {
-  background: var(--cream);
-}
+  ::-webkit-scrollbar-thumb {
+    background: var(--pine-green);
+    border-radius: 5px;
+  }
 
-::-webkit-scrollbar-thumb {
-  background: var(--pine-green);
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--pine-green-dark);
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--pine-green-dark);
+  }
 }
 
 /* Animation classes */
@@ -111,8 +137,13 @@ html {
 
 .btn-primary:hover {
   background: var(--pine-green-dark);
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(30, 86, 49, 0.3);
+}
+
+@media (min-width: 768px) {
+  .btn-primary:hover {
+    transform: translateY(-2px);
+  }
 }
 
 .btn-secondary {
@@ -123,6 +154,31 @@ html {
 
 .btn-secondary:hover {
   background: var(--gold-light);
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(197, 160, 48, 0.3);
+}
+
+@media (min-width: 768px) {
+  .btn-secondary:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Horizontal scroll indicator for tables */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--pine-green);
+  outline-offset: 2px;
+}
+
+/* Better touch targets on mobile */
+@media (max-width: 767px) {
+  a, button {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }

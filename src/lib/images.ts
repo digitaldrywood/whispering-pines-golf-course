@@ -1,133 +1,134 @@
-// Whispering Pines Golf Course - Image URLs from whisperingpinesgc.net
+// Whispering Pines Golf Course - Image URLs
+// Using Unsplash stock photos as placeholders
 
 export const images = {
   // Logo and Branding
   logo: {
-    header: "https://whisperingpinesgc.net/wp-content/uploads/2020/04/logo-2020-header.png",
-    footer: "https://whisperingpinesgc.net/wp-content/uploads/2020/04/logo-2020-footer.png",
-    background: "https://whisperingpinesgc.net/wp-content/uploads/2020/04/bg-header-2020.jpg",
+    header: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=200&h=60&fit=crop",
+    footer: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=200&h=60&fit=crop",
+    background: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=1920&h=400&fit=crop",
   },
 
-  // Homepage Slider Images
+  // Homepage Slider Images - Scenic golf course views
   slider: [
-    "https://whisperingpinesgc.net/wp-content/uploads/2025/11/2025-Slider-1-NEW.jpg",
-    "https://whisperingpinesgc.net/wp-content/uploads/2025/11/2025-Slider-2-NEW.jpg",
-    "https://whisperingpinesgc.net/wp-content/uploads/2025/11/2025-Slider-3-NEW.jpg",
-    "https://whisperingpinesgc.net/wp-content/uploads/2025/11/2025-Slider-4-NEW.jpg",
-    "https://whisperingpinesgc.net/wp-content/uploads/2025/11/2025-Slider-5-NEW.jpg",
-    "https://whisperingpinesgc.net/wp-content/uploads/2025/11/2025-Slider-6-NEW.jpg",
+    "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=1920&h=1080&fit=crop", // Golf course aerial
+    "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1920&h=1080&fit=crop", // Golf ball on tee
+    "https://images.unsplash.com/photo-1592919505780-303950717480?w=1920&h=1080&fit=crop", // Golf course fairway
+    "https://images.unsplash.com/photo-1600267185393-e158a98703de?w=1920&h=1080&fit=crop", // Golf green with flag
+    "https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=1920&h=1080&fit=crop", // Sunset golf course
+    "https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=1920&h=1080&fit=crop", // Pine trees golf course
   ],
 
   // Course Map and Scorecard
   courseMap: {
-    outside: "https://whisperingpinesgc.net/wp-content/uploads/2025/05/2025-NEW-WPG-OUTSIDE-8x6-FINAL-to-PRINT.png",
-    inside: "https://whisperingpinesgc.net/wp-content/uploads/2025/05/2025-NEW-WPG-INSIDE-8x6-FINAL-to-PRINT.png",
+    outside: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&h=600&fit=crop",
+    inside: "https://images.unsplash.com/photo-1592919505780-303950717480?w=800&h=600&fit=crop",
   },
 
   // Feature Images
   features: {
-    food: "https://whisperingpinesgc.net/wp-content/uploads/2020/06/food-jim.jpg",
-    proShop: "https://whisperingpinesgc.net/wp-content/uploads/2020/08/new-pro-shop.jpg",
-    bookOnline: "https://whisperingpinesgc.net/wp-content/uploads/2023/04/book-online-600x600-1.jpg",
-    events: "https://whisperingpinesgc.net/wp-content/uploads/2023/02/upcoming-events-EVENT.jpg",
-    crossCountrySki: "https://whisperingpinesgc.net/wp-content/uploads/2025/02/2025-cross-country-ski-300x300.jpg",
-    courseOverview: "https://whisperingpinesgc.net/wp-content/uploads/2016/07/slide-3.jpg",
+    food: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=600&fit=crop", // Restaurant food
+    proShop: "https://images.unsplash.com/photo-1622398925373-3f91b1e275f5?w=600&h=600&fit=crop", // Golf equipment/clubs
+    bookOnline: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=600&h=600&fit=crop", // Golf ball on tee
+    events: "https://images.unsplash.com/photo-1529926706528-db9e5010cd3e?w=600&h=600&fit=crop", // Golf tournament
+    crossCountrySki: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=300&h=300&fit=crop", // Cross country skiing
+    courseOverview: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&h=600&fit=crop", // Golf course aerial
   },
 
   // First Tee Logo
-  firstTee: "https://whisperingpinesgc.net/wp-content/uploads/2016/07/first-tee-logo.png",
+  firstTee: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=200&h=100&fit=crop",
 
-  // Hole Images - Main Photos
+  // Hole Images - Various golf course views
   holes: {
     1: {
-      photo: "https://whisperingpinesgc.net/wp-content/uploads/2016/07/1.jpg",
-      layout: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-1.jpg",
-      thumbnail: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-1-WEB.jpg",
+      photo: "https://images.unsplash.com/photo-1592919505780-303950717480?w=800&h=600&fit=crop",
+      layout: "https://images.unsplash.com/photo-1592919505780-303950717480?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1592919505780-303950717480?w=300&h=200&fit=crop",
     },
     2: {
-      photo: "https://whisperingpinesgc.net/wp-content/uploads/2016/07/2.jpg",
-      layout: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-2.jpg",
-      thumbnail: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-2-WEB.jpg",
+      photo: "https://images.unsplash.com/photo-1600267185393-e158a98703de?w=800&h=600&fit=crop",
+      layout: "https://images.unsplash.com/photo-1600267185393-e158a98703de?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1600267185393-e158a98703de?w=300&h=200&fit=crop",
     },
     3: {
-      photo: "https://whisperingpinesgc.net/wp-content/uploads/2016/07/3.jpg",
-      layout: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-3.jpg",
-      thumbnail: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-3-WEB.jpg",
+      photo: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&h=600&fit=crop",
+      layout: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=300&h=200&fit=crop",
     },
     4: {
-      photo: "https://whisperingpinesgc.net/wp-content/uploads/2016/07/4.jpg",
-      layout: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-4.jpg",
-      thumbnail: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-4-WEB.jpg",
+      photo: "https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=800&h=600&fit=crop",
+      layout: "https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=300&h=200&fit=crop",
     },
     5: {
-      photo: "https://whisperingpinesgc.net/wp-content/uploads/2016/07/5.jpg",
-      layout: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-5.jpg",
-      thumbnail: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-5-WEB.jpg",
+      photo: "https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=800&h=600&fit=crop",
+      layout: "https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=300&h=200&fit=crop",
     },
     6: {
-      photo: "https://whisperingpinesgc.net/wp-content/uploads/2016/07/6.jpg",
-      layout: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-6.jpg",
-      thumbnail: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-6-WEB.jpg",
+      photo: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&h=600&fit=crop",
+      layout: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=300&h=200&fit=crop",
     },
     7: {
-      photo: "https://whisperingpinesgc.net/wp-content/uploads/2016/07/7.jpg",
-      layout: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-7.jpg",
-      thumbnail: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-7-WEB.jpg",
+      photo: "https://images.unsplash.com/photo-1596727362302-b8d891c42ab8?w=800&h=600&fit=crop",
+      layout: "https://images.unsplash.com/photo-1596727362302-b8d891c42ab8?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1596727362302-b8d891c42ab8?w=300&h=200&fit=crop",
     },
     8: {
-      photo: "https://whisperingpinesgc.net/wp-content/uploads/2016/07/8.jpg",
-      layout: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-8.jpg",
-      thumbnail: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-8-WEB.jpg",
+      photo: "https://images.unsplash.com/photo-1632932197818-6d280bbad500?w=800&h=600&fit=crop",
+      layout: "https://images.unsplash.com/photo-1632932197818-6d280bbad500?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1632932197818-6d280bbad500?w=300&h=200&fit=crop",
     },
     9: {
-      photo: "https://whisperingpinesgc.net/wp-content/uploads/2016/07/9.jpg",
-      layout: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-9.jpg",
-      thumbnail: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-9-WEB.jpg",
+      photo: "https://images.unsplash.com/photo-1595841696677-6589b7386f8c?w=800&h=600&fit=crop",
+      layout: "https://images.unsplash.com/photo-1595841696677-6589b7386f8c?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1595841696677-6589b7386f8c?w=300&h=200&fit=crop",
     },
     10: {
-      photo: "https://whisperingpinesgc.net/wp-content/uploads/2016/07/10.jpg",
-      layout: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-10.jpg",
-      thumbnail: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-10-WEB.jpg",
+      photo: "https://images.unsplash.com/photo-1592919505780-303950717480?w=800&h=600&fit=crop",
+      layout: "https://images.unsplash.com/photo-1592919505780-303950717480?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1592919505780-303950717480?w=300&h=200&fit=crop",
     },
     11: {
-      photo: "https://whisperingpinesgc.net/wp-content/uploads/2016/07/11.jpg",
-      layout: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-11.jpg",
-      thumbnail: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-11-WEB.jpg",
+      photo: "https://images.unsplash.com/photo-1600267185393-e158a98703de?w=800&h=600&fit=crop",
+      layout: "https://images.unsplash.com/photo-1600267185393-e158a98703de?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1600267185393-e158a98703de?w=300&h=200&fit=crop",
     },
     12: {
-      photo: "https://whisperingpinesgc.net/wp-content/uploads/2016/07/12.jpg",
-      layout: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-12.jpg",
-      thumbnail: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-12-WEB.jpg",
+      photo: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&h=600&fit=crop",
+      layout: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=300&h=200&fit=crop",
     },
     13: {
-      photo: "https://whisperingpinesgc.net/wp-content/uploads/2016/07/13.jpg",
-      layout: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-13.jpg",
-      thumbnail: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-13-WEB.jpg",
+      photo: "https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=800&h=600&fit=crop",
+      layout: "https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=300&h=200&fit=crop",
     },
     14: {
-      photo: "https://whisperingpinesgc.net/wp-content/uploads/2016/07/14.jpg",
-      layout: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-14.jpg",
-      thumbnail: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-14-WEB.jpg",
+      photo: "https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=800&h=600&fit=crop",
+      layout: "https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=300&h=200&fit=crop",
     },
     15: {
-      photo: "https://whisperingpinesgc.net/wp-content/uploads/2016/07/15.jpg",
-      layout: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-15.jpg",
-      thumbnail: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-15-WEB.jpg",
+      photo: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&h=600&fit=crop",
+      layout: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=300&h=200&fit=crop",
     },
     16: {
-      photo: "https://whisperingpinesgc.net/wp-content/uploads/2016/07/16.jpg",
-      layout: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-16.jpg",
-      thumbnail: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-16-WEB.jpg",
+      photo: "https://images.unsplash.com/photo-1596727362302-b8d891c42ab8?w=800&h=600&fit=crop",
+      layout: "https://images.unsplash.com/photo-1596727362302-b8d891c42ab8?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1596727362302-b8d891c42ab8?w=300&h=200&fit=crop",
     },
     17: {
-      photo: "https://whisperingpinesgc.net/wp-content/uploads/2016/07/17.jpg",
-      layout: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-17.jpg",
-      thumbnail: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-17-WEB.jpg",
+      photo: "https://images.unsplash.com/photo-1632932197818-6d280bbad500?w=800&h=600&fit=crop",
+      layout: "https://images.unsplash.com/photo-1632932197818-6d280bbad500?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1632932197818-6d280bbad500?w=300&h=200&fit=crop",
     },
     18: {
-      photo: "https://whisperingpinesgc.net/wp-content/uploads/2016/07/18.jpg",
-      layout: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-18.jpg",
-      thumbnail: "https://whisperingpinesgc.net/wp-content/uploads/2023/06/NEW-hole-18-WEB.jpg",
+      photo: "https://images.unsplash.com/photo-1595841696677-6589b7386f8c?w=800&h=600&fit=crop",
+      layout: "https://images.unsplash.com/photo-1595841696677-6589b7386f8c?w=400&h=300&fit=crop",
+      thumbnail: "https://images.unsplash.com/photo-1595841696677-6589b7386f8c?w=300&h=200&fit=crop",
     },
   },
 };

@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { courseInfo } from "@/lib/course-data";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -17,16 +17,34 @@ const navLinks = [
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Close mobile menu when navigating
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-[var(--pine-green)] rounded-full flex items-center justify-center">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[var(--pine-green)] rounded-full flex items-center justify-center flex-shrink-0">
               <svg
-                className="w-8 h-8 text-white"
+                className="w-6 h-6 sm:w-8 sm:h-8 text-white"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -34,7 +52,7 @@ export default function Navigation() {
               </svg>
             </div>
             <div className="hidden sm:block">
-              <div className="text-xl font-bold text-[var(--pine-green)]">
+              <div className="text-lg sm:text-xl font-bold text-[var(--pine-green)]">
                 Whispering Pines
               </div>
               <div className="text-xs text-[var(--gold)] tracking-wider uppercase">
@@ -44,15 +62,23 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-700 hover:text-[var(--pine-green)] font-medium transition-colors relative group"
+                className={`text-sm xl:text-base font-medium transition-colors relative group ${
+                  pathname === link.href
+                    ? "text-[var(--pine-green)]"
+                    : "text-gray-700 hover:text-[var(--pine-green)]"
+                }`}
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--gold)] transition-all group-hover:w-full" />
+                <span
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-[var(--gold)] transition-all ${
+                    pathname === link.href ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
               </Link>
             ))}
           </div>
@@ -63,10 +89,10 @@ export default function Navigation() {
               href="https://foreupsoftware.com/index.php/booking/19498/1021#/teetimes"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary px-6 py-3 rounded-full font-semibold inline-flex items-center gap-2"
+              className="btn-primary px-5 py-2.5 xl:px-6 xl:py-3 rounded-full font-semibold text-sm xl:text-base inline-flex items-center gap-2"
             >
               <svg
-                className="w-5 h-5"
+                className="w-4 h-4 xl:w-5 xl:h-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -84,9 +110,10 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-2 -mr-2 rounded-lg hover:bg-gray-100 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
           >
             <svg
               className="w-6 h-6 text-[var(--pine-green)]"
@@ -116,29 +143,38 @@ export default function Navigation() {
 
       {/* Mobile Navigation */}
       <div
-        className={`lg:hidden transition-all duration-300 overflow-hidden ${
-          isOpen ? "max-h-[500px] border-t border-gray-100" : "max-h-0"
+        className={`lg:hidden fixed inset-x-0 bg-white transition-all duration-300 ease-in-out ${
+          isOpen
+            ? "top-16 sm:top-20 bottom-0 opacity-100"
+            : "top-16 sm:top-20 bottom-full opacity-0 pointer-events-none"
         }`}
       >
-        <div className="px-4 py-4 space-y-2 bg-white">
+        <div className="h-full overflow-y-auto px-4 py-6 space-y-1">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="block px-4 py-3 rounded-lg text-gray-700 hover:bg-[var(--cream)] hover:text-[var(--pine-green)] font-medium transition-colors"
-              onClick={() => setIsOpen(false)}
+              onClick={handleLinkClick}
+              className={`block px-4 py-3.5 rounded-xl font-medium transition-colors ${
+                pathname === link.href
+                  ? "bg-[var(--pine-green)] text-white"
+                  : "text-gray-700 hover:bg-[var(--cream)] hover:text-[var(--pine-green)]"
+              }`}
             >
               {link.label}
             </Link>
           ))}
-          <a
-            href="https://foreupsoftware.com/index.php/booking/19498/1021#/teetimes"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block w-full mt-4 btn-primary px-6 py-3 rounded-full font-semibold text-center"
-          >
-            Book Tee Time
-          </a>
+          <div className="pt-4">
+            <a
+              href="https://foreupsoftware.com/index.php/booking/19498/1021#/teetimes"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleLinkClick}
+              className="block w-full btn-primary px-6 py-4 rounded-full font-semibold text-center text-lg"
+            >
+              Book Tee Time
+            </a>
+          </div>
         </div>
       </div>
     </nav>

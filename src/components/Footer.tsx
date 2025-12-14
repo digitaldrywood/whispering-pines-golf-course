@@ -15,14 +15,14 @@ export default function Footer() {
   return (
     <footer className="bg-[var(--pine-green-dark)] text-white">
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
           {/* Brand Column */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <div className="flex items-center gap-3 mb-4 sm:mb-6">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
                 <svg
-                  className="w-8 h-8 text-[var(--gold)]"
+                  className="w-6 h-6 sm:w-8 sm:h-8 text-[var(--gold)]"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -30,32 +30,32 @@ export default function Footer() {
                 </svg>
               </div>
               <div>
-                <div className="text-xl font-bold">Whispering Pines</div>
+                <div className="text-lg sm:text-xl font-bold">Whispering Pines</div>
                 <div className="text-xs text-[var(--gold)] tracking-wider uppercase">
                   Golf Course
                 </div>
               </div>
             </div>
-            <p className="text-white/70 text-sm leading-relaxed mb-6">
+            <p className="text-white/70 text-sm leading-relaxed mb-4 sm:mb-6">
               {courseInfo.tagline}
             </p>
-            <p className="text-white/70 text-sm leading-relaxed">
-              A premier 18-hole golf course in the heart of Wisconsin's beautiful
+            <p className="text-white/70 text-sm leading-relaxed hidden sm:block">
+              A premier 18-hole golf course in the heart of Wisconsin&apos;s beautiful
               Chippewa Valley.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-[var(--gold)]">
+            <h3 className="text-base sm:text-lg font-bold mb-4 sm:mb-6 text-[var(--gold)]">
               Quick Links
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/70 hover:text-white hover:pl-2 transition-all inline-flex items-center gap-2"
+                    className="text-white/70 hover:text-white hover:pl-2 transition-all inline-flex items-center gap-2 text-sm sm:text-base"
                   >
                     <svg
                       className="w-3 h-3 text-[var(--gold)]"
@@ -77,10 +77,10 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-[var(--gold)]">
+            <h3 className="text-base sm:text-lg font-bold mb-4 sm:mb-6 text-[var(--gold)]">
               Contact Us
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               <li className="flex items-start gap-3">
                 <svg
                   className="w-5 h-5 text-[var(--gold)] mt-0.5 flex-shrink-0"
@@ -142,7 +142,7 @@ export default function Footer() {
                 </svg>
                 <a
                   href={`mailto:${courseInfo.email}`}
-                  className="text-white/70 hover:text-white transition-colors text-sm"
+                  className="text-white/70 hover:text-white transition-colors text-sm break-all"
                 >
                   {courseInfo.email}
                 </a>
@@ -151,11 +151,11 @@ export default function Footer() {
           </div>
 
           {/* Social & CTA */}
-          <div>
-            <h3 className="text-lg font-bold mb-6 text-[var(--gold)]">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <h3 className="text-base sm:text-lg font-bold mb-4 sm:mb-6 text-[var(--gold)]">
               Follow Us
             </h3>
-            <div className="flex gap-4 mb-8">
+            <div className="flex gap-4 mb-6 sm:mb-8">
               <a
                 href="https://www.facebook.com/WhisperingPinesGolfCourse"
                 target="_blank"
@@ -176,10 +176,10 @@ export default function Footer() {
               href="https://foreupsoftware.com/index.php/booking/19498/1021#/teetimes"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-secondary px-6 py-3 rounded-full font-semibold inline-flex items-center gap-2"
+              className="btn-secondary px-5 py-2.5 sm:px-6 sm:py-3 rounded-full font-semibold text-sm sm:text-base inline-flex items-center gap-2"
             >
               <svg
-                className="w-5 h-5"
+                className="w-4 h-4 sm:w-5 sm:h-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -199,13 +199,13 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-white/50 text-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4 text-center sm:text-left">
+            <p className="text-white/50 text-xs sm:text-sm">
               &copy; {currentYear} Whispering Pines Golf Course. All rights
               reserved.
             </p>
-            <p className="text-white/50 text-sm">
+            <p className="text-white/50 text-xs sm:text-sm">
               12 miles east of Eau Claire, Wisconsin
             </p>
           </div>

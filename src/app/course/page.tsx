@@ -86,77 +86,78 @@ function Scorecard({
   title: string;
 }) {
   return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-      <div className="bg-[var(--pine-green)] text-white px-6 py-4">
-        <h3 className="text-xl font-bold">{title}</h3>
+    <div className="bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+      <div className="bg-[var(--pine-green)] text-white px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+        <h3 className="text-lg sm:text-xl font-bold">{title}</h3>
+        <span className="text-xs sm:text-sm text-white/70 sm:hidden">Scroll &rarr;</span>
       </div>
       <div className="overflow-x-auto">
-        <table className="w-full">
+        <table className="w-full min-w-[600px]">
           <thead>
             <tr className="bg-[var(--cream)]">
-              <th className="px-4 py-3 text-left text-sm font-semibold text-gray-600">
+              <th className="px-2 sm:px-4 py-2 sm:py-3 text-left text-xs sm:text-sm font-semibold text-gray-600 sticky left-0 bg-[var(--cream)] z-10">
                 Hole
               </th>
               {holes.map((hole) => (
                 <th
                   key={hole.number}
-                  className="px-3 py-3 text-center text-sm font-semibold text-gray-600 min-w-[50px]"
+                  className="px-2 sm:px-3 py-2 sm:py-3 text-center text-xs sm:text-sm font-semibold text-gray-600 min-w-[40px] sm:min-w-[50px]"
                 >
                   {hole.number}
                 </th>
               ))}
-              <th className="px-4 py-3 text-center text-sm font-semibold text-[var(--pine-green)] bg-[var(--sand)]">
+              <th className="px-2 sm:px-4 py-2 sm:py-3 text-center text-xs sm:text-sm font-semibold text-[var(--pine-green)] bg-[var(--sand)]">
                 Total
               </th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b border-gray-100">
-              <td className="px-4 py-3 text-sm font-medium text-gray-700">
+              <td className="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm font-medium text-gray-700 sticky left-0 bg-white z-10">
                 Par
               </td>
               {holes.map((hole) => (
                 <td
                   key={hole.number}
-                  className="px-3 py-3 text-center text-sm text-gray-600"
+                  className="px-2 sm:px-3 py-2 sm:py-3 text-center text-xs sm:text-sm text-gray-600"
                 >
                   {hole.par}
                 </td>
               ))}
-              <td className="px-4 py-3 text-center font-bold text-[var(--pine-green)] bg-[var(--cream)]">
+              <td className="px-2 sm:px-4 py-2 sm:py-3 text-center text-xs sm:text-sm font-bold text-[var(--pine-green)] bg-[var(--cream)]">
                 {getTotalPar(holes)}
               </td>
             </tr>
             <tr className="border-b border-gray-100">
-              <td className="px-4 py-3 text-sm font-medium text-gray-700">
+              <td className="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm font-medium text-gray-700 sticky left-0 bg-white z-10">
                 White
               </td>
               {holes.map((hole) => (
                 <td
                   key={hole.number}
-                  className="px-3 py-3 text-center text-sm text-gray-600"
+                  className="px-2 sm:px-3 py-2 sm:py-3 text-center text-xs sm:text-sm text-gray-600"
                 >
                   {hole.yardage.white || "-"}
                 </td>
               ))}
-              <td className="px-4 py-3 text-center font-bold text-[var(--pine-green)] bg-[var(--cream)]">
+              <td className="px-2 sm:px-4 py-2 sm:py-3 text-center text-xs sm:text-sm font-bold text-[var(--pine-green)] bg-[var(--cream)]">
                 {getTotalYardage(holes, "white")}
               </td>
             </tr>
             {holes.some((h) => h.yardage.tips) && (
               <tr>
-                <td className="px-4 py-3 text-sm font-medium text-gray-700">
+                <td className="px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm font-medium text-gray-700 sticky left-0 bg-white z-10">
                   Tips
                 </td>
                 {holes.map((hole) => (
                   <td
                     key={hole.number}
-                    className="px-3 py-3 text-center text-sm text-gray-600"
+                    className="px-2 sm:px-3 py-2 sm:py-3 text-center text-xs sm:text-sm text-gray-600"
                   >
                     {hole.yardage.tips || "-"}
                   </td>
                 ))}
-                <td className="px-4 py-3 text-center font-bold text-[var(--pine-green)] bg-[var(--cream)]">
+                <td className="px-2 sm:px-4 py-2 sm:py-3 text-center text-xs sm:text-sm font-bold text-[var(--pine-green)] bg-[var(--cream)]">
                   {getTotalYardage(holes, "tips")}
                 </td>
               </tr>
@@ -170,9 +171,9 @@ function Scorecard({
 
 export default function CoursePage() {
   return (
-    <div className="pt-20">
+    <div className="pt-16 sm:pt-20">
       {/* Hero Section */}
-      <section className="relative py-24 bg-[var(--pine-green)]">
+      <section className="relative py-16 sm:py-24 bg-[var(--pine-green)]">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0"
@@ -183,30 +184,30 @@ export default function CoursePage() {
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center text-white">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">The Course</h1>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6">The Course</h1>
+            <p className="text-base sm:text-xl text-white/80 max-w-3xl mx-auto mb-6 sm:mb-8">
               {courseInfo.description}
             </p>
-            <div className="flex flex-wrap justify-center gap-8">
+            <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
               <div className="text-center">
-                <div className="text-4xl font-bold text-[var(--gold)]">18</div>
-                <div className="text-white/70 text-sm uppercase tracking-wider">
+                <div className="text-3xl sm:text-4xl font-bold text-[var(--gold)]">18</div>
+                <div className="text-white/70 text-xs sm:text-sm uppercase tracking-wider">
                   Holes
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-[var(--gold)]">
+                <div className="text-3xl sm:text-4xl font-bold text-[var(--gold)]">
                   {getTotalPar(holes)}
                 </div>
-                <div className="text-white/70 text-sm uppercase tracking-wider">
+                <div className="text-white/70 text-xs sm:text-sm uppercase tracking-wider">
                   Par
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-[var(--gold)]">
+                <div className="text-3xl sm:text-4xl font-bold text-[var(--gold)]">
                   {getTotalYardage(holes).toLocaleString()}
                 </div>
-                <div className="text-white/70 text-sm uppercase tracking-wider">
+                <div className="text-white/70 text-xs sm:text-sm uppercase tracking-wider">
                   Yards
                 </div>
               </div>
@@ -216,22 +217,22 @@ export default function CoursePage() {
       </section>
 
       {/* Course Map Section */}
-      <section className="py-16 bg-white">
+      <section className="py-10 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-[var(--pine-green)] mb-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[var(--pine-green)] mb-6 sm:mb-8 text-center">
             Course Map & Scorecard
           </h2>
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
-            <div className="bg-[var(--cream)] rounded-2xl p-4 shadow-lg">
-              <h3 className="text-lg font-semibold text-[var(--pine-green)] mb-4 text-center">Course Layout</h3>
+          <div className="grid lg:grid-cols-2 gap-4 sm:gap-8 mb-8 sm:mb-12">
+            <div className="bg-[var(--cream)] rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-lg">
+              <h3 className="text-base sm:text-lg font-semibold text-[var(--pine-green)] mb-3 sm:mb-4 text-center">Course Layout</h3>
               <img
                 src={images.courseMap.outside}
                 alt="Whispering Pines Golf Course Map"
                 className="w-full h-auto rounded-lg"
               />
             </div>
-            <div className="bg-[var(--cream)] rounded-2xl p-4 shadow-lg">
-              <h3 className="text-lg font-semibold text-[var(--pine-green)] mb-4 text-center">Scorecard</h3>
+            <div className="bg-[var(--cream)] rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-lg">
+              <h3 className="text-base sm:text-lg font-semibold text-[var(--pine-green)] mb-3 sm:mb-4 text-center">Scorecard</h3>
               <img
                 src={images.courseMap.inside}
                 alt="Whispering Pines Scorecard"
@@ -243,12 +244,12 @@ export default function CoursePage() {
       </section>
 
       {/* Scorecard Section */}
-      <section className="py-16 bg-[var(--cream)]">
+      <section className="py-10 sm:py-16 bg-[var(--cream)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-[var(--pine-green)] mb-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[var(--pine-green)] mb-6 sm:mb-8 text-center">
             Detailed Scorecard
           </h2>
-          <div className="space-y-8">
+          <div className="space-y-4 sm:space-y-8">
             <Scorecard holes={frontNine} title="Front Nine" />
             <Scorecard holes={backNine} title="Back Nine" />
           </div>
@@ -256,22 +257,22 @@ export default function CoursePage() {
       </section>
 
       {/* Front Nine */}
-      <section className="py-16 bg-white">
+      <section className="py-10 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-4 mb-12">
-            <div className="w-16 h-16 bg-[var(--pine-green)] rounded-full flex items-center justify-center">
-              <span className="text-white text-2xl font-bold">1-9</span>
+          <div className="flex items-center gap-3 sm:gap-4 mb-8 sm:mb-12">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[var(--pine-green)] rounded-full flex items-center justify-center flex-shrink-0">
+              <span className="text-white text-lg sm:text-2xl font-bold">1-9</span>
             </div>
             <div>
-              <h2 className="text-3xl font-bold text-[var(--pine-green)]">
+              <h2 className="text-2xl sm:text-3xl font-bold text-[var(--pine-green)]">
                 Front Nine
               </h2>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm sm:text-base">
                 Par {getTotalPar(frontNine)} | {getTotalYardage(frontNine)} yards
               </p>
             </div>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {frontNine.map((hole) => (
               <HoleCard key={hole.number} hole={hole} />
             ))}
@@ -280,22 +281,22 @@ export default function CoursePage() {
       </section>
 
       {/* Back Nine */}
-      <section className="py-16 bg-[var(--cream)]">
+      <section className="py-10 sm:py-16 bg-[var(--cream)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-4 mb-12">
-            <div className="w-16 h-16 bg-[var(--pine-green)] rounded-full flex items-center justify-center">
-              <span className="text-white text-2xl font-bold">10-18</span>
+          <div className="flex items-center gap-3 sm:gap-4 mb-8 sm:mb-12">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[var(--pine-green)] rounded-full flex items-center justify-center flex-shrink-0">
+              <span className="text-white text-lg sm:text-2xl font-bold">10-18</span>
             </div>
             <div>
-              <h2 className="text-3xl font-bold text-[var(--pine-green)]">
+              <h2 className="text-2xl sm:text-3xl font-bold text-[var(--pine-green)]">
                 Back Nine
               </h2>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm sm:text-base">
                 Par {getTotalPar(backNine)} | {getTotalYardage(backNine)} yards
               </p>
             </div>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {backNine.map((hole) => (
               <HoleCard key={hole.number} hole={hole} />
             ))}
@@ -304,10 +305,10 @@ export default function CoursePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-[var(--pine-green)] text-white">
+      <section className="py-12 sm:py-16 bg-[var(--pine-green)] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Take on the Course?</h2>
-          <p className="text-xl text-white/80 mb-8">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6">Ready to Take on the Course?</h2>
+          <p className="text-base sm:text-xl text-white/80 mb-6 sm:mb-8">
             Book your tee time today and experience the challenge and beauty of
             Whispering Pines.
           </p>
@@ -315,7 +316,7 @@ export default function CoursePage() {
             href="https://foreupsoftware.com/index.php/booking/19498/1021#/teetimes"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-secondary px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-2"
+            className="btn-secondary px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-semibold text-base sm:text-lg inline-flex items-center gap-2"
           >
             <svg
               className="w-5 h-5"
