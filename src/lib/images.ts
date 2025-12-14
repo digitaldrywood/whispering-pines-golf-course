@@ -1,136 +1,161 @@
-// Whispering Pines Golf Course - Image URLs
-// Using Unsplash stock photos as placeholders
+// Whispering Pines Golf Course - Real Image URLs from whisperingpinesgc.net
+
+const BASE_URL = "https://whisperingpinesgc.net/wp-content/uploads";
 
 export const images = {
   // Logo and Branding
   logo: {
-    header: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=200&h=60&fit=crop",
-    footer: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=200&h=60&fit=crop",
-    background: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=1920&h=400&fit=crop",
+    header: `${BASE_URL}/2020/04/logo-2020-header.png`,
+    footer: `${BASE_URL}/2020/04/logo-2020-footer.png`,
+    background: `${BASE_URL}/2020/04/bg-header-2020.jpg`,
   },
 
-  // Homepage Slider Images - Scenic golf course views
+  // Homepage Slider Images - Real course photos from their website
   slider: [
-    "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=1920&h=1080&fit=crop", // Golf course aerial
-    "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1920&h=1080&fit=crop", // Golf ball on tee
-    "https://images.unsplash.com/photo-1592919505780-303950717480?w=1920&h=1080&fit=crop", // Golf course fairway
-    "https://images.unsplash.com/photo-1600267185393-e158a98703de?w=1920&h=1080&fit=crop", // Golf green with flag
-    "https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=1920&h=1080&fit=crop", // Sunset golf course
-    "https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=1920&h=1080&fit=crop", // Pine trees golf course
+    `${BASE_URL}/2025/11/2025-Slider-1-NEW.jpg`,
+    `${BASE_URL}/2025/11/2025-Slider-2-NEW.jpg`,
+    `${BASE_URL}/2025/11/2025-Slider-3-NEW.jpg`,
+    `${BASE_URL}/2025/11/2025-Slider-4-NEW.jpg`,
+    `${BASE_URL}/2025/11/2025-Slider-5-NEW.jpg`,
+    `${BASE_URL}/2025/11/2025-Slider-6-NEW.jpg`,
   ],
 
   // Course Map and Scorecard
   courseMap: {
-    outside: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&h=600&fit=crop",
-    inside: "https://images.unsplash.com/photo-1592919505780-303950717480?w=800&h=600&fit=crop",
+    outside: `${BASE_URL}/2022/08/range.jpg`,
+    inside: `${BASE_URL}/2022/08/bank.jpg`,
   },
 
   // Feature Images
   features: {
-    food: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=600&fit=crop", // Restaurant food
-    proShop: "https://images.unsplash.com/photo-1622398925373-3f91b1e275f5?w=600&h=600&fit=crop", // Golf equipment/clubs
-    bookOnline: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=600&h=600&fit=crop", // Golf ball on tee
-    events: "https://images.unsplash.com/photo-1529926706528-db9e5010cd3e?w=600&h=600&fit=crop", // Golf tournament
-    crossCountrySki: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=300&h=300&fit=crop", // Cross country skiing
-    courseOverview: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&h=600&fit=crop", // Golf course aerial
+    food: `${BASE_URL}/2020/06/food-jim.jpg`,
+    proShop: `${BASE_URL}/2020/08/new-pro-shop.jpg`,
+    bookOnline: `${BASE_URL}/2023/04/book-online-600x600-1.jpg`,
+    events: `${BASE_URL}/2023/02/upcoming-events-EVENT.jpg`,
+    crossCountrySki: `${BASE_URL}/2025/02/2025-cross-country-ski.jpg`,
+    courseOverview: `${BASE_URL}/2022/08/range.jpg`,
+    driving_range: `${BASE_URL}/2022/08/range.jpg`,
   },
 
-  // First Tee Logo
-  firstTee: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=200&h=100&fit=crop",
+  // Gallery photos from Facebook
+  gallery: [
+    `${BASE_URL}/2022/08/116130927_3177341672356682_5018342915191320822_n-1.jpg`,
+    `${BASE_URL}/2022/08/131603172_3577412019016310_6364006089898857603_n-1.jpg`,
+    `${BASE_URL}/2022/08/273406482_4840268052730694_265296733276408218_n-1.jpg`,
+    `${BASE_URL}/2022/08/277229412_4986520438105454_7611276466882400329_n-1.jpg`,
+    `${BASE_URL}/2022/08/285761715_5164410553649774_7434000594441490489_n-1.jpg`,
+    `${BASE_URL}/2022/08/162535308_3823950847695758_7807490403687392885_n-1.jpg`,
+  ],
 
-  // Hole Images - Various golf course views
+  // Hole Images - Real photos from Whispering Pines website
   holes: {
     1: {
-      photo: "https://images.unsplash.com/photo-1592919505780-303950717480?w=800&h=600&fit=crop",
-      layout: "https://images.unsplash.com/photo-1592919505780-303950717480?w=400&h=300&fit=crop",
-      thumbnail: "https://images.unsplash.com/photo-1592919505780-303950717480?w=300&h=200&fit=crop",
+      photo: `${BASE_URL}/2022/08/1-1.jpg`,
+      layout: `${BASE_URL}/2022/08/1-1.jpg`,
+      thumbnail: `${BASE_URL}/2022/08/1-1-768x512.jpg`,
     },
     2: {
-      photo: "https://images.unsplash.com/photo-1600267185393-e158a98703de?w=800&h=600&fit=crop",
-      layout: "https://images.unsplash.com/photo-1600267185393-e158a98703de?w=400&h=300&fit=crop",
-      thumbnail: "https://images.unsplash.com/photo-1600267185393-e158a98703de?w=300&h=200&fit=crop",
+      photo: `${BASE_URL}/2022/08/2-1.jpg`,
+      layout: `${BASE_URL}/2022/08/2-1.jpg`,
+      thumbnail: `${BASE_URL}/2022/08/2-1-768x512.jpg`,
     },
     3: {
-      photo: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&h=600&fit=crop",
-      layout: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=400&h=300&fit=crop",
-      thumbnail: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=300&h=200&fit=crop",
+      photo: `${BASE_URL}/2022/08/3-1.jpg`,
+      layout: `${BASE_URL}/2022/08/3-1.jpg`,
+      thumbnail: `${BASE_URL}/2022/08/3-1-768x512.jpg`,
     },
     4: {
-      photo: "https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=800&h=600&fit=crop",
-      layout: "https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=400&h=300&fit=crop",
-      thumbnail: "https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=300&h=200&fit=crop",
+      photo: `${BASE_URL}/2022/08/4-1.jpg`,
+      layout: `${BASE_URL}/2022/08/4-1.jpg`,
+      thumbnail: `${BASE_URL}/2022/08/4-1-768x512.jpg`,
     },
     5: {
-      photo: "https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=800&h=600&fit=crop",
-      layout: "https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=400&h=300&fit=crop",
-      thumbnail: "https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=300&h=200&fit=crop",
+      photo: `${BASE_URL}/2022/08/5-1.jpg`,
+      layout: `${BASE_URL}/2022/08/5-1.jpg`,
+      thumbnail: `${BASE_URL}/2022/08/5-1-768x512.jpg`,
     },
     6: {
-      photo: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&h=600&fit=crop",
-      layout: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=400&h=300&fit=crop",
-      thumbnail: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=300&h=200&fit=crop",
+      photo: `${BASE_URL}/2022/08/6-1.jpg`,
+      layout: `${BASE_URL}/2022/08/6-1.jpg`,
+      thumbnail: `${BASE_URL}/2022/08/6-1-768x512.jpg`,
     },
     7: {
-      photo: "https://images.unsplash.com/photo-1596727362302-b8d891c42ab8?w=800&h=600&fit=crop",
-      layout: "https://images.unsplash.com/photo-1596727362302-b8d891c42ab8?w=400&h=300&fit=crop",
-      thumbnail: "https://images.unsplash.com/photo-1596727362302-b8d891c42ab8?w=300&h=200&fit=crop",
+      photo: `${BASE_URL}/2022/08/7-1.jpg`,
+      layout: `${BASE_URL}/2022/08/7-1.jpg`,
+      thumbnail: `${BASE_URL}/2022/08/7-1-768x512.jpg`,
     },
     8: {
-      photo: "https://images.unsplash.com/photo-1632932197818-6d280bbad500?w=800&h=600&fit=crop",
-      layout: "https://images.unsplash.com/photo-1632932197818-6d280bbad500?w=400&h=300&fit=crop",
-      thumbnail: "https://images.unsplash.com/photo-1632932197818-6d280bbad500?w=300&h=200&fit=crop",
+      photo: `${BASE_URL}/2022/08/8-1.jpg`,
+      layout: `${BASE_URL}/2022/08/8-1.jpg`,
+      thumbnail: `${BASE_URL}/2022/08/8-1-768x512.jpg`,
+      pond: `${BASE_URL}/2022/08/8-pond.jpg`, // Signature hole pond view
     },
     9: {
-      photo: "https://images.unsplash.com/photo-1595841696677-6589b7386f8c?w=800&h=600&fit=crop",
-      layout: "https://images.unsplash.com/photo-1595841696677-6589b7386f8c?w=400&h=300&fit=crop",
-      thumbnail: "https://images.unsplash.com/photo-1595841696677-6589b7386f8c?w=300&h=200&fit=crop",
+      photo: `${BASE_URL}/2022/08/9-1.jpg`,
+      layout: `${BASE_URL}/2022/08/9-1.jpg`,
+      thumbnail: `${BASE_URL}/2022/08/9-1-768x512.jpg`,
     },
     10: {
-      photo: "https://images.unsplash.com/photo-1592919505780-303950717480?w=800&h=600&fit=crop",
-      layout: "https://images.unsplash.com/photo-1592919505780-303950717480?w=400&h=300&fit=crop",
-      thumbnail: "https://images.unsplash.com/photo-1592919505780-303950717480?w=300&h=200&fit=crop",
+      photo: `${BASE_URL}/2022/08/10-1.jpg`,
+      layout: `${BASE_URL}/2022/08/10-1.jpg`,
+      thumbnail: `${BASE_URL}/2022/08/10-1-768x512.jpg`,
     },
     11: {
-      photo: "https://images.unsplash.com/photo-1600267185393-e158a98703de?w=800&h=600&fit=crop",
-      layout: "https://images.unsplash.com/photo-1600267185393-e158a98703de?w=400&h=300&fit=crop",
-      thumbnail: "https://images.unsplash.com/photo-1600267185393-e158a98703de?w=300&h=200&fit=crop",
+      photo: `${BASE_URL}/2022/08/11-1.jpg`,
+      layout: `${BASE_URL}/2022/08/11-1.jpg`,
+      thumbnail: `${BASE_URL}/2022/08/11-1-768x512.jpg`,
     },
     12: {
-      photo: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&h=600&fit=crop",
-      layout: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=400&h=300&fit=crop",
-      thumbnail: "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=300&h=200&fit=crop",
+      photo: `${BASE_URL}/2022/08/12-1.jpg`,
+      layout: `${BASE_URL}/2022/08/12-1.jpg`,
+      thumbnail: `${BASE_URL}/2022/08/12-1-768x512.jpg`,
     },
     13: {
-      photo: "https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=800&h=600&fit=crop",
-      layout: "https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=400&h=300&fit=crop",
-      thumbnail: "https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=300&h=200&fit=crop",
+      photo: `${BASE_URL}/2022/08/13-1.jpg`,
+      layout: `${BASE_URL}/2022/08/13-1.jpg`,
+      thumbnail: `${BASE_URL}/2022/08/13-1-768x512.jpg`,
     },
     14: {
-      photo: "https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=800&h=600&fit=crop",
-      layout: "https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=400&h=300&fit=crop",
-      thumbnail: "https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=300&h=200&fit=crop",
+      photo: `${BASE_URL}/2022/08/14-1.jpg`,
+      layout: `${BASE_URL}/2022/08/14-1.jpg`,
+      thumbnail: `${BASE_URL}/2022/08/14-1-768x512.jpg`,
     },
     15: {
-      photo: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&h=600&fit=crop",
-      layout: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=400&h=300&fit=crop",
-      thumbnail: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=300&h=200&fit=crop",
+      photo: `${BASE_URL}/2022/08/15-1.jpg`,
+      layout: `${BASE_URL}/2022/08/15-1.jpg`,
+      thumbnail: `${BASE_URL}/2022/08/15-1-768x512.jpg`,
     },
     16: {
-      photo: "https://images.unsplash.com/photo-1596727362302-b8d891c42ab8?w=800&h=600&fit=crop",
-      layout: "https://images.unsplash.com/photo-1596727362302-b8d891c42ab8?w=400&h=300&fit=crop",
-      thumbnail: "https://images.unsplash.com/photo-1596727362302-b8d891c42ab8?w=300&h=200&fit=crop",
+      photo: `${BASE_URL}/2022/08/16-1.jpg`,
+      layout: `${BASE_URL}/2022/08/16-1.jpg`,
+      thumbnail: `${BASE_URL}/2022/08/16-1-768x512.jpg`,
     },
     17: {
-      photo: "https://images.unsplash.com/photo-1632932197818-6d280bbad500?w=800&h=600&fit=crop",
-      layout: "https://images.unsplash.com/photo-1632932197818-6d280bbad500?w=400&h=300&fit=crop",
-      thumbnail: "https://images.unsplash.com/photo-1632932197818-6d280bbad500?w=300&h=200&fit=crop",
+      photo: `${BASE_URL}/2022/08/17-1.jpg`,
+      layout: `${BASE_URL}/2022/08/17-1.jpg`,
+      thumbnail: `${BASE_URL}/2022/08/17-1-768x512.jpg`,
     },
     18: {
-      photo: "https://images.unsplash.com/photo-1595841696677-6589b7386f8c?w=800&h=600&fit=crop",
-      layout: "https://images.unsplash.com/photo-1595841696677-6589b7386f8c?w=400&h=300&fit=crop",
-      thumbnail: "https://images.unsplash.com/photo-1595841696677-6589b7386f8c?w=300&h=200&fit=crop",
+      photo: `${BASE_URL}/2022/08/18-1.jpg`,
+      layout: `${BASE_URL}/2022/08/18-1.jpg`,
+      thumbnail: `${BASE_URL}/2022/08/18-1-768x512.jpg`,
     },
   },
+
+  // Sponsor logos
+  sponsors: [
+    `${BASE_URL}/2022/08/bank.jpg`,
+    `${BASE_URL}/2022/08/micon.jpg`,
+  ],
+
+  // Member achievements / event photos from Facebook
+  achievements: [
+    `${BASE_URL}/2022/08/joe-hogan-2.jpg`,
+    `${BASE_URL}/2022/08/matt-severson.jpg`,
+    `${BASE_URL}/2022/08/nick-bruhn.jpg`,
+    `${BASE_URL}/2022/08/randy-peck-2.jpg`,
+    `${BASE_URL}/2022/08/jarod.jpeg`,
+  ],
 };
 
 export const getHoleImage = (holeNumber: number) => {
