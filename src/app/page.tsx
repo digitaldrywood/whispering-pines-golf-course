@@ -10,272 +10,288 @@ import {
 import { images } from "@/lib/images";
 import ImageSlider from "@/components/ImageSlider";
 
+// Sponsors data
+const sponsors = [
+  { name: "Local Business 1", logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&h=100&fit=crop" },
+  { name: "Local Business 2", logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&h=100&fit=crop" },
+  { name: "Local Business 3", logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&h=100&fit=crop" },
+  { name: "Local Business 4", logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&h=100&fit=crop" },
+  { name: "Local Business 5", logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&h=100&fit=crop" },
+  { name: "Local Business 6", logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&h=100&fit=crop" },
+];
+
 function HeroSection() {
   return (
-    <section className="relative h-[100svh] min-h-[600px] sm:min-h-[700px] flex items-center justify-center overflow-hidden group">
+    <section className="relative h-[100svh] min-h-[600px] flex items-center justify-center overflow-hidden group">
       {/* Background Image Slider */}
       <ImageSlider autoPlayInterval={6000} />
       <div className="absolute inset-0 hero-overlay z-10" />
 
-      {/* Animated pine trees silhouette - hidden on mobile */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 opacity-20 z-10 hidden sm:block">
-        <svg viewBox="0 0 1440 120" fill="currentColor" className="text-black w-full h-full">
-          <path d="M0,120 L0,80 L30,80 L45,40 L60,80 L90,80 L90,120 Z M100,120 L100,60 L130,60 L150,20 L170,60 L200,60 L200,120 Z M220,120 L220,70 L250,70 L270,30 L290,70 L320,70 L320,120 Z M350,120 L350,85 L380,85 L395,50 L410,85 L440,85 L440,120 Z M480,120 L480,65 L510,65 L530,25 L550,65 L580,65 L580,120 Z M620,120 L620,75 L650,75 L670,35 L690,75 L720,75 L720,120 Z M760,120 L760,80 L790,80 L805,45 L820,80 L850,80 L850,120 Z M890,120 L890,60 L920,60 L940,15 L960,60 L990,60 L990,120 Z M1030,120 L1030,70 L1060,70 L1080,30 L1100,70 L1130,70 L1130,120 Z M1170,120 L1170,85 L1200,85 L1215,50 L1230,85 L1260,85 L1260,120 Z M1300,120 L1300,65 L1330,65 L1350,20 L1370,65 L1400,65 L1400,120 Z M1440,120 L1440,75 L1410,75 L1395,40 L1380,75 L1350,75 Z" />
-        </svg>
-      </div>
+      {/* Decorative Elements */}
+      <div className="absolute top-0 left-0 w-64 h-64 bg-[var(--accent)]/10 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl z-10" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[var(--pine-green)]/20 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl z-10" />
 
       {/* Content */}
       <div className="relative z-20 text-center text-white px-4 sm:px-6 max-w-5xl mx-auto pt-16 sm:pt-0">
-        <p className="text-[var(--gold)] text-sm sm:text-lg md:text-xl tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-3 sm:mb-4 animate-fade-in">
-          Welcome to
-        </p>
-        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 sm:mb-6 animate-fade-in animate-delay-100">
+        <div className="animate-fade-in">
+          <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm tracking-wider uppercase mb-6 border border-white/20">
+            Cadott, Wisconsin
+          </span>
+        </div>
+
+        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4 sm:mb-6 animate-fade-in animate-delay-100 text-shadow-lg">
           Whispering Pines
         </h1>
-        <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light italic mb-6 sm:mb-8 animate-fade-in animate-delay-200">
-          {courseInfo.tagline}
+
+        <p className="text-xl sm:text-2xl md:text-3xl font-light mb-3 animate-fade-in animate-delay-200 text-white/90">
+          Golf Course
         </p>
-        <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-8 sm:mb-12 animate-fade-in animate-delay-300 px-2">
-          Experience premier 18-hole golf in Wisconsin&apos;s beautiful Chippewa Valley,
-          just 12 miles east of Eau Claire.
+
+        <p className="text-[var(--accent)] text-lg sm:text-xl italic mb-8 animate-fade-in animate-delay-200">
+          &ldquo;{courseInfo.tagline}&rdquo;
         </p>
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-fade-in animate-delay-300 px-4 sm:px-0">
+
+        <p className="text-base sm:text-lg text-white/70 max-w-2xl mx-auto mb-10 animate-fade-in animate-delay-300">
+          Experience premier 18-hole golf in Wisconsin&apos;s beautiful Chippewa Valley.
+          Just 12 miles east of Eau Claire.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in animate-delay-400">
           <a
             href="https://foreupsoftware.com/index.php/booking/19498/1021#/teetimes"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-secondary px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-semibold text-base sm:text-lg inline-flex items-center justify-center gap-2"
+            className="btn-primary px-8 py-4 rounded-full text-lg inline-flex items-center justify-center gap-3 shadow-lg"
           >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-              />
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
-            Book Your Tee Time
+            Book Tee Time
           </a>
           <Link
             href="/course"
-            className="px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-semibold text-base sm:text-lg border-2 border-white text-white hover:bg-white hover:text-[var(--pine-green)] transition-all inline-flex items-center justify-center gap-2"
+            className="btn-outline px-8 py-4 rounded-full text-lg inline-flex items-center justify-center gap-3"
           >
-            Explore the Course
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
+            Explore Course
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
         </div>
       </div>
 
-      {/* Scroll indicator - hidden on very small screens */}
-      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-20 hidden sm:block">
-        <svg
-          className="w-6 h-6 sm:w-8 sm:h-8 text-white/50"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 hidden sm:block animate-bounce">
+        <div className="w-8 h-12 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
+          <div className="w-1.5 h-3 bg-white/60 rounded-full animate-pulse" />
+        </div>
       </div>
     </section>
   );
 }
 
-function CourseHighlights() {
-  return (
-    <section className="py-12 sm:py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Stats Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 mb-12 sm:mb-20">
-          <div className="text-center p-4 sm:p-0">
-            <div className="text-3xl sm:text-5xl font-bold text-[var(--pine-green)] mb-1 sm:mb-2">18</div>
-            <div className="text-gray-600 uppercase tracking-wider text-xs sm:text-sm">Holes</div>
-          </div>
-          <div className="text-center p-4 sm:p-0">
-            <div className="text-3xl sm:text-5xl font-bold text-[var(--pine-green)] mb-1 sm:mb-2">
-              {getTotalPar(holes)}
-            </div>
-            <div className="text-gray-600 uppercase tracking-wider text-xs sm:text-sm">Par</div>
-          </div>
-          <div className="text-center p-4 sm:p-0">
-            <div className="text-3xl sm:text-5xl font-bold text-[var(--pine-green)] mb-1 sm:mb-2">
-              {getTotalYardage(holes).toLocaleString()}
-            </div>
-            <div className="text-gray-600 uppercase tracking-wider text-xs sm:text-sm">Yards</div>
-          </div>
-          <div className="text-center p-4 sm:p-0">
-            <div className="text-3xl sm:text-5xl font-bold text-[var(--pine-green)] mb-1 sm:mb-2">50+</div>
-            <div className="text-gray-600 uppercase tracking-wider text-xs sm:text-sm">Years</div>
-          </div>
-        </div>
+function QuickInfo() {
+  const stats = [
+    { value: "18", label: "Holes", icon: "M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" },
+    { value: getTotalPar(holes).toString(), label: "Par", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
+    { value: getTotalYardage(holes).toLocaleString(), label: "Yards", icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" },
+    { value: "50+", label: "Years", icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" },
+  ];
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+  return (
+    <section className="bg-[var(--pine-green)] py-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+          {stats.map((stat) => (
+            <div key={stat.label} className="text-center py-4">
+              <div className="inline-flex items-center gap-3">
+                <svg className="w-6 h-6 text-[var(--accent)] hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={stat.icon} />
+                </svg>
+                <div>
+                  <div className="text-3xl sm:text-4xl font-bold text-white">{stat.value}</div>
+                  <div className="text-white/60 uppercase tracking-wider text-xs sm:text-sm">{stat.label}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WelcomeSection() {
+  return (
+    <section className="py-16 sm:py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Text Content */}
           <div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--pine-green)] mb-4 sm:mb-6">
-              A Championship Experience
+            <span className="text-[var(--accent)] font-semibold tracking-wider uppercase text-sm">
+              Welcome to Whispering Pines
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--pine-green)] mt-3 mb-6">
+              A Championship Experience in the Heart of Wisconsin
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6 leading-relaxed">
+            <p className="text-gray-600 text-lg leading-relaxed mb-6">
               {courseInfo.description}
             </p>
-            <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
-              Our course features challenging holes through towering 50-year-old pine
-              trees, strategic water hazards, and meticulously maintained greens that
-              will test golfers of all skill levels.
+            <p className="text-gray-600 leading-relaxed mb-8">
+              Our course features challenging holes through towering 50-year-old pine trees,
+              strategic water hazards, and meticulously maintained greens that will test
+              golfers of all skill levels.
             </p>
+
             <div className="space-y-4 mb-8">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-[var(--cream)] rounded-full flex items-center justify-center">
-                  <svg
-                    className="w-5 h-5 text-[var(--pine-green)]"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+              {[
+                "Longest par 5 in the Chippewa Valley",
+                "Signature hole #8 - A true test of skill",
+                "Well-maintained greens with challenging slopes",
+                "Full-service pro shop and restaurant",
+              ].map((feature) => (
+                <div key={feature} className="flex items-center gap-3">
+                  <div className="w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-gray-700">{feature}</span>
                 </div>
-                <span className="text-gray-700">
-                  Longest par 5 in the Chippewa Valley
-                </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-[var(--cream)] rounded-full flex items-center justify-center">
-                  <svg
-                    className="w-5 h-5 text-[var(--pine-green)]"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-                <span className="text-gray-700">
-                  Signature hole #8 - A true test of skill
-                </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-[var(--cream)] rounded-full flex items-center justify-center">
-                  <svg
-                    className="w-5 h-5 text-[var(--pine-green)]"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-                <span className="text-gray-700">
-                  Well-maintained greens with challenging slopes
-                </span>
-              </div>
+              ))}
             </div>
+
             <Link
               href="/course"
-              className="btn-primary px-8 py-4 rounded-full font-semibold inline-flex items-center gap-2"
+              className="btn-primary px-8 py-4 rounded-full inline-flex items-center gap-2"
             >
               View All 18 Holes
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
           </div>
 
-          {/* Featured Holes Preview */}
-          <div className="grid grid-cols-2 gap-4">
-            {[8, 3, 9, 14].map((holeNum) => {
-              const hole = holes.find((h) => h.number === holeNum)!;
-              const holeImage = images.holes[holeNum as keyof typeof images.holes];
-              return (
-                <Link
-                  key={hole.number}
-                  href={`/course/hole/${hole.number}`}
-                  className="group relative bg-[var(--cream)] rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1"
-                >
-                  {/* Hole Image */}
-                  <div className="relative h-32 overflow-hidden">
-                    <img
-                      src={holeImage.thumbnail}
-                      alt={`Hole ${hole.number}`}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <div className="absolute top-3 right-3 w-10 h-10 bg-[var(--pine-green)] rounded-full flex items-center justify-center text-white font-bold shadow-lg">
-                      {hole.number}
-                    </div>
-                  </div>
-                  <div className="p-4">
-                    <div className="text-sm text-[var(--gold)] font-semibold uppercase tracking-wider mb-1">
-                      {hole.signature ? "Signature Hole" : `Par ${hole.par}`}
-                    </div>
-                    <div className="text-gray-700 font-medium mb-2">
-                      {hole.yardage.white || hole.yardage.tips} yards
-                    </div>
-                    <div className="text-gray-500 text-sm line-clamp-2">
-                      {hole.description.split(".")[0]}.
-                    </div>
-                    <div className="mt-3 text-[var(--pine-green)] font-semibold text-sm group-hover:translate-x-2 transition-transform inline-flex items-center gap-1">
-                      View Details
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
+          {/* Image Grid */}
+          <div className="relative">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <div className="rounded-2xl overflow-hidden shadow-lg">
+                  <img
+                    src={images.holes[8].photo}
+                    alt="Hole 8"
+                    className="w-full h-48 sm:h-64 object-cover img-zoom"
+                  />
+                </div>
+                <div className="rounded-2xl overflow-hidden shadow-lg">
+                  <img
+                    src={images.holes[3].photo}
+                    alt="Hole 3"
+                    className="w-full h-32 sm:h-40 object-cover img-zoom"
+                  />
+                </div>
+              </div>
+              <div className="space-y-4 pt-8">
+                <div className="rounded-2xl overflow-hidden shadow-lg">
+                  <img
+                    src={images.holes[14].photo}
+                    alt="Hole 14"
+                    className="w-full h-32 sm:h-40 object-cover img-zoom"
+                  />
+                </div>
+                <div className="rounded-2xl overflow-hidden shadow-lg">
+                  <img
+                    src={images.holes[9].photo}
+                    alt="Hole 9"
+                    className="w-full h-48 sm:h-64 object-cover img-zoom"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Badge */}
+            <div className="absolute -bottom-6 -left-6 bg-[var(--accent)] text-white p-6 rounded-2xl shadow-xl hidden lg:block">
+              <div className="text-4xl font-bold">50+</div>
+              <div className="text-sm">Years of Excellence</div>
+            </div>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FeaturedHoles() {
+  const featuredHoles = [8, 3, 9, 14];
+
+  return (
+    <section className="py-16 sm:py-24 bg-[var(--cream)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <span className="text-[var(--accent)] font-semibold tracking-wider uppercase text-sm">
+            Course Highlights
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--pine-green)] mt-3 mb-4">
+            Featured Holes
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Discover what makes Whispering Pines one of the finest courses in the Chippewa Valley.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {featuredHoles.map((holeNum) => {
+            const hole = holes.find((h) => h.number === holeNum)!;
+            const holeImage = images.holes[holeNum as keyof typeof images.holes];
+            return (
+              <Link
+                key={hole.number}
+                href={`/course/hole/${hole.number}`}
+                className="group bg-white rounded-2xl overflow-hidden shadow-md card-hover"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={holeImage.photo}
+                    alt={`Hole ${hole.number}`}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute top-4 right-4 w-12 h-12 bg-[var(--accent)] rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                    {hole.number}
+                  </div>
+                  {hole.signature && (
+                    <div className="absolute top-4 left-4 bg-[var(--pine-green)] text-white px-3 py-1 rounded-full text-xs font-semibold">
+                      Signature
+                    </div>
+                  )}
+                </div>
+                <div className="p-5">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[var(--accent)] font-bold">Par {hole.par}</span>
+                    <span className="text-gray-500 text-sm">{hole.yardage.white || hole.yardage.tips} yds</span>
+                  </div>
+                  <p className="text-gray-600 text-sm line-clamp-2 mb-3">
+                    {hole.description.split(".")[0]}.
+                  </p>
+                  <span className="text-[var(--pine-green)] font-semibold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                    View Details
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+
+        <div className="text-center mt-10">
+          <Link href="/course" className="btn-secondary px-8 py-4 rounded-full inline-flex items-center gap-2">
+            View All 18 Holes
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
         </div>
       </div>
     </section>
@@ -283,72 +299,48 @@ function CourseHighlights() {
 }
 
 function PhotoGallery() {
-  // Select 6 scenic hole photos for the gallery
   const galleryPhotos = [
-    { src: images.holes[8].photo, alt: "Hole 8 - Signature Hole", caption: "Hole #8" },
-    { src: images.holes[3].photo, alt: "Hole 3", caption: "Hole #3" },
-    { src: images.holes[14].photo, alt: "Hole 14", caption: "Hole #14" },
-    { src: images.holes[9].photo, alt: "Hole 9", caption: "Hole #9" },
-    { src: images.holes[18].photo, alt: "Hole 18", caption: "Hole #18" },
-    { src: images.features.courseOverview, alt: "Course Overview", caption: "Course View" },
+    { src: images.holes[8].photo, alt: "Hole 8 - Signature Hole", span: "col-span-2 row-span-2" },
+    { src: images.holes[3].photo, alt: "Hole 3" },
+    { src: images.holes[14].photo, alt: "Hole 14" },
+    { src: images.holes[9].photo, alt: "Hole 9" },
+    { src: images.holes[18].photo, alt: "Hole 18" },
   ];
 
   return (
-    <section className="py-20 bg-[var(--pine-green)]">
+    <section className="py-16 sm:py-24 bg-[var(--pine-green)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Course Gallery
+          <span className="text-[var(--accent)] font-semibold tracking-wider uppercase text-sm">
+            Gallery
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-3 mb-4">
+            Scenic Views
           </h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            Take a visual tour of Whispering Pines and see what makes our course
-            one of the finest in the Chippewa Valley.
+          <p className="text-white/70 max-w-2xl mx-auto">
+            Take a visual tour of our beautiful course and see what awaits you.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
           {galleryPhotos.map((photo, index) => (
             <div
               key={index}
-              className={`relative overflow-hidden rounded-2xl group ${
-                index === 0 ? "col-span-2 row-span-2" : ""
-              }`}
+              className={`relative overflow-hidden rounded-xl group ${photo.span || ""}`}
             >
               <img
                 src={photo.src}
                 alt={photo.alt}
-                className={`w-full object-cover transition-transform duration-500 group-hover:scale-110 ${
-                  index === 0 ? "h-[400px] md:h-[500px]" : "h-48 md:h-64"
+                className={`w-full object-cover transition-transform duration-700 group-hover:scale-110 ${
+                  index === 0 ? "h-full min-h-[300px] md:min-h-[400px]" : "h-40 sm:h-48"
                 }`}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute bottom-4 left-4 text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                {photo.caption}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-white font-medium text-shadow">{photo.alt}</p>
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <Link
-            href="/course"
-            className="btn-secondary px-8 py-4 rounded-full font-semibold inline-flex items-center gap-2"
-          >
-            Explore All 18 Holes
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </Link>
         </div>
       </div>
     </section>
@@ -356,60 +348,40 @@ function PhotoGallery() {
 }
 
 function AmenitiesSection() {
-  const iconMap: Record<string, React.ReactNode> = {
-    "shopping-bag": (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-      </svg>
-    ),
-    utensils: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-      </svg>
-    ),
-    tv: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
-    users: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-      </svg>
-    ),
-    trophy: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-      </svg>
-    ),
-    calendar: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-      </svg>
-    ),
+  const iconMap: Record<string, string> = {
+    "shopping-bag": "M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z",
+    utensils: "M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z",
+    tv: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+    users: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z",
+    trophy: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
+    calendar: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z",
   };
 
   return (
-    <section className="py-20 bg-[var(--cream)]">
+    <section className="py-16 sm:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-[var(--pine-green)] mb-4">
+        <div className="text-center mb-12">
+          <span className="text-[var(--accent)] font-semibold tracking-wider uppercase text-sm">
+            Amenities
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--pine-green)] mt-3 mb-4">
             More Than Just Golf
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover everything Whispering Pines has to offer beyond our championship
-            course.
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Discover everything Whispering Pines has to offer beyond our championship course.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {amenities.map((amenity) => (
             <div
               key={amenity.title}
-              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow"
+              className="bg-[var(--cream)] rounded-2xl p-6 sm:p-8 card-hover"
             >
-              <div className="w-16 h-16 bg-[var(--pine-green)]/10 rounded-2xl flex items-center justify-center text-[var(--pine-green)] mb-6">
-                {iconMap[amenity.icon]}
+              <div className="w-14 h-14 bg-[var(--accent)] rounded-xl flex items-center justify-center mb-5">
+                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={iconMap[amenity.icon]} />
+                </svg>
               </div>
               <h3 className="text-xl font-bold text-[var(--pine-green)] mb-3">
                 {amenity.title}
@@ -423,10 +395,10 @@ function AmenitiesSection() {
   );
 }
 
-function SimulatorCTA() {
+function SimulatorSection() {
   return (
-    <section className="py-20 bg-[var(--pine-green)] text-white relative overflow-hidden">
-      {/* Background pattern */}
+    <section className="py-16 sm:py-24 bg-[var(--pine-green)] relative overflow-hidden">
+      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div
           className="absolute inset-0"
@@ -439,74 +411,47 @@ function SimulatorCTA() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full text-sm mb-6">
-              <span className="w-2 h-2 bg-[var(--gold)] rounded-full animate-pulse" />
+            <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full text-sm mb-6 text-white">
+              <span className="w-2 h-2 bg-[var(--accent)] rounded-full animate-pulse" />
               Open All Winter
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
               Play Year-Round with Our Indoor Simulator
             </h2>
-            <p className="text-xl text-white/80 mb-8 leading-relaxed">
+            <p className="text-white/80 text-lg mb-8 leading-relaxed">
               {simulatorInfo.description}
             </p>
-            <div className="grid sm:grid-cols-2 gap-6 mb-8">
-              <div className="bg-white/10 rounded-xl p-6">
-                <div className="text-3xl font-bold text-[var(--gold)] mb-1">
-                  ${simulatorInfo.pricing[0].price}
+
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              {simulatorInfo.pricing.map((price) => (
+                <div key={price.duration} className="bg-white/10 rounded-xl p-5 backdrop-blur-sm border border-white/10">
+                  <div className="text-3xl font-bold text-[var(--accent)] mb-1">
+                    ${price.price}
+                  </div>
+                  <div className="text-white/70 text-sm">per {price.duration}</div>
                 </div>
-                <div className="text-white/70">
-                  per {simulatorInfo.pricing[0].duration}
-                </div>
-              </div>
-              <div className="bg-white/10 rounded-xl p-6">
-                <div className="text-3xl font-bold text-[var(--gold)] mb-1">
-                  ${simulatorInfo.pricing[1].price}
-                </div>
-                <div className="text-white/70">
-                  per {simulatorInfo.pricing[1].duration}
-                </div>
-              </div>
+              ))}
             </div>
+
             <Link
               href="/simulator"
-              className="btn-secondary px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-2"
+              className="btn-primary px-8 py-4 rounded-full inline-flex items-center gap-2"
             >
               Learn More & Book
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
           </div>
 
-          {/* Feature list */}
-          <div className="bg-white/5 rounded-3xl p-8 backdrop-blur-sm">
-            <h3 className="text-2xl font-bold mb-6 text-[var(--gold)]">
-              Simulator Features
-            </h3>
+          <div className="bg-white/5 rounded-3xl p-6 sm:p-8 backdrop-blur-sm border border-white/10">
+            <h3 className="text-xl font-bold text-[var(--accent)] mb-6">Simulator Features</h3>
             <ul className="space-y-4">
               {simulatorInfo.features.map((feature, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-[var(--gold)] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg
-                      className="w-4 h-4 text-[var(--pine-green-dark)]"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
+                  <div className="w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
                   <span className="text-white/90">{feature}</span>
@@ -520,13 +465,43 @@ function SimulatorCTA() {
   );
 }
 
-function LocationPreview() {
+function SponsorsSection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 sm:py-16 bg-[var(--cream)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8">
+          <h2 className="text-xl sm:text-2xl font-bold text-[var(--pine-green)]">
+            Our Sponsors
+          </h2>
+          <p className="text-gray-500 text-sm mt-2">Thank you to our valued partners</p>
+        </div>
+
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-6 items-center">
+          {sponsors.map((sponsor, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl p-4 flex items-center justify-center h-20 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <img
+                src={sponsor.logo}
+                alt={sponsor.name}
+                className="max-h-12 max-w-full object-contain grayscale hover:grayscale-0 transition-all"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function LocationSection() {
+  return (
+    <section className="py-16 sm:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Map */}
-          <div className="bg-[var(--cream)] rounded-3xl overflow-hidden h-[400px] relative">
+          <div className="bg-[var(--cream)] rounded-3xl overflow-hidden h-[350px] sm:h-[400px] shadow-lg">
             <iframe
               src="https://maps.google.com/maps?q=Whispering+Pines+Golf+Course+24700+County+Highway+X+Cadott+WI&t=&z=14&ie=UTF8&iwloc=&output=embed"
               width="100%"
@@ -540,123 +515,71 @@ function LocationPreview() {
           </div>
 
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-[var(--pine-green)] mb-6">
+            <span className="text-[var(--accent)] font-semibold tracking-wider uppercase text-sm">
+              Visit Us
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--pine-green)] mt-3 mb-6">
               Easy to Find, Hard to Leave
             </h2>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Located just 12 miles east of Eau Claire on Highway 29, Whispering Pines
-              is easily accessible from anywhere in the Chippewa Valley.
+            <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+              Located just 12 miles east of Eau Claire on Highway 29, Whispering Pines is
+              easily accessible from anywhere in the Chippewa Valley.
             </p>
 
-            <div className="space-y-6 mb-8">
+            <div className="space-y-5 mb-8">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[var(--cream)] rounded-xl flex items-center justify-center flex-shrink-0">
-                  <svg
-                    className="w-6 h-6 text-[var(--pine-green)]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
+                <div className="w-12 h-12 bg-[var(--accent)] rounded-xl flex items-center justify-center flex-shrink-0">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
                 <div>
-                  <div className="font-semibold text-[var(--pine-green)] mb-1">
-                    Address
-                  </div>
+                  <div className="font-semibold text-[var(--pine-green)] mb-1">Address</div>
                   <div className="text-gray-600">{courseInfo.address}</div>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[var(--cream)] rounded-xl flex items-center justify-center flex-shrink-0">
-                  <svg
-                    className="w-6 h-6 text-[var(--pine-green)]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
+                <div className="w-12 h-12 bg-[var(--accent)] rounded-xl flex items-center justify-center flex-shrink-0">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                 </div>
                 <div>
-                  <div className="font-semibold text-[var(--pine-green)] mb-1">
-                    Phone
-                  </div>
-                  <a
-                    href={`tel:${courseInfo.phone.replace(/[^\d]/g, "")}`}
-                    className="text-gray-600 hover:text-[var(--pine-green)] transition-colors"
-                  >
+                  <div className="font-semibold text-[var(--pine-green)] mb-1">Phone</div>
+                  <a href={`tel:${courseInfo.phone.replace(/[^\d]/g, "")}`} className="text-gray-600 hover:text-[var(--accent)] transition-colors">
                     {courseInfo.phone}
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[var(--cream)] rounded-xl flex items-center justify-center flex-shrink-0">
-                  <svg
-                    className="w-6 h-6 text-[var(--pine-green)]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
+                <div className="w-12 h-12 bg-[var(--accent)] rounded-xl flex items-center justify-center flex-shrink-0">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
                 <div>
-                  <div className="font-semibold text-[var(--pine-green)] mb-1">
-                    Email
-                  </div>
-                  <a
-                    href={`mailto:${courseInfo.email}`}
-                    className="text-gray-600 hover:text-[var(--pine-green)] transition-colors"
-                  >
+                  <div className="font-semibold text-[var(--pine-green)] mb-1">Email</div>
+                  <a href={`mailto:${courseInfo.email}`} className="text-gray-600 hover:text-[var(--accent)] transition-colors">
                     {courseInfo.email}
                   </a>
                 </div>
               </div>
             </div>
 
-            <Link
-              href="/contact"
-              className="btn-primary px-8 py-4 rounded-full font-semibold inline-flex items-center gap-2"
+            <a
+              href={`https://maps.google.com/maps?q=${encodeURIComponent(courseInfo.address)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary px-8 py-4 rounded-full inline-flex items-center gap-2"
             >
               Get Directions
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
@@ -666,12 +589,16 @@ function LocationPreview() {
 
 function CTASection() {
   return (
-    <section className="py-20 bg-[var(--sand)]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-[var(--pine-green)] mb-6">
+    <section className="py-16 sm:py-24 bg-[var(--sand)] relative overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--accent)]/10 rounded-full translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 left-0 w-48 h-48 bg-[var(--pine-green)]/10 rounded-full -translate-x-1/2 translate-y-1/2" />
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--pine-green)] mb-6">
           Ready to Play?
         </h2>
-        <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
           Book your tee time today and experience the beauty and challenge of
           Whispering Pines Golf Course.
         </p>
@@ -680,39 +607,19 @@ function CTASection() {
             href="https://foreupsoftware.com/index.php/booking/19498/1021#/teetimes"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center gap-2"
+            className="btn-primary px-10 py-5 rounded-full text-lg inline-flex items-center justify-center gap-3 shadow-lg"
           >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-              />
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
             Book Online
           </a>
           <a
             href={`tel:${courseInfo.phone.replace(/[^\d]/g, "")}`}
-            className="px-8 py-4 rounded-full font-semibold text-lg border-2 border-[var(--pine-green)] text-[var(--pine-green)] hover:bg-[var(--pine-green)] hover:text-white transition-all inline-flex items-center justify-center gap-2"
+            className="px-10 py-5 rounded-full text-lg border-2 border-[var(--pine-green)] text-[var(--pine-green)] hover:bg-[var(--pine-green)] hover:text-white transition-all inline-flex items-center justify-center gap-3"
           >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              />
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
             Call Us
           </a>
@@ -726,11 +633,14 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <CourseHighlights />
+      <QuickInfo />
+      <WelcomeSection />
+      <FeaturedHoles />
       <PhotoGallery />
       <AmenitiesSection />
-      <SimulatorCTA />
-      <LocationPreview />
+      <SimulatorSection />
+      <SponsorsSection />
+      <LocationSection />
       <CTASection />
     </>
   );
