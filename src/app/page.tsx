@@ -57,17 +57,15 @@ function HeroSection() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in animate-delay-400">
-          <a
-            href="https://foreupsoftware.com/index.php/booking/19498/1021#/teetimes"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/booking"
             className="btn-primary px-8 py-4 rounded-full text-lg inline-flex items-center justify-center gap-3 shadow-lg"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
             Book Tee Time
-          </a>
+          </Link>
           <Link
             href="/course"
             className="btn-outline px-8 py-4 rounded-full text-lg inline-flex items-center justify-center gap-3"
@@ -603,17 +601,15 @@ function CTASection() {
           Whispering Pines Golf Course.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="https://foreupsoftware.com/index.php/booking/19498/1021#/teetimes"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/booking"
             className="btn-primary px-10 py-5 rounded-full text-lg inline-flex items-center justify-center gap-3 shadow-lg"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
             Book Online
-          </a>
+          </Link>
           <a
             href={`tel:${courseInfo.phone.replace(/[^\d]/g, "")}`}
             className="px-10 py-5 rounded-full text-lg border-2 border-[var(--pine-green)] text-[var(--pine-green)] hover:bg-[var(--pine-green)] hover:text-white transition-all inline-flex items-center justify-center gap-3"

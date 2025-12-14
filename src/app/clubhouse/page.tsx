@@ -479,10 +479,8 @@ export default function ClubhousePage() {
             our clubhouse.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://foreupsoftware.com/index.php/booking/19498/1021#/teetimes"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/booking"
               className="btn-primary px-8 py-4 rounded-full font-semibold inline-flex items-center justify-center gap-2"
             >
               <svg
@@ -499,7 +497,7 @@ export default function ClubhousePage() {
                 />
               </svg>
               Book Tee Time
-            </a>
+            </Link>
             <Link
               href="/contact"
               className="btn-outline px-8 py-4 rounded-full font-semibold inline-flex items-center justify-center gap-2"

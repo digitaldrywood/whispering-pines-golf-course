@@ -312,10 +312,8 @@ export default function CoursePage() {
             Book your tee time today and experience the challenge and beauty of
             Whispering Pines.
           </p>
-          <a
-            href="https://foreupsoftware.com/index.php/booking/19498/1021#/teetimes"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/booking"
             className="btn-secondary px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-semibold text-base sm:text-lg inline-flex items-center gap-2"
           >
             <svg
@@ -332,7 +330,7 @@ export default function CoursePage() {
               />
             </svg>
             Book Tee Time
-          </a>
+          </Link>
         </div>
       </section>
     </div>

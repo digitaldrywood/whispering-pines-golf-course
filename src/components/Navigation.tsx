@@ -185,10 +185,8 @@ export default function Navigation() {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <a
-              href="https://foreupsoftware.com/index.php/booking/19498/1021#/teetimes"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/booking"
               className="btn-primary px-6 py-2.5 rounded-full text-sm inline-flex items-center gap-2"
             >
               <svg
@@ -205,7 +203,7 @@ export default function Navigation() {
                 />
               </svg>
               Book Tee Time
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -324,15 +322,13 @@ export default function Navigation() {
             )
           )}
           <div className="pt-4">
-            <a
-              href="https://foreupsoftware.com/index.php/booking/19498/1021#/teetimes"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/booking"
               onClick={handleLinkClick}
               className="block w-full btn-primary px-6 py-4 rounded-full font-semibold text-center text-lg"
             >
               Book Tee Time
-            </a>
+            </Link>
           </div>
 
           {/* Contact Info in Mobile Menu */}

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { courseInfo } from "@/lib/course-data";
 import { images } from "@/lib/images";
 
@@ -170,10 +171,8 @@ export default function ProShopPage() {
                 system. Choose your preferred date, time, and number of players,
                 and you&apos;re all set!
               </p>
-              <a
-                href="https://foreupsoftware.com/index.php/booking/19498/1021#/teetimes"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/booking"
                 className="btn-primary px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-2"
               >
                 <svg
@@ -190,7 +189,7 @@ export default function ProShopPage() {
                   />
                 </svg>
                 Book Online Now
-              </a>
+              </Link>
             </div>
             <div className="rounded-3xl overflow-hidden shadow-xl">
               <img

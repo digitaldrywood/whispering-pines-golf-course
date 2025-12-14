@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { courseInfo } from "@/lib/course-data";
 
 export const metadata: Metadata = {
@@ -396,14 +397,12 @@ export default function RatesPage() {
             a tee time.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://foreupsoftware.com/index.php/booking/19498/1021#/teetimes"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/booking"
               className="btn-secondary px-8 py-4 rounded-full font-semibold inline-flex items-center justify-center gap-2"
             >
               Book Tee Time
-            </a>
+            </Link>
             <a
               href={`tel:${courseInfo.phone.replace(/[^\d]/g, "")}`}
               className="px-8 py-4 rounded-full font-semibold border-2 border-white text-white hover:bg-white hover:text-[var(--pine-green)] transition-all inline-flex items-center justify-center gap-2"

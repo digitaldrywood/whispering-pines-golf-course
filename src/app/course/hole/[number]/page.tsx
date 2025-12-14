@@ -374,10 +374,8 @@ export default async function HolePage({ params }: PageProps) {
           <p className="text-lg text-white/80 mb-8">
             Book your tee time and experience this {hole.signature ? "signature" : "challenging"} hole for yourself.
           </p>
-          <a
-            href="https://foreupsoftware.com/index.php/booking/19498/1021#/teetimes"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/booking"
             className="btn-secondary px-8 py-4 rounded-full font-semibold inline-flex items-center gap-2"
           >
             <svg
@@ -394,7 +392,7 @@ export default async function HolePage({ params }: PageProps) {
               />
             </svg>
             Book Tee Time
-          </a>
+          </Link>
         </div>
       </section>
     </div>

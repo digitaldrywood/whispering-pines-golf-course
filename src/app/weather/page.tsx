@@ -1,5 +1,7 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { courseInfo } from "@/lib/course-data";
+import WeatherWidget from "@/components/WeatherWidget";
 
 export const metadata: Metadata = {
   title: "Weather | Whispering Pines Golf Course",
@@ -31,110 +33,88 @@ export default function WeatherPage() {
         </div>
       </section>
 
-      {/* Weather Widget Section */}
+      {/* Live Weather Widget Section */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-[var(--pine-green)] mb-4">
               Current Conditions
             </h2>
-            <p className="text-gray-600">Cadott, Wisconsin</p>
+            <p className="text-gray-600">
+              Cadott, Wisconsin · Live weather updates every 15 minutes
+            </p>
           </div>
 
-          {/* Weather.com Widget Embed */}
-          <div className="bg-[var(--cream)] rounded-3xl p-8 shadow-lg">
-            <div className="aspect-video w-full">
-              <iframe
-                src="https://forecast.io/embed/#lat=44.9497&lon=-91.0154&name=Cadott,%20WI&color=#1a472a&font=Georgia&units=us"
-                width="100%"
-                height="400"
-                style={{ border: "none" }}
-                title="Weather Forecast for Cadott, WI"
-              />
-            </div>
+          {/* Weather Widget */}
+          <WeatherWidget />
+        </div>
+      </section>
+
+      {/* Golf Weather Tips */}
+      <section className="py-16 bg-[var(--cream)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-[var(--pine-green)] mb-4">
+              Golf Weather Tips
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Make the most of your round by understanding how weather affects your game.
+            </p>
           </div>
 
-          {/* Additional Weather Info */}
-          <div className="mt-12 grid md:grid-cols-3 gap-6">
-            <div className="bg-[var(--cream)] rounded-2xl p-6 text-center">
-              <div className="w-14 h-14 bg-[var(--pine-green)]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-7 h-7 text-[var(--pine-green)]"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                  />
-                </svg>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white rounded-2xl p-6 shadow-sm">
+              <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">💨</span>
               </div>
-              <h3 className="font-bold text-[var(--pine-green)] mb-2">
-                Sunrise/Sunset
+              <h3 className="font-bold text-[var(--pine-green)] text-center mb-2">
+                Wind Strategy
               </h3>
-              <p className="text-gray-600 text-sm">
-                Plan your tee time around the best daylight hours.
-              </p>
+              <ul className="text-gray-600 text-sm space-y-2">
+                <li>• Into the wind: Club up 1-2 clubs</li>
+                <li>• Downwind: Club down, ball will roll more</li>
+                <li>• Crosswind: Aim into the wind or play a shape</li>
+                <li>• Gusty: Keep the ball low with punch shots</li>
+              </ul>
             </div>
 
-            <div className="bg-[var(--cream)] rounded-2xl p-6 text-center">
-              <div className="w-14 h-14 bg-[var(--pine-green)]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-7 h-7 text-[var(--pine-green)]"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"
-                  />
-                </svg>
+            <div className="bg-white rounded-2xl p-6 shadow-sm">
+              <div className="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🌡️</span>
               </div>
-              <h3 className="font-bold text-[var(--pine-green)] mb-2">
-                Wind Conditions
+              <h3 className="font-bold text-[var(--pine-green)] text-center mb-2">
+                Temperature Effects
               </h3>
-              <p className="text-gray-600 text-sm">
-                Wind can significantly affect your game. Check before you play!
-              </p>
+              <ul className="text-gray-600 text-sm space-y-2">
+                <li>• Cold air: Ball travels shorter distances</li>
+                <li>• Hot air: Ball travels farther</li>
+                <li>• Morning dew: Clean clubs and ball often</li>
+                <li>• Humid conditions: Ball may fly slightly less</li>
+              </ul>
             </div>
 
-            <div className="bg-[var(--cream)] rounded-2xl p-6 text-center">
-              <div className="w-14 h-14 bg-[var(--pine-green)]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-7 h-7 text-[var(--pine-green)]"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
-                  />
-                </svg>
+            <div className="bg-white rounded-2xl p-6 shadow-sm">
+              <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">☀️</span>
               </div>
-              <h3 className="font-bold text-[var(--pine-green)] mb-2">
-                Rain Forecast
+              <h3 className="font-bold text-[var(--pine-green)] text-center mb-2">
+                Sun & Visibility
               </h3>
-              <p className="text-gray-600 text-sm">
-                Check the hourly forecast to avoid getting caught in the rain.
-              </p>
+              <ul className="text-gray-600 text-sm space-y-2">
+                <li>• Early morning: Longer shadows, cooler temps</li>
+                <li>• Midday: Peak UV exposure, stay hydrated</li>
+                <li>• Evening: Watch for low sun in your eyes</li>
+                <li>• Overcast: Consistent light, easier to read greens</li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
       {/* Course Conditions Notice */}
-      <section className="py-16 bg-[var(--cream)]">
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl p-8 shadow-lg">
+          <div className="bg-[var(--cream)] rounded-3xl p-8 shadow-lg">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-[var(--gold)]/20 rounded-full flex items-center justify-center flex-shrink-0">
                 <svg
@@ -158,7 +138,8 @@ export default function WeatherPage() {
                 <p className="text-gray-600 mb-4">
                   Weather conditions may affect course playability. Please call
                   the pro shop for current course conditions, especially after
-                  heavy rain or during extreme weather.
+                  heavy rain or during extreme weather. Cart restrictions may
+                  apply during wet conditions.
                 </p>
                 <a
                   href={`tel:${courseInfo.phone.replace(/[^\d]/g, "")}`}
@@ -192,10 +173,8 @@ export default function WeatherPage() {
           <p className="text-xl text-white/80 mb-8">
             Book your tee time now and enjoy a great day of golf!
           </p>
-          <a
-            href="https://foreupsoftware.com/index.php/booking/19498/1021#/teetimes"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/booking"
             className="btn-secondary px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center gap-2"
           >
             <svg
@@ -212,7 +191,7 @@ export default function WeatherPage() {
               />
             </svg>
             Book Tee Time
-          </a>
+          </Link>
         </div>
       </section>
     </div>
