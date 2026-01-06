@@ -97,7 +97,7 @@ function QuickInfo() {
   ];
 
   return (
-    <section className="bg-[var(--pine-green)] py-6">
+    <section className="bg-gradient-to-b from-[var(--pine-green)] to-[var(--pine-green-dark)] py-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
           {stats.map((stat) => (
@@ -223,7 +223,7 @@ function FeaturedHoles() {
   const featuredHoles = [8, 3, 9, 14];
 
   return (
-    <section className="py-16 sm:py-24 bg-[var(--cream)]">
+    <section className="py-16 sm:py-24 bg-gradient-to-b from-[var(--cream)] to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <span className="text-[var(--accent)] font-semibold tracking-wider uppercase text-sm">
@@ -245,7 +245,7 @@ function FeaturedHoles() {
               <Link
                 key={hole.number}
                 href={`/course/hole/${hole.number}`}
-                className="group bg-white rounded-2xl overflow-hidden shadow-md card-hover"
+                className="group lux-card rounded-2xl overflow-hidden shadow-md card-hover"
               >
                 <div className="relative h-48 overflow-hidden">
                   <img
@@ -306,7 +306,7 @@ function PhotoGallery() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-[var(--pine-green)]">
+    <section className="py-16 sm:py-24 bg-gradient-to-b from-[var(--pine-green)] to-[var(--pine-green-dark)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <span className="text-[var(--accent)] font-semibold tracking-wider uppercase text-sm">
@@ -356,7 +356,7 @@ function AmenitiesSection() {
   };
 
   return (
-    <section className="py-16 sm:py-24 bg-white">
+    <section className="py-16 sm:py-24 bg-[var(--background)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <span className="text-[var(--accent)] font-semibold tracking-wider uppercase text-sm">
@@ -374,7 +374,7 @@ function AmenitiesSection() {
           {amenities.map((amenity) => (
             <div
               key={amenity.title}
-              className="bg-[var(--cream)] rounded-2xl p-6 sm:p-8 card-hover"
+              className="lux-card rounded-2xl p-6 sm:p-8 card-hover"
             >
               <div className="w-14 h-14 bg-[var(--accent)] rounded-xl flex items-center justify-center mb-5">
                 <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -465,7 +465,7 @@ function SimulatorSection() {
 
 function SponsorsSection() {
   return (
-    <section className="py-12 sm:py-16 bg-[var(--cream)]">
+    <section className="py-12 sm:py-16 bg-gradient-to-b from-[var(--cream)] to-[var(--sand)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h2 className="text-xl sm:text-2xl font-bold text-[var(--pine-green)]">
@@ -478,7 +478,7 @@ function SponsorsSection() {
           {sponsors.map((sponsor, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl p-4 flex items-center justify-center h-20 shadow-sm hover:shadow-md transition-shadow"
+              className="lux-card rounded-xl p-4 flex items-center justify-center h-20 shadow-sm hover:shadow-md transition-shadow"
             >
               <img
                 src={sponsor.logo}
@@ -499,7 +499,7 @@ function LocationSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Map */}
-          <div className="bg-[var(--cream)] rounded-3xl overflow-hidden h-[350px] sm:h-[400px] shadow-lg">
+          <div className="lux-frame rounded-3xl overflow-hidden h-[350px] sm:h-[400px]">
             <iframe
               src="https://maps.google.com/maps?q=Whispering+Pines+Golf+Course+24700+County+Highway+X+Cadott+WI&t=&z=14&ie=UTF8&iwloc=&output=embed"
               width="100%"
@@ -587,7 +587,7 @@ function LocationSection() {
 
 function CTASection() {
   return (
-    <section className="py-16 sm:py-24 bg-[var(--sand)] relative overflow-hidden">
+    <section className="py-16 sm:py-24 bg-gradient-to-b from-[var(--sand)] to-[var(--cream)] relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--accent)]/10 rounded-full translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 left-0 w-48 h-48 bg-[var(--pine-green)]/10 rounded-full -translate-x-1/2 translate-y-1/2" />

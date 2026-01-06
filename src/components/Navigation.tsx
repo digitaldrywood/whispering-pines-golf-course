@@ -73,15 +73,15 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[var(--pine-green)] shadow-lg py-2"
-          : "bg-[var(--pine-green)]/95 backdrop-blur-sm py-3"
+          ? "bg-[var(--pine-green)]/95 shadow-[0_16px_40px_rgba(0,0,0,0.25)] py-2 border-b border-white/10"
+          : "bg-[var(--pine-green)]/80 backdrop-blur-md py-3 border-b border-white/5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-white/20 transition-colors">
+            <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-white/20 transition-colors ring-1 ring-white/15">
               <svg
                 className="w-7 h-7 text-[var(--accent)]"
                 fill="currentColor"
