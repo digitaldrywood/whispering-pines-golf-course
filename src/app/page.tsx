@@ -98,7 +98,7 @@ function QuickInfo() {
 
   return (
     <section className="bg-gradient-to-b from-[var(--pine-green)] to-[var(--pine-green-dark)] py-6">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center py-4">
@@ -122,7 +122,7 @@ function QuickInfo() {
 function WelcomeSection() {
   return (
     <section className="py-16 sm:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Text Content */}
           <div>
@@ -224,7 +224,7 @@ function FeaturedHoles() {
 
   return (
     <section className="py-16 sm:py-24 bg-gradient-to-b from-[var(--cream)] to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <span className="text-[var(--accent)] font-semibold tracking-wider uppercase text-sm">
             Course Highlights
@@ -307,7 +307,7 @@ function PhotoGallery() {
 
   return (
     <section className="py-16 sm:py-24 bg-gradient-to-b from-[var(--pine-green)] to-[var(--pine-green-dark)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <span className="text-[var(--accent)] font-semibold tracking-wider uppercase text-sm">
             Gallery
@@ -357,7 +357,7 @@ function AmenitiesSection() {
 
   return (
     <section className="py-16 sm:py-24 bg-[var(--background)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <span className="text-[var(--accent)] font-semibold tracking-wider uppercase text-sm">
             Amenities
@@ -406,7 +406,7 @@ function SimulatorSection() {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full text-sm mb-6 text-white">
@@ -466,7 +466,7 @@ function SimulatorSection() {
 function SponsorsSection() {
   return (
     <section className="py-12 sm:py-16 bg-gradient-to-b from-[var(--cream)] to-[var(--sand)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h2 className="text-xl sm:text-2xl font-bold text-[var(--pine-green)]">
             Our Sponsors
@@ -496,7 +496,7 @@ function SponsorsSection() {
 function LocationSection() {
   return (
     <section className="py-16 sm:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Map */}
           <div className="lux-frame rounded-3xl overflow-hidden h-[350px] sm:h-[400px]">
@@ -592,7 +592,7 @@ function CTASection() {
       <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--accent)]/10 rounded-full translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 left-0 w-48 h-48 bg-[var(--pine-green)]/10 rounded-full -translate-x-1/2 translate-y-1/2" />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--pine-green)] mb-6">
           Ready to Play?
         </h2>
