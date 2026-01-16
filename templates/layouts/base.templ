@@ -1,0 +1,77 @@
+package layouts
+
+import "whispering-pines/internal/meta"
+import "whispering-pines/templates/components"
+
+templ Base(m meta.PageMeta) {
+	<!DOCTYPE html>
+	<html lang="en" class="scroll-smooth">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<meta name="theme-color" content="#3d4222"/>
+			@MetaTags(m)
+			<link rel="icon" href="/static/images/favicon.ico" sizes="any"/>
+			<link rel="preconnect" href="https://fonts.googleapis.com"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+			<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+			<link rel="stylesheet" href="/static/css/output.css"/>
+			<script src="https://unpkg.com/htmx.org@2.0.4"></script>
+			@jsonLD()
+		</head>
+		<body class="antialiased">
+			<a
+				href="#main-content"
+				class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-[var(--accent)] text-white px-4 py-2 rounded-lg z-[100] focus:outline-none"
+			>
+				Skip to main content
+			</a>
+			@components.Navigation()
+			<main id="main-content">
+				{ children... }
+			</main>
+			@components.Footer()
+		</body>
+	</html>
+}
+
+templ jsonLD() {
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "GolfCourse",
+		"name": "Whispering Pines Golf Course",
+		"description": "An 18-hole championship golf course located in Cadott, Wisconsin, 12 miles east of Eau Claire in the Chippewa Valley.",
+		"url": "https://whisperingpinesgc.net",
+		"telephone": "(715) 289-4653",
+		"email": "todd@whisperingpinesgc.net",
+		"address": {
+			"@type": "PostalAddress",
+			"streetAddress": "24700 County Highway X",
+			"addressLocality": "Cadott",
+			"addressRegion": "WI",
+			"postalCode": "54727",
+			"addressCountry": "US"
+		},
+		"geo": {
+			"@type": "GeoCoordinates",
+			"latitude": 44.9483,
+			"longitude": -91.1513
+		},
+		"openingHoursSpecification": [{
+			"@type": "OpeningHoursSpecification",
+			"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+			"opens": "07:00",
+			"closes": "20:00"
+		}],
+		"amenityFeature": [
+			{"@type": "LocationFeatureSpecification", "name": "Pro Shop"},
+			{"@type": "LocationFeatureSpecification", "name": "Restaurant"},
+			{"@type": "LocationFeatureSpecification", "name": "Indoor Golf Simulator"},
+			{"@type": "LocationFeatureSpecification", "name": "Golf Lessons"}
+		],
+		"priceRange": "$$",
+		"sameAs": ["https://www.facebook.com/WhisperingPinesGolfCourse"]
+	}
+	</script>
+}

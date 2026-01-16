@@ -1,0 +1,37 @@
+package pages
+
+import (
+	"whispering-pines/internal/meta"
+	"whispering-pines/internal/data"
+	"whispering-pines/templates/layouts"
+)
+
+templ Events() {
+	@layouts.Base(meta.New("Events and Leagues", "Join golf leagues and host events.")) {
+		@PageHero("Events and Leagues", "Golf is better together")
+		<section class="py-12 sm:py-24 bg-white">
+			<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="grid md:grid-cols-2 gap-8">
+					<div class="lux-card rounded-2xl p-8">
+						<h3 class="text-2xl font-bold text-[var(--pine-green)] mb-4">Golf Leagues</h3>
+						<p class="text-gray-600 mb-4">
+							Join our active golf leagues and compete with fellow enthusiasts. We offer leagues for all skill levels throughout the season.
+						</p>
+						<a href="tel:7152894653" class="text-[var(--accent)] font-semibold hover:underline">
+							Call to Join
+						</a>
+					</div>
+					<div class="lux-card rounded-2xl p-8">
+						<h3 class="text-2xl font-bold text-[var(--pine-green)] mb-4">Private Events</h3>
+						<p class="text-gray-600 mb-4">
+							Host your corporate outing, charity tournament, or private party at our beautiful facility. We handle all the details.
+						</p>
+						<a href={ templ.SafeURL("mailto:" + data.CourseInfo.Email) } class="text-[var(--accent)] font-semibold hover:underline">
+							Request Info
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	}
+}

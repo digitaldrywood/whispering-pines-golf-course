@@ -1,0 +1,14 @@
+package pages
+
+templ PageHero(title, subtitle string) {
+	<section class="relative pt-24 pb-16 bg-gradient-to-b from-[var(--pine-green)] to-[var(--pine-green-dark)]">
+		<div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+			<h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
+				{ title }
+			</h1>
+			<p class="text-white/70 text-lg max-w-2xl mx-auto">
+				{ subtitle }
+			</p>
+		</div>
+	</section>
+}

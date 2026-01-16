@@ -1,0 +1,22 @@
+# Copy this file to .envrc and edit with your values
+# Then run: direnv allow
+
+# Database (SQLite)
+export DATABASE_URL="./data/whispering-pines.db"
+
+# Server
+export PORT="3000"
+export ENV="development"
+export LOG_LEVEL="DEBUG"
+
+# Site / SEO
+export SITE_NAME="Whispering Pines Golf Course"
+export SITE_URL="http://localhost:3000"
+export DEFAULT_OG_IMAGE="/static/images/og-default.png"
+
+# Future services (uncomment when needed)
+# CLERK_SECRET_KEY=your_clerk_secret_key
+# CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+# STRIPE_SECRET_KEY=your_stripe_secret_key
+# STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+# STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret

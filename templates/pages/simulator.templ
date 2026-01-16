@@ -1,0 +1,51 @@
+package pages
+
+import (
+	"whispering-pines/internal/meta"
+	"whispering-pines/internal/data"
+	"whispering-pines/templates/layouts"
+	"whispering-pines/templates/components"
+	"strconv"
+)
+
+templ Simulator() {
+	@layouts.Base(meta.New("Indoor Golf Simulator", "Play year-round with our golf simulator.")) {
+		@PageHero("Indoor Simulator", "Play year-round")
+		<section class="py-12 sm:py-24 bg-white">
+			<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="text-center mb-12">
+					<h2 class="text-2xl font-bold text-[var(--pine-green)] mb-4">{ data.SimulatorInfo.Equipment }</h2>
+					<p class="text-gray-600 text-lg">{ data.SimulatorInfo.Description }</p>
+				</div>
+				<div class="grid md:grid-cols-2 gap-6 mb-12">
+					for _, pricing := range data.SimulatorInfo.Pricing {
+						<div class="lux-card rounded-2xl p-8 text-center">
+							<div class="text-4xl font-bold text-[var(--accent)] mb-2">${ strconv.Itoa(pricing.Price) }</div>
+							<div class="text-gray-600">per { pricing.Duration }</div>
+						</div>
+					}
+				</div>
+				<div class="bg-[var(--cream)] rounded-2xl p-8">
+					<h3 class="text-xl font-bold text-[var(--pine-green)] mb-6">Features</h3>
+					<ul class="space-y-3">
+						for _, feature := range data.SimulatorInfo.Features {
+							<li class="flex items-start gap-3">
+								<div class="w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+									@components.CheckIcon()
+								</div>
+								<span class="text-gray-700">{ feature }</span>
+							</li>
+						}
+					</ul>
+				</div>
+				<div class="text-center mt-8">
+					<p class="text-gray-600 mb-4">Hours: { data.SimulatorInfo.Hours }</p>
+					<a href="tel:7152894653" class="btn-primary px-8 py-4 rounded-full inline-flex items-center gap-2">
+						@components.CalendarIcon()
+						Book Simulator Time
+					</a>
+				</div>
+			</div>
+		</section>
+	}
+}

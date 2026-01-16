@@ -1,0 +1,139 @@
+package components
+
+import "strconv"
+
+templ Navigation() {
+	<nav
+		id="main-nav"
+		class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[var(--pine-green)]/80 backdrop-blur-md py-3 border-b border-white/5"
+	>
+		<div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="flex justify-between items-center">
+				<!-- Logo -->
+				<a href="/" class="flex items-center gap-3 group">
+					<div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-white/20 transition-colors ring-1 ring-white/15">
+						@PineTreeIcon()
+					</div>
+					<div class="hidden sm:block">
+						<div class="text-xl font-bold text-white group-hover:text-[var(--accent)] transition-colors">
+							Whispering Pines
+						</div>
+						<div class="text-xs text-[var(--accent)] tracking-[0.2em] uppercase font-medium">
+							Golf Course
+						</div>
+					</div>
+				</a>
+				<!-- Desktop Navigation -->
+				<div class="hidden lg:flex items-center gap-1">
+					<a href="/" class="px-4 py-2 text-sm font-medium transition-colors rounded-lg text-white/90 hover:text-white hover:bg-white/10">Home</a>
+					<!-- Course Dropdown -->
+					<div class="relative group">
+						<button class="px-4 py-2 text-sm font-medium transition-colors rounded-lg flex items-center gap-1 text-white/90 hover:text-white hover:bg-white/10">
+							Course
+							<svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+							</svg>
+						</button>
+						<div class="absolute top-full left-0 mt-1 bg-white rounded-xl shadow-2xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 -translate-y-2 group-hover:translate-y-0" style="min-width: 200px;">
+							<a href="/course" class="block px-4 py-3 text-sm font-semibold text-[var(--pine-green)] hover:bg-[var(--cream)] border-b border-gray-100">
+								View All Holes
+							</a>
+							<div class="grid grid-cols-2 p-2 gap-1 max-h-80 overflow-y-auto">
+								for i := 1; i <= 18; i++ {
+									<a
+										href={ templ.SafeURL("/course/hole/" + itoa(i)) }
+										class="px-3 py-2 text-sm rounded-lg text-gray-700 hover:bg-[var(--cream)] hover:text-[var(--pine-green)]"
+									>
+										Hole { itoa(i) }
+									</a>
+								}
+							</div>
+						</div>
+					</div>
+					<a href="/events" class="px-4 py-2 text-sm font-medium transition-colors rounded-lg text-white/90 hover:text-white hover:bg-white/10">Events</a>
+					<a href="/rates" class="px-4 py-2 text-sm font-medium transition-colors rounded-lg text-white/90 hover:text-white hover:bg-white/10">Rates</a>
+					<a href="/location" class="px-4 py-2 text-sm font-medium transition-colors rounded-lg text-white/90 hover:text-white hover:bg-white/10">Location</a>
+					<a href="/pro-shop" class="px-4 py-2 text-sm font-medium transition-colors rounded-lg text-white/90 hover:text-white hover:bg-white/10">Pro Shop</a>
+					<a href="/menu" class="px-4 py-2 text-sm font-medium transition-colors rounded-lg text-white/90 hover:text-white hover:bg-white/10">Menu</a>
+					<a href="/weather" class="px-4 py-2 text-sm font-medium transition-colors rounded-lg text-white/90 hover:text-white hover:bg-white/10">Weather</a>
+				</div>
+				<!-- CTA Button -->
+				<div class="hidden lg:block">
+					<a href="/booking" class="btn-primary px-6 py-2.5 rounded-full text-sm inline-flex items-center gap-2">
+						@CalendarIcon()
+						Book Tee Time
+					</a>
+				</div>
+				<!-- Mobile Menu Button -->
+				<button
+					id="mobile-menu-btn"
+					class="lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
+					aria-label="Toggle menu"
+					onclick="toggleMobileMenu()"
+				>
+					<svg id="menu-icon" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+					</svg>
+					<svg id="close-icon" class="w-6 h-6 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+					</svg>
+				</button>
+			</div>
+		</div>
+		<!-- Mobile Navigation -->
+		<div id="mobile-menu" class="lg:hidden hidden fixed inset-x-0 top-[60px] bottom-0 bg-[var(--pine-green)]">
+			<div class="h-full overflow-y-auto px-4 py-6 space-y-1">
+				<a href="/" class="block px-4 py-3.5 rounded-xl font-medium text-white/90 hover:bg-white/10">Home</a>
+				<a href="/course" class="block px-4 py-3.5 rounded-xl font-medium text-white/90 hover:bg-white/10">Course</a>
+				<a href="/events" class="block px-4 py-3.5 rounded-xl font-medium text-white/90 hover:bg-white/10">Events</a>
+				<a href="/rates" class="block px-4 py-3.5 rounded-xl font-medium text-white/90 hover:bg-white/10">Rates</a>
+				<a href="/location" class="block px-4 py-3.5 rounded-xl font-medium text-white/90 hover:bg-white/10">Location</a>
+				<a href="/pro-shop" class="block px-4 py-3.5 rounded-xl font-medium text-white/90 hover:bg-white/10">Pro Shop</a>
+				<a href="/menu" class="block px-4 py-3.5 rounded-xl font-medium text-white/90 hover:bg-white/10">Menu</a>
+				<a href="/weather" class="block px-4 py-3.5 rounded-xl font-medium text-white/90 hover:bg-white/10">Weather</a>
+				<div class="pt-4">
+					<a href="/booking" class="block w-full btn-primary px-6 py-4 rounded-full font-semibold text-center text-lg">
+						Book Tee Time
+					</a>
+				</div>
+				<div class="pt-6 border-t border-white/10 mt-4">
+					<a href="tel:7152894653" class="flex items-center gap-3 px-4 py-3 text-white/80 hover:text-white">
+						@PhoneIcon()
+						(715) 289-4653
+					</a>
+					<a href="https://www.facebook.com/WhisperingPinesGolfCourse" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 px-4 py-3 text-white/80 hover:text-white">
+						@FacebookIcon()
+						Follow on Facebook
+					</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<script>
+		function toggleMobileMenu() {
+			const menu = document.getElementById('mobile-menu');
+			const menuIcon = document.getElementById('menu-icon');
+			const closeIcon = document.getElementById('close-icon');
+			menu.classList.toggle('hidden');
+			menuIcon.classList.toggle('hidden');
+			closeIcon.classList.toggle('hidden');
+			document.body.style.overflow = menu.classList.contains('hidden') ? '' : 'hidden';
+		}
+
+		// Scroll effect for nav
+		window.addEventListener('scroll', function() {
+			const nav = document.getElementById('main-nav');
+			if (window.scrollY > 20) {
+				nav.classList.remove('bg-[var(--pine-green)]/80', 'py-3', 'border-white/5');
+				nav.classList.add('bg-[var(--pine-green)]/95', 'shadow-[0_16px_40px_rgba(0,0,0,0.25)]', 'py-2', 'border-white/10');
+			} else {
+				nav.classList.add('bg-[var(--pine-green)]/80', 'py-3', 'border-white/5');
+				nav.classList.remove('bg-[var(--pine-green)]/95', 'shadow-[0_16px_40px_rgba(0,0,0,0.25)]', 'py-2', 'border-white/10');
+			}
+		});
+	</script>
+}
+
+func itoa(i int) string {
+	return strconv.Itoa(i)
+}
