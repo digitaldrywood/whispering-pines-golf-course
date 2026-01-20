@@ -1,0 +1,27 @@
+package pages
+
+import (
+	"whispering-pines/pkg/meta"
+	"whispering-pines/pkg/data"
+	"whispering-pines/pkg/templates/layouts"
+)
+
+templ Weather() {
+	@layouts.Base(meta.New("Course Weather", "Check current weather conditions.")) {
+		@PageHero("Course Weather", "Plan your perfect round")
+		<section class="py-12 sm:py-24 bg-white">
+			<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+				<p class="text-gray-600 text-lg mb-8">
+					Check the current conditions before you head out.
+				</p>
+				<div class="bg-[var(--cream)] rounded-2xl p-8">
+					<h3 class="text-xl font-bold text-[var(--pine-green)] mb-4">Cadott, Wisconsin</h3>
+					<p class="text-gray-600 mb-4">For the most accurate course conditions, give us a call:</p>
+					<a href="tel:7152894653" class="text-2xl text-[var(--accent)] font-bold hover:underline">
+						{ data.CourseInfo.Phone }
+					</a>
+				</div>
+			</div>
+		</section>
+	}
+}

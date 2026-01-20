@@ -1,0 +1,156 @@
+package pages
+
+import (
+	"whispering-pines/pkg/meta"
+	"whispering-pines/pkg/data"
+	"whispering-pines/pkg/templates/layouts"
+	"whispering-pines/pkg/templates/components"
+	"strconv"
+	"fmt"
+)
+
+templ HoleDetail(hole data.HoleData) {
+	@layouts.Base(meta.New(fmt.Sprintf("Hole %d - Par %d", hole.Number, hole.Par), hole.Description)) {
+		@holeHero(hole)
+		@holeInfo(hole)
+		@holeNavigation(hole.Number)
+	}
+}
+
+templ holeHero(hole data.HoleData) {
+	<section class="relative pt-20 pb-0">
+		<div class="relative h-[50vh] min-h-[400px]">
+			<img
+				src={ fmt.Sprintf("/static/images/holes/hole-%d.jpg", hole.Number) }
+				alt={ fmt.Sprintf("Hole %d", hole.Number) }
+				class="w-full h-full object-cover"
+			/>
+			<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+			<div class="absolute bottom-0 left-0 right-0 p-8">
+				<div class="max-w-[1600px] mx-auto">
+					<div class="flex items-center gap-4 mb-4">
+						<div class="w-16 h-16 bg-[var(--accent)] rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg">
+							{ strconv.Itoa(hole.Number) }
+						</div>
+						if hole.Signature {
+							<span class="bg-[var(--pine-green)] text-white px-4 py-2 rounded-full text-sm font-semibold">
+								Signature Hole
+							</span>
+						}
+					</div>
+					<h1 class="text-4xl sm:text-5xl font-bold text-white mb-2">
+						Hole { strconv.Itoa(hole.Number) }
+					</h1>
+					<div class="flex items-center gap-6 text-white/80">
+						<span class="text-xl font-semibold text-[var(--accent)]">Par { strconv.Itoa(hole.Par) }</span>
+						<span>{ strconv.Itoa(hole.GetYardage()) } yards</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+}
+
+templ holeInfo(hole data.HoleData) {
+	<section class="py-12 sm:py-16 bg-white">
+		<div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid lg:grid-cols-3 gap-8">
+				<!-- Main Content -->
+				<div class="lg:col-span-2">
+					<h2 class="text-2xl font-bold text-[var(--pine-green)] mb-4">About This Hole</h2>
+					<p class="text-gray-600 text-lg leading-relaxed mb-8">
+						{ hole.Description }
+					</p>
+					<!-- Features -->
+					<h3 class="text-xl font-bold text-[var(--pine-green)] mb-4">Hole Features</h3>
+					<ul class="space-y-3 mb-8">
+						for _, feature := range hole.Features {
+							<li class="flex items-start gap-3">
+								<div class="w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+									@components.CheckIcon()
+								</div>
+								<span class="text-gray-700">{ feature }</span>
+							</li>
+						}
+					</ul>
+					<!-- Pro Tips -->
+					<div class="bg-[var(--cream)] rounded-2xl p-6">
+						<h3 class="text-xl font-bold text-[var(--pine-green)] mb-4 flex items-center gap-2">
+							<svg class="w-6 h-6 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+							</svg>
+							Pro Tips
+						</h3>
+						<p class="text-gray-700 leading-relaxed">{ hole.Tips }</p>
+					</div>
+				</div>
+				<!-- Sidebar -->
+				<div>
+					<div class="lux-card rounded-2xl p-6 sticky top-24">
+						<h3 class="text-xl font-bold text-[var(--pine-green)] mb-4">Hole Stats</h3>
+						<div class="space-y-4">
+							<div class="flex justify-between items-center pb-4 border-b border-gray-200">
+								<span class="text-gray-600">Par</span>
+								<span class="text-2xl font-bold text-[var(--accent)]">{ strconv.Itoa(hole.Par) }</span>
+							</div>
+							if hole.YardageWhite > 0 {
+								<div class="flex justify-between items-center pb-4 border-b border-gray-200">
+									<span class="text-gray-600">White Tees</span>
+									<span class="font-semibold">{ strconv.Itoa(hole.YardageWhite) } yds</span>
+								</div>
+							}
+							if hole.YardageTips > 0 {
+								<div class="flex justify-between items-center pb-4 border-b border-gray-200">
+									<span class="text-gray-600">Tips</span>
+									<span class="font-semibold">{ strconv.Itoa(hole.YardageTips) } yds</span>
+								</div>
+							}
+							if hole.YardageBlue > 0 {
+								<div class="flex justify-between items-center pb-4 border-b border-gray-200">
+									<span class="text-gray-600">Blue Tees</span>
+									<span class="font-semibold">{ strconv.Itoa(hole.YardageBlue) } yds</span>
+								</div>
+							}
+						</div>
+						<a href="/booking" class="btn-primary w-full px-6 py-3 rounded-full mt-6 inline-flex items-center justify-center gap-2">
+							@components.CalendarIcon()
+							Book Tee Time
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+}
+
+templ holeNavigation(currentHole int) {
+	<section class="py-8 bg-[var(--cream)]">
+		<div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="flex justify-between items-center">
+				if currentHole > 1 {
+					<a href={ templ.SafeURL(fmt.Sprintf("/course/hole/%d", currentHole-1)) } class="inline-flex items-center gap-2 text-[var(--pine-green)] hover:text-[var(--accent)] transition-colors">
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+						</svg>
+						Hole { strconv.Itoa(currentHole - 1) }
+					</a>
+				} else {
+					<div></div>
+				}
+				<a href="/course" class="text-[var(--pine-green)] hover:text-[var(--accent)] transition-colors font-semibold">
+					All Holes
+				</a>
+				if currentHole < 18 {
+					<a href={ templ.SafeURL(fmt.Sprintf("/course/hole/%d", currentHole+1)) } class="inline-flex items-center gap-2 text-[var(--pine-green)] hover:text-[var(--accent)] transition-colors">
+						Hole { strconv.Itoa(currentHole + 1) }
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+						</svg>
+					</a>
+				} else {
+					<div></div>
+				}
+			</div>
+		</div>
+	</section>
+}
