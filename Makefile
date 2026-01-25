@@ -26,10 +26,10 @@ generate:
 	go generate ./...
 
 css:
-	npx @tailwindcss/cli -i static/css/input.css -o static/css/output.css --minify
+	npx @tailwindcss/cli -i public/css/input.css -o public/css/output.css --minify
 
 css-watch:
-	npx @tailwindcss/cli -i static/css/input.css -o static/css/output.css --watch
+	npx @tailwindcss/cli -i public/css/input.css -o public/css/output.css --watch
 
 migrate:
 	goose -dir $(MIGRATIONS_DIR) sqlite3 "$$DATABASE_URL" up
@@ -56,7 +56,7 @@ setup:
 clean:
 	rm -f $(BINARY_NAME)
 	rm -rf tmp/
-	rm -f static/css/output.css
+	rm -f public/css/output.css
 
 run: build
 	./$(BINARY_NAME)
