@@ -51,14 +51,14 @@ func Events() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, " <section class=\"py-12 sm:py-24 bg-white\"><div class=\"max-w-4xl mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"grid md:grid-cols-2 gap-8\"><div class=\"lux-card rounded-2xl p-8\"><h3 class=\"text-2xl font-bold text-[var(--pine-green)] mb-4\">Golf Leagues</h3><p class=\"text-gray-600 mb-4\">Join our active golf leagues and compete with fellow enthusiasts. We offer leagues for all skill levels throughout the season.</p><a href=\"tel:7152894653\" class=\"text-[var(--accent)] font-semibold hover:underline\">Call to Join</a></div><div class=\"lux-card rounded-2xl p-8\"><h3 class=\"text-2xl font-bold text-[var(--pine-green)] mb-4\">Private Events</h3><p class=\"text-gray-600 mb-4\">Host your corporate outing, charity tournament, or private party at our beautiful facility. We handle all the details.</p><a href=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, " <section class=\"py-12 sm:py-24 bg-white\"><div class=\"max-w-4xl mx-auto px-4 sm:px-6 lg:px-8\"><!-- Featured Image --><div class=\"mb-12 rounded-2xl overflow-hidden shadow-lg\"><img src=\"/static/images/features/events.jpg\" alt=\"Golf Events at Whispering Pines\" class=\"w-full h-64 sm:h-80 object-cover\"></div><div class=\"grid md:grid-cols-2 gap-8\"><div class=\"lux-card rounded-2xl p-8\"><h3 class=\"text-2xl font-bold text-[var(--pine-green)] mb-4\">Golf Leagues</h3><p class=\"text-gray-600 mb-4\">Join our active golf leagues and compete with fellow enthusiasts. We offer leagues for all skill levels throughout the season.</p><a href=\"tel:7152894653\" class=\"text-[var(--accent)] font-semibold hover:underline\">Call to Join</a></div><div class=\"lux-card rounded-2xl p-8\"><h3 class=\"text-2xl font-bold text-[var(--pine-green)] mb-4\">Private Events</h3><p class=\"text-gray-600 mb-4\">Host your corporate outing, charity tournament, or private party at our beautiful facility. We handle all the details.</p><a href=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 templ.SafeURL
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL("mailto:" + data.CourseInfo.Email))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/events.templ`, Line: 29, Col: 64}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/events.templ`, Line: 37, Col: 64}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {

@@ -51,20 +51,20 @@ func Menu() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, " <section class=\"py-12 sm:py-24 bg-white\"><div class=\"max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center\"><p class=\"text-gray-600 text-lg mb-8\">Enjoy delicious food and refreshing drinks before or after your round.</p><div class=\"bg-[var(--cream)] rounded-2xl p-8\"><h3 class=\"text-xl font-bold text-[var(--pine-green)] mb-4\">Hours</h3><p class=\"text-gray-600 mb-4\">Monday - Sunday: 10:00 AM to Close</p><a href=\"tel:7152894653\" class=\"text-2xl text-[var(--accent)] font-bold hover:underline\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, " <section class=\"py-12 sm:py-24 bg-white\"><div class=\"max-w-4xl mx-auto px-4 sm:px-6 lg:px-8\"><!-- Featured Image --><div class=\"mb-12 rounded-2xl overflow-hidden shadow-lg\"><img src=\"/static/images/features/food.jpg\" alt=\"Restaurant and Bar at Whispering Pines\" class=\"w-full h-64 sm:h-80 object-cover\"></div><div class=\"text-center mb-12\"><p class=\"text-gray-600 text-lg mb-8\">Enjoy delicious food and refreshing drinks before or after your round.</p><div class=\"bg-[var(--cream)] rounded-2xl p-8\"><h3 class=\"text-xl font-bold text-[var(--pine-green)] mb-4\">Hours</h3><p class=\"text-gray-600 mb-4\">Monday - Sunday: 10:00 AM to Close</p><a href=\"tel:7152894653\" class=\"text-2xl text-[var(--accent)] font-bold hover:underline\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(data.CourseInfo.Phone)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/menu.templ`, Line: 21, Col: 29}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/menu.templ`, Line: 30, Col: 30}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</a></div></div></section>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</a></div></div><!-- Menu Images --><div class=\"mt-12\"><h3 class=\"text-2xl font-bold text-[var(--pine-green)] mb-6 text-center\">Our Menu</h3><div class=\"grid md:grid-cols-2 gap-6\"><div class=\"rounded-2xl overflow-hidden shadow-lg\"><img src=\"/static/images/menu/menu-front.jpg\" alt=\"Menu - Front\" class=\"w-full h-auto\"></div><div class=\"rounded-2xl overflow-hidden shadow-lg\"><img src=\"/static/images/menu/menu-back.jpg\" alt=\"Menu - Back\" class=\"w-full h-auto\"></div></div></div></div></section>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
