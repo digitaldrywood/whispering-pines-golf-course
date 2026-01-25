@@ -34,4 +34,8 @@ func (h *Handler) RegisterRoutes(e *echo.Echo) {
 	e.GET("/weather", h.Weather)
 	e.GET("/contact", h.Contact)
 	e.GET("/clubhouse", h.Clubhouse)
+	e.GET("/scorecard", h.Scorecard)
+
+	// API endpoints for HTMX
+	e.GET("/api/weather", h.WeatherAPI)
 }

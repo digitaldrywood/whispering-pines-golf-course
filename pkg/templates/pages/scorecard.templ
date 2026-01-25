@@ -1,0 +1,196 @@
+package pages
+
+import (
+	"fmt"
+	"whispering-pines/pkg/meta"
+	"whispering-pines/pkg/data"
+	"whispering-pines/pkg/templates/layouts"
+)
+
+templ Scorecard() {
+	@layouts.Base(meta.New("Scorecard", "Official scorecard for Whispering Pines Golf Course - 18 holes, par 72, with yardages from all tees.")) {
+		@PageHero("Course Scorecard", "Plan your round with official yardages and handicaps")
+		<section class="py-8 sm:py-12 bg-white">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<!-- Course Info Header -->
+				<div class="text-center mb-8">
+					<h2 class="text-2xl font-bold text-[var(--pine-green)] mb-2">{ data.CourseInfo.Name }</h2>
+					<p class="text-gray-600">{ data.CourseInfo.Address }</p>
+					<p class="text-gray-600">{ data.CourseInfo.Phone }</p>
+				</div>
+
+				<!-- Course Ratings Card -->
+				<div class="bg-[var(--cream)] rounded-2xl p-6 mb-8">
+					<h3 class="text-lg font-bold text-[var(--pine-green)] mb-4 text-center">Course Ratings</h3>
+					<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+						for _, tee := range data.CourseRatings {
+							<div class="bg-white rounded-xl p-4 text-center shadow-sm">
+								<div class={ "w-4 h-4 rounded-full mx-auto mb-2", getTeeColor(tee.Name) }></div>
+								<div class="font-bold text-gray-800">{ tee.Name }</div>
+								<div class="text-sm text-gray-600">{ fmt.Sprintf("%d yds", tee.Yards) }</div>
+								<div class="text-xs text-gray-500 mt-1">
+									{ fmt.Sprintf("%.1f / %d", tee.Rating, tee.Slope) }
+								</div>
+							</div>
+						}
+					</div>
+				</div>
+
+				<!-- Scorecard Table -->
+				<div class="overflow-x-auto">
+					<table class="w-full border-collapse text-sm">
+						<!-- Header -->
+						<thead>
+							<tr class="bg-[var(--pine-green)] text-white">
+								<th class="px-2 py-3 text-left font-semibold">HOLE</th>
+								for i := 1; i <= 9; i++ {
+									<th class="px-2 py-3 text-center font-semibold w-12">{ fmt.Sprintf("%d", i) }</th>
+								}
+								<th class="px-2 py-3 text-center font-semibold bg-[var(--pine-green-dark)]">OUT</th>
+								for i := 10; i <= 18; i++ {
+									<th class="px-2 py-3 text-center font-semibold w-12">{ fmt.Sprintf("%d", i) }</th>
+								}
+								<th class="px-2 py-3 text-center font-semibold bg-[var(--pine-green-dark)]">IN</th>
+								<th class="px-2 py-3 text-center font-semibold bg-[var(--pine-green-dark)]">TOT</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- Blue Tees -->
+							<tr class="bg-blue-50 border-b border-blue-100">
+								<td class="px-2 py-2 font-semibold">
+									<span class="inline-flex items-center gap-1">
+										<span class="w-3 h-3 bg-blue-600 rounded-full"></span>
+										Blue
+									</span>
+								</td>
+								for _, hole := range data.FrontNine() {
+									<td class="px-2 py-2 text-center">{ fmt.Sprintf("%d", hole.YardageBlue) }</td>
+								}
+								<td class="px-2 py-2 text-center font-semibold bg-blue-100">{ fmt.Sprintf("%d", data.GetTotalYardageByTee(data.FrontNine(), "blue")) }</td>
+								for _, hole := range data.BackNine() {
+									<td class="px-2 py-2 text-center">{ fmt.Sprintf("%d", hole.YardageBlue) }</td>
+								}
+								<td class="px-2 py-2 text-center font-semibold bg-blue-100">{ fmt.Sprintf("%d", data.GetTotalYardageByTee(data.BackNine(), "blue")) }</td>
+								<td class="px-2 py-2 text-center font-bold bg-blue-100">{ fmt.Sprintf("%d", data.GetTotalYardageByTee(data.Holes, "blue")) }</td>
+							</tr>
+							<!-- White Tees -->
+							<tr class="bg-gray-50 border-b border-gray-100">
+								<td class="px-2 py-2 font-semibold">
+									<span class="inline-flex items-center gap-1">
+										<span class="w-3 h-3 bg-white border border-gray-400 rounded-full"></span>
+										White
+									</span>
+								</td>
+								for _, hole := range data.FrontNine() {
+									<td class="px-2 py-2 text-center">{ fmt.Sprintf("%d", hole.YardageWhite) }</td>
+								}
+								<td class="px-2 py-2 text-center font-semibold bg-gray-100">{ fmt.Sprintf("%d", data.GetTotalYardageByTee(data.FrontNine(), "white")) }</td>
+								for _, hole := range data.BackNine() {
+									<td class="px-2 py-2 text-center">{ fmt.Sprintf("%d", hole.YardageWhite) }</td>
+								}
+								<td class="px-2 py-2 text-center font-semibold bg-gray-100">{ fmt.Sprintf("%d", data.GetTotalYardageByTee(data.BackNine(), "white")) }</td>
+								<td class="px-2 py-2 text-center font-bold bg-gray-100">{ fmt.Sprintf("%d", data.GetTotalYardageByTee(data.Holes, "white")) }</td>
+							</tr>
+							<!-- Gold Tees -->
+							<tr class="bg-yellow-50 border-b border-yellow-100">
+								<td class="px-2 py-2 font-semibold">
+									<span class="inline-flex items-center gap-1">
+										<span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
+										Gold
+									</span>
+								</td>
+								for _, hole := range data.FrontNine() {
+									<td class="px-2 py-2 text-center">{ fmt.Sprintf("%d", hole.YardageGold) }</td>
+								}
+								<td class="px-2 py-2 text-center font-semibold bg-yellow-100">{ fmt.Sprintf("%d", data.GetTotalYardageByTee(data.FrontNine(), "gold")) }</td>
+								for _, hole := range data.BackNine() {
+									<td class="px-2 py-2 text-center">{ fmt.Sprintf("%d", hole.YardageGold) }</td>
+								}
+								<td class="px-2 py-2 text-center font-semibold bg-yellow-100">{ fmt.Sprintf("%d", data.GetTotalYardageByTee(data.BackNine(), "gold")) }</td>
+								<td class="px-2 py-2 text-center font-bold bg-yellow-100">{ fmt.Sprintf("%d", data.GetTotalYardageByTee(data.Holes, "gold")) }</td>
+							</tr>
+							<!-- Red Tees -->
+							<tr class="bg-red-50 border-b border-red-100">
+								<td class="px-2 py-2 font-semibold">
+									<span class="inline-flex items-center gap-1">
+										<span class="w-3 h-3 bg-red-500 rounded-full"></span>
+										Red
+									</span>
+								</td>
+								for _, hole := range data.FrontNine() {
+									<td class="px-2 py-2 text-center">{ fmt.Sprintf("%d", hole.YardageRed) }</td>
+								}
+								<td class="px-2 py-2 text-center font-semibold bg-red-100">{ fmt.Sprintf("%d", data.GetTotalYardageByTee(data.FrontNine(), "red")) }</td>
+								for _, hole := range data.BackNine() {
+									<td class="px-2 py-2 text-center">{ fmt.Sprintf("%d", hole.YardageRed) }</td>
+								}
+								<td class="px-2 py-2 text-center font-semibold bg-red-100">{ fmt.Sprintf("%d", data.GetTotalYardageByTee(data.BackNine(), "red")) }</td>
+								<td class="px-2 py-2 text-center font-bold bg-red-100">{ fmt.Sprintf("%d", data.GetTotalYardageByTee(data.Holes, "red")) }</td>
+							</tr>
+							<!-- Handicap -->
+							<tr class="bg-amber-50 border-b border-amber-200">
+								<td class="px-2 py-2 font-semibold text-amber-800">HCP</td>
+								for _, hole := range data.FrontNine() {
+									<td class="px-2 py-2 text-center text-amber-800">{ fmt.Sprintf("%d", hole.Handicap) }</td>
+								}
+								<td class="px-2 py-2 text-center bg-amber-100"></td>
+								for _, hole := range data.BackNine() {
+									<td class="px-2 py-2 text-center text-amber-800">{ fmt.Sprintf("%d", hole.Handicap) }</td>
+								}
+								<td class="px-2 py-2 text-center bg-amber-100"></td>
+								<td class="px-2 py-2 text-center bg-amber-100"></td>
+							</tr>
+							<!-- Par -->
+							<tr class="bg-[var(--pine-green)] text-white">
+								<td class="px-2 py-2 font-semibold">PAR</td>
+								for _, hole := range data.FrontNine() {
+									<td class="px-2 py-2 text-center font-semibold">{ fmt.Sprintf("%d", hole.Par) }</td>
+								}
+								<td class="px-2 py-2 text-center font-bold bg-[var(--pine-green-dark)]">{ fmt.Sprintf("%d", data.GetTotalPar(data.FrontNine())) }</td>
+								for _, hole := range data.BackNine() {
+									<td class="px-2 py-2 text-center font-semibold">{ fmt.Sprintf("%d", hole.Par) }</td>
+								}
+								<td class="px-2 py-2 text-center font-bold bg-[var(--pine-green-dark)]">{ fmt.Sprintf("%d", data.GetTotalPar(data.BackNine())) }</td>
+								<td class="px-2 py-2 text-center font-bold bg-[var(--pine-green-dark)]">{ fmt.Sprintf("%d", data.CourseInfo.TotalPar) }</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<!-- Legend -->
+				<div class="mt-6 text-center text-sm text-gray-600">
+					<p class="mb-2"><strong>HCP</strong> = Handicap (1 = most difficult, 18 = easiest)</p>
+					<p>Rating/Slope format: Course Rating / Slope Rating</p>
+				</div>
+
+				<!-- Book Tee Time CTA -->
+				<div class="mt-8 text-center">
+					<a
+						href="/booking"
+						class="inline-flex items-center gap-2 px-6 py-3 bg-[var(--accent)] text-white rounded-full hover:bg-[var(--accent-dark)] transition-colors font-semibold"
+					>
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+						</svg>
+						Book a Tee Time
+					</a>
+				</div>
+			</div>
+		</section>
+	}
+}
+
+func getTeeColor(tee string) string {
+	switch tee {
+	case "Blue":
+		return "bg-blue-600"
+	case "White":
+		return "bg-white border border-gray-400"
+	case "Gold":
+		return "bg-yellow-500"
+	case "Red":
+		return "bg-red-500"
+	default:
+		return "bg-gray-400"
+	}
+}

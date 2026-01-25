@@ -51,7 +51,7 @@ func Navigation() templ.Component {
 			var templ_7745c5c3_Var2 templ.SafeURL
 			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL("/course/hole/" + itoa(i)))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/navigation.templ`, Line: 60, Col: 57}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/components/navigation.templ`, Line: 61, Col: 57}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 			if templ_7745c5c3_Err != nil {
@@ -64,7 +64,7 @@ func Navigation() templ.Component {
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(itoa(i))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/navigation.templ`, Line: 63, Col: 24}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/components/navigation.templ`, Line: 64, Col: 24}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
@@ -75,7 +75,7 @@ func Navigation() templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</div></div></div><a href=\"/events\" class=\"px-4 py-2 text-sm font-medium transition-colors rounded-lg text-white/90 hover:text-white hover:bg-white/10\">Events</a> <a href=\"/rates\" class=\"px-4 py-2 text-sm font-medium transition-colors rounded-lg text-white/90 hover:text-white hover:bg-white/10\">Rates</a> <a href=\"/location\" class=\"px-4 py-2 text-sm font-medium transition-colors rounded-lg text-white/90 hover:text-white hover:bg-white/10\">Location</a> <a href=\"/pro-shop\" class=\"px-4 py-2 text-sm font-medium transition-colors rounded-lg text-white/90 hover:text-white hover:bg-white/10\">Pro Shop</a> <a href=\"/menu\" class=\"px-4 py-2 text-sm font-medium transition-colors rounded-lg text-white/90 hover:text-white hover:bg-white/10\">Menu</a> <a href=\"/weather\" class=\"px-4 py-2 text-sm font-medium transition-colors rounded-lg text-white/90 hover:text-white hover:bg-white/10\">Weather</a></div><!-- CTA Button --><div class=\"hidden lg:block\"><a href=\"/booking\" class=\"btn-primary px-6 py-2.5 rounded-full text-sm inline-flex items-center gap-2\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</div></div></div><a href=\"/events\" class=\"px-4 py-2 text-sm font-medium transition-colors rounded-lg text-white/90 hover:text-white hover:bg-white/10\">Events</a> <a href=\"/rates\" class=\"px-4 py-2 text-sm font-medium transition-colors rounded-lg text-white/90 hover:text-white hover:bg-white/10\">Rates</a> <a href=\"/location\" class=\"px-4 py-2 text-sm font-medium transition-colors rounded-lg text-white/90 hover:text-white hover:bg-white/10\">Location</a> <a href=\"/pro-shop\" class=\"px-4 py-2 text-sm font-medium transition-colors rounded-lg text-white/90 hover:text-white hover:bg-white/10\">Pro Shop</a> <a href=\"/menu\" class=\"px-4 py-2 text-sm font-medium transition-colors rounded-lg text-white/90 hover:text-white hover:bg-white/10\">Menu</a> <a href=\"/scorecard\" class=\"px-4 py-2 text-sm font-medium transition-colors rounded-lg text-white/90 hover:text-white hover:bg-white/10\">Scorecard</a> <a href=\"/weather\" class=\"px-4 py-2 text-sm font-medium transition-colors rounded-lg text-white/90 hover:text-white hover:bg-white/10\">Weather</a></div><!-- CTA Button --><div class=\"hidden lg:block\"><a href=\"/booking\" class=\"btn-primary px-6 py-2.5 rounded-full text-sm inline-flex items-center gap-2\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -95,7 +95,7 @@ func Navigation() templ.Component {
 			var templ_7745c5c3_Var4 templ.SafeURL
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL("/course/hole/" + itoa(i)))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/navigation.templ`, Line: 144, Col: 57}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/components/navigation.templ`, Line: 146, Col: 57}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
@@ -108,7 +108,7 @@ func Navigation() templ.Component {
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(itoa(i))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/navigation.templ`, Line: 148, Col: 20}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/components/navigation.templ`, Line: 150, Col: 20}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -119,7 +119,7 @@ func Navigation() templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</div></div></div></div><a href=\"/events\" class=\"block px-4 py-3.5 rounded-xl font-medium text-white/90 hover:bg-white/10 active:bg-white/20\" @click=\"mobileMenuOpen = false\">Events</a> <a href=\"/rates\" class=\"block px-4 py-3.5 rounded-xl font-medium text-white/90 hover:bg-white/10 active:bg-white/20\" @click=\"mobileMenuOpen = false\">Rates</a> <a href=\"/location\" class=\"block px-4 py-3.5 rounded-xl font-medium text-white/90 hover:bg-white/10 active:bg-white/20\" @click=\"mobileMenuOpen = false\">Location</a> <a href=\"/pro-shop\" class=\"block px-4 py-3.5 rounded-xl font-medium text-white/90 hover:bg-white/10 active:bg-white/20\" @click=\"mobileMenuOpen = false\">Pro Shop</a> <a href=\"/menu\" class=\"block px-4 py-3.5 rounded-xl font-medium text-white/90 hover:bg-white/10 active:bg-white/20\" @click=\"mobileMenuOpen = false\">Menu</a> <a href=\"/weather\" class=\"block px-4 py-3.5 rounded-xl font-medium text-white/90 hover:bg-white/10 active:bg-white/20\" @click=\"mobileMenuOpen = false\">Weather</a><div class=\"pt-4\"><a href=\"/booking\" class=\"block w-full btn-primary px-6 py-4 rounded-full font-semibold text-center text-lg\" @click=\"mobileMenuOpen = false\">Book Tee Time</a></div><div class=\"pt-6 border-t border-white/10 mt-4\"><a href=\"tel:7152894653\" class=\"flex items-center gap-3 px-4 py-3 text-white/80 hover:text-white active:text-[var(--accent)]\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</div></div></div></div><a href=\"/events\" class=\"block px-4 py-3.5 rounded-xl font-medium text-white/90 hover:bg-white/10 active:bg-white/20\" @click=\"mobileMenuOpen = false\">Events</a> <a href=\"/rates\" class=\"block px-4 py-3.5 rounded-xl font-medium text-white/90 hover:bg-white/10 active:bg-white/20\" @click=\"mobileMenuOpen = false\">Rates</a> <a href=\"/location\" class=\"block px-4 py-3.5 rounded-xl font-medium text-white/90 hover:bg-white/10 active:bg-white/20\" @click=\"mobileMenuOpen = false\">Location</a> <a href=\"/pro-shop\" class=\"block px-4 py-3.5 rounded-xl font-medium text-white/90 hover:bg-white/10 active:bg-white/20\" @click=\"mobileMenuOpen = false\">Pro Shop</a> <a href=\"/menu\" class=\"block px-4 py-3.5 rounded-xl font-medium text-white/90 hover:bg-white/10 active:bg-white/20\" @click=\"mobileMenuOpen = false\">Menu</a> <a href=\"/scorecard\" class=\"block px-4 py-3.5 rounded-xl font-medium text-white/90 hover:bg-white/10 active:bg-white/20\" @click=\"mobileMenuOpen = false\">Scorecard</a> <a href=\"/weather\" class=\"block px-4 py-3.5 rounded-xl font-medium text-white/90 hover:bg-white/10 active:bg-white/20\" @click=\"mobileMenuOpen = false\">Weather</a><div class=\"pt-4\"><a href=\"/booking\" class=\"block w-full btn-primary px-6 py-4 rounded-full font-semibold text-center text-lg\" @click=\"mobileMenuOpen = false\">Book Tee Time</a></div><div class=\"pt-6 border-t border-white/10 mt-4\"><a href=\"tel:7152894653\" class=\"flex items-center gap-3 px-4 py-3 text-white/80 hover:text-white active:text-[var(--accent)]\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
