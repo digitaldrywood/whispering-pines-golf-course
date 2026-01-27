@@ -168,32 +168,28 @@ templ holeInfo(hole data.HoleData) {
 
 templ holeNavigationArrows(currentHole int) {
 	<!-- Fixed navigation arrows -->
-	<div class="fixed top-1/2 -translate-y-1/2 left-4 z-50 hidden lg:block">
-		if currentHole > 1 {
-			<a
-				href={ templ.SafeURL(fmt.Sprintf("/course/hole/%d", currentHole-1)) }
-				class="w-12 h-12 bg-[var(--pine-green)] hover:bg-[var(--accent)] text-white rounded-full flex items-center justify-center shadow-lg transition-colors"
-				title={ fmt.Sprintf("Previous: Hole %d", currentHole-1) }
-			>
-				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-				</svg>
-			</a>
-		}
-	</div>
-	<div class="fixed top-1/2 -translate-y-1/2 right-4 z-50 hidden lg:block">
-		if currentHole < 18 {
-			<a
-				href={ templ.SafeURL(fmt.Sprintf("/course/hole/%d", currentHole+1)) }
-				class="w-12 h-12 bg-[var(--pine-green)] hover:bg-[var(--accent)] text-white rounded-full flex items-center justify-center shadow-lg transition-colors"
-				title={ fmt.Sprintf("Next: Hole %d", currentHole+1) }
-			>
-				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-				</svg>
-			</a>
-		}
-	</div>
+	if currentHole > 1 {
+		<a
+			href={ templ.SafeURL(fmt.Sprintf("/course/hole/%d", currentHole-1)) }
+			class="fixed top-1/2 -translate-y-1/2 left-2 sm:left-4 z-50 w-10 h-10 sm:w-12 sm:h-12 bg-[var(--pine-green)] hover:bg-[var(--accent)] text-white rounded-full flex items-center justify-center shadow-lg transition-colors"
+			title={ fmt.Sprintf("Previous: Hole %d", currentHole-1) }
+		>
+			<svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+			</svg>
+		</a>
+	}
+	if currentHole < 18 {
+		<a
+			href={ templ.SafeURL(fmt.Sprintf("/course/hole/%d", currentHole+1)) }
+			class="fixed top-1/2 -translate-y-1/2 right-2 sm:right-4 z-50 w-10 h-10 sm:w-12 sm:h-12 bg-[var(--pine-green)] hover:bg-[var(--accent)] text-white rounded-full flex items-center justify-center shadow-lg transition-colors"
+			title={ fmt.Sprintf("Next: Hole %d", currentHole+1) }
+		>
+			<svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+			</svg>
+		</a>
+	}
 	<!-- Keyboard navigation script -->
 	<script>
 		document.addEventListener('keydown', function(e) {
