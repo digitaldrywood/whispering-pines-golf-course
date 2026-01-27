@@ -51,26 +51,63 @@ func Events() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, " <section class=\"py-12 sm:py-24 bg-white\"><div class=\"max-w-4xl mx-auto px-4 sm:px-6 lg:px-8\"><!-- Featured Image --><div class=\"mb-12 rounded-2xl overflow-hidden shadow-lg\"><img src=\"/static/images/features/events.jpg\" alt=\"Golf Events at Whispering Pines\" class=\"w-full h-64 sm:h-80 object-cover\"></div><div class=\"grid md:grid-cols-2 gap-8\"><div class=\"lux-card rounded-2xl p-8\"><h3 class=\"text-2xl font-bold text-[var(--pine-green)] mb-4\">Golf Leagues</h3><p class=\"text-gray-600 mb-4\">Join our active golf leagues and compete with fellow enthusiasts. We offer leagues for all skill levels throughout the season.</p><a href=\"tel:7152894653\" class=\"text-[var(--accent)] font-semibold hover:underline\">Call to Join</a></div><div class=\"lux-card rounded-2xl p-8\"><h3 class=\"text-2xl font-bold text-[var(--pine-green)] mb-4\">Private Events</h3><p class=\"text-gray-600 mb-4\">Host your corporate outing, charity tournament, or private party at our beautiful facility. We handle all the details.</p><a href=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, " <!-- Featured Image --> <section class=\"pt-12 sm:pt-16 bg-white\"><div class=\"max-w-4xl mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"rounded-2xl overflow-hidden shadow-lg\"><img src=\"/static/images/features/events.jpg\" alt=\"Golf Events at Whispering Pines\" class=\"w-full h-64 sm:h-80 object-cover\"></div></div></section><!-- Event Booking Request Form --> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var3 templ.SafeURL
-			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL("mailto:" + data.CourseInfo.Email))
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/events.templ`, Line: 37, Col: 64}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
+			templ_7745c5c3_Err = eventBookingForm().Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "\" class=\"text-[var(--accent)] font-semibold hover:underline\">Request Info</a></div></div></div></section>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, " <!-- Info Cards --> <section class=\"py-12 sm:py-24 bg-white\"><div class=\"max-w-4xl mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"grid md:grid-cols-2 gap-8\"><div class=\"lux-card rounded-2xl p-8\"><h3 class=\"text-2xl font-bold text-[var(--pine-green)] mb-4\">Golf Leagues</h3><p class=\"text-gray-600 mb-4\">Join our active golf leagues and compete with fellow enthusiasts. We offer leagues for all skill levels throughout the season.</p><a href=\"tel:7152894653\" class=\"text-[var(--accent)] font-semibold hover:underline\">Call to Join</a></div><div class=\"lux-card rounded-2xl p-8\"><h3 class=\"text-2xl font-bold text-[var(--pine-green)] mb-4\">Private Events</h3><p class=\"text-gray-600 mb-4\">Host your corporate outing, charity tournament, or private party at our beautiful facility. We handle all the details.</p><a href=\"#booking-form\" class=\"text-[var(--accent)] font-semibold hover:underline\">Fill Out the Form Above</a></div></div></div></section>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layouts.Base(meta.New("Events and Leagues", "Join golf leagues and host events.")).Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layouts.Base(meta.New("Events and Leagues", "Join golf leagues and host events at Whispering Pines Golf Course. Perfect venue for weddings, corporate outings, birthday parties, and more.")).Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		return nil
+	})
+}
+
+func eventBookingForm() templ.Component {
+	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
+			return templ_7745c5c3_CtxErr
+		}
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+		if !templ_7745c5c3_IsBuffer {
+			defer func() {
+				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err == nil {
+					templ_7745c5c3_Err = templ_7745c5c3_BufErr
+				}
+			}()
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var3 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var3 == nil {
+			templ_7745c5c3_Var3 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<section id=\"booking-form\" class=\"py-12 sm:py-24 bg-gradient-to-b from-[var(--cream)] to-white\"><div class=\"max-w-3xl mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"text-center mb-10\"><span class=\"text-[var(--accent)] font-semibold tracking-wider uppercase text-sm\">Book Your Event</span><h2 class=\"text-3xl sm:text-4xl font-bold text-[var(--pine-green)] mt-3 mb-4\">Event Booking Request</h2><p class=\"text-gray-600 max-w-2xl mx-auto\">Whispering Pines Golf Course is the PERFECT venue for a wide range of events! Please complete the form below to receive details and a no-obligation quote.</p></div><div class=\"lux-card rounded-2xl p-6 sm:p-10 shadow-xl\"><form action=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var4 templ.SafeURL
+		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL("mailto:" + data.CourseInfo.Email))
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/events.templ`, Line: 70, Col: 62}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\" method=\"POST\" enctype=\"text/plain\" class=\"space-y-6\" x-data=\"{ eventType: '' }\"><!-- Name --><div><label for=\"name\" class=\"block text-sm font-semibold text-[var(--pine-green)] mb-2\">Name <span class=\"text-[var(--accent)]\">*</span></label> <input type=\"text\" id=\"name\" name=\"name\" required placeholder=\"Your full name\" class=\"w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 outline-none transition-all\"></div><!-- Email & Phone Row --><div class=\"grid sm:grid-cols-2 gap-6\"><div><label for=\"email\" class=\"block text-sm font-semibold text-[var(--pine-green)] mb-2\">Email <span class=\"text-[var(--accent)]\">*</span></label> <input type=\"email\" id=\"email\" name=\"email\" required placeholder=\"your@email.com\" class=\"w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 outline-none transition-all\"></div><div><label for=\"phone\" class=\"block text-sm font-semibold text-[var(--pine-green)] mb-2\">Phone <span class=\"text-[var(--accent)]\">*</span></label> <input type=\"tel\" id=\"phone\" name=\"phone\" required placeholder=\"(555) 555-5555\" class=\"w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 outline-none transition-all\"></div></div><!-- Event Type --><div><label for=\"event-type\" class=\"block text-sm font-semibold text-[var(--pine-green)] mb-2\">Type of Event <span class=\"text-[var(--accent)]\">*</span></label> <select id=\"event-type\" name=\"event_type\" required x-model=\"eventType\" class=\"w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 outline-none transition-all bg-white\"><option value=\"\">Select event type...</option> <option value=\"Wedding\">Wedding</option> <option value=\"Kids Birthday Party\">Kids Birthday Party</option> <option value=\"Adult Birthday Party\">Adult Birthday Party</option> <option value=\"Youth Club Party\">Youth Club Party</option> <option value=\"Holiday Party\">Holiday Party</option> <option value=\"Bridal Shower\">Bridal Shower</option> <option value=\"Baby Shower\">Baby Shower</option> <option value=\"Anniversary Party\">Anniversary Party</option> <option value=\"Retirement Party\">Retirement Party</option> <option value=\"Graduation Party\">Graduation Party</option> <option value=\"Celebration of Life\">Celebration of Life</option> <option value=\"Company Golf Outing\">Company Golf Outing</option> <option value=\"Team Building / Meeting\">Team Building / Meeting</option> <option value=\"Other\">Other (explain in comments)</option></select></div><!-- Date, Time, Guests Row --><div class=\"grid sm:grid-cols-3 gap-6\"><div><label for=\"event-date\" class=\"block text-sm font-semibold text-[var(--pine-green)] mb-2\">Preferred Date <span class=\"text-[var(--accent)]\">*</span></label> <input type=\"date\" id=\"event-date\" name=\"event_date\" required class=\"w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 outline-none transition-all\"></div><div><label for=\"event-time\" class=\"block text-sm font-semibold text-[var(--pine-green)] mb-2\">Start Time <span class=\"text-[var(--accent)]\">*</span></label> <input type=\"time\" id=\"event-time\" name=\"event_time\" required class=\"w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 outline-none transition-all\"></div><div><label for=\"guests\" class=\"block text-sm font-semibold text-[var(--pine-green)] mb-2\"># of Guests <span class=\"text-[var(--accent)]\">*</span></label> <input type=\"number\" id=\"guests\" name=\"number_of_guests\" required min=\"1\" placeholder=\"25\" class=\"w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 outline-none transition-all\"></div></div><!-- Questions / Comments --><div><label for=\"comments\" class=\"block text-sm font-semibold text-[var(--pine-green)] mb-2\">Questions & Additional Information</label> <textarea id=\"comments\" name=\"comments\" rows=\"4\" placeholder=\"Tell us more about your event, special requests, or any questions you have...\" class=\"w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 outline-none transition-all resize-none\"></textarea></div><!-- Submit Button --><div class=\"pt-4\"><button type=\"submit\" class=\"w-full btn-primary px-8 py-4 rounded-full text-lg font-semibold inline-flex items-center justify-center gap-2\"><svg class=\"w-5 h-5\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z\"></path></svg> Submit Booking Request</button></div><!-- Note --><p class=\"text-sm text-gray-500 text-center\">Our Events Coordinator will get back to you within 72 hours. If you do not receive an email, please check your spam folder or call <a href=\"tel:7152894653\" class=\"text-[var(--accent)] font-semibold hover:underline\">(715) 289-4653</a>.</p></form></div></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
