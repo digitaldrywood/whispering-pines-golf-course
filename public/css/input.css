@@ -410,3 +410,17 @@ button:focus-visible {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Mobile menu transform utilities (for Alpine.js) */
+.translate-x-0 {
+  transform: translateX(0);
+}
+
+.translate-x-full {
+  transform: translateX(100%);
+}
+
+/* Alpine.js cloak */
+[x-cloak] {
+  display: none !important;
+}

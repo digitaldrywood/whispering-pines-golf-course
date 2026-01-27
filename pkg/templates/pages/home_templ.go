@@ -157,33 +157,69 @@ func heroSection() templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "<section class=\"relative h-[100svh] min-h-[600px] flex items-center justify-center overflow-hidden group\"><!-- Background Image --><div class=\"absolute inset-0\"><img src=\"/static/images/slider/slider-1.jpg\" alt=\"Whispering Pines Golf Course\" class=\"w-full h-full object-cover\"></div><div class=\"absolute inset-0 hero-overlay z-10\"></div><!-- Decorative Elements --><div class=\"absolute top-0 left-0 w-64 h-64 bg-[var(--accent)]/10 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl z-10\"></div><div class=\"absolute bottom-0 right-0 w-96 h-96 bg-[var(--pine-green)]/20 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl z-10\"></div><!-- Content --><div class=\"relative z-20 text-center text-white px-4 sm:px-6 max-w-5xl mx-auto pt-16 sm:pt-0\"><div class=\"animate-fade-in\"><span class=\"inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm tracking-wider uppercase mb-6 border border-white/20\">Cadott, Wisconsin</span></div><h1 class=\"text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4 sm:mb-6 animate-fade-in animate-delay-100 text-shadow-lg\">Whispering Pines</h1><p class=\"text-xl sm:text-2xl md:text-3xl font-light mb-3 animate-fade-in animate-delay-200 text-white/90\">Golf Course</p><p class=\"text-[var(--accent)] text-lg sm:text-xl italic mb-8 animate-fade-in animate-delay-200\">\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "<section class=\"relative min-h-[100svh] flex items-center justify-center overflow-hidden\" x-data=\"{ currentSlide: 0, totalSlides: 6 }\" x-init=\"setInterval(() => { currentSlide = (currentSlide + 1) % totalSlides }, 5000)\"><!-- Background Images - Rotating Slider --><div class=\"absolute top-0 left-0 right-0 bottom-0 w-full h-full\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var4 string
-		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(data.CourseInfo.Tagline)
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 55, Col: 30}
+		for i := 1; i <= 6; i++ {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "<img src=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var4 string
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("/static/images/slider/slider-%d.jpg", i))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 37, Col: 64}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "\" alt=\"Whispering Pines Golf Course\" class=\"absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000\" style=\"min-height: 100%; min-width: 100%;\" x-bind:class=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var5 string
+			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("currentSlide === %d ? 'opacity-100' : 'opacity-0'", i-1))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 41, Col: 89}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</div><div class=\"absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70 z-10\"></div><!-- Content --><div class=\"relative z-20 text-center text-white px-4 sm:px-6 max-w-5xl mx-auto pt-20 pb-24 sm:pt-0 sm:pb-0\"><div class=\"animate-fade-in\"><span class=\"inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-sm rounded-full text-xs sm:text-sm tracking-wider uppercase mb-4 sm:mb-6 border border-white/20\">Cadott, Wisconsin</span></div><h1 class=\"text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-2 sm:mb-4 animate-fade-in animate-delay-100 drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] leading-tight\">Whispering Pines</h1><p class=\"text-xl sm:text-3xl md:text-4xl font-semibold mb-2 sm:mb-3 animate-fade-in animate-delay-200 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]\">Golf Course</p><p class=\"text-[var(--accent)] text-lg sm:text-2xl italic font-semibold mb-4 sm:mb-8 animate-fade-in animate-delay-200 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]\">\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "\"</p><p class=\"text-base sm:text-lg text-white/70 max-w-2xl mx-auto mb-10 animate-fade-in animate-delay-300\">Experience premier 18-hole golf in Wisconsin's beautiful Chippewa Valley. Just 12 miles east of Eau Claire.</p><div class=\"flex flex-col sm:flex-row gap-4 justify-center animate-fade-in animate-delay-400\"><a href=\"")
+		var templ_7745c5c3_Var6 string
+		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(data.CourseInfo.Tagline)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 60, Col: 30}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var5 templ.SafeURL
-		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL(data.BookingURL))
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 61, Col: 44}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "\"</p><p class=\"text-base sm:text-xl text-white/90 font-medium max-w-2xl mx-auto mb-6 sm:mb-10 animate-fade-in animate-delay-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] px-2\">Experience premier 18-hole golf in Wisconsin's beautiful Chippewa Valley. Just 12 miles east of Eau Claire.</p><div class=\"flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-fade-in animate-delay-400 px-2\"><a href=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-primary px-8 py-4 rounded-full text-lg inline-flex items-center justify-center gap-3 shadow-lg\">")
+		var templ_7745c5c3_Var7 templ.SafeURL
+		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL(data.BookingURL))
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 66, Col: 44}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-primary px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-base sm:text-lg inline-flex items-center justify-center gap-2 sm:gap-3 shadow-lg touch-manipulation\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -191,7 +227,7 @@ func heroSection() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "Book Tee Time</a> <a href=\"/course\" class=\"btn-outline px-8 py-4 rounded-full text-lg inline-flex items-center justify-center gap-3\">Explore Course")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "Book Tee Time</a> <a href=\"/course\" class=\"btn-outline px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-base sm:text-lg inline-flex items-center justify-center gap-2 sm:gap-3 touch-manipulation\">Explore Course")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -199,7 +235,7 @@ func heroSection() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</a></div></div><!-- Scroll Indicator --><div class=\"absolute bottom-8 left-1/2 -translate-x-1/2 z-20 hidden sm:block animate-bounce\"><div class=\"w-8 h-12 border-2 border-white/30 rounded-full flex items-start justify-center p-2\"><div class=\"w-1.5 h-3 bg-white/60 rounded-full animate-pulse\"></div></div></div></section>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</a></div></div><!-- Scroll Indicator --><div class=\"absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce\"><div class=\"w-7 h-10 sm:w-8 sm:h-12 border-2 border-white/30 rounded-full flex items-start justify-center p-1.5 sm:p-2\"><div class=\"w-1 h-2 sm:w-1.5 sm:h-3 bg-white/60 rounded-full animate-pulse\"></div></div></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -223,12 +259,12 @@ func quickInfo() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var6 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var6 == nil {
-			templ_7745c5c3_Var6 = templ.NopComponent
+		templ_7745c5c3_Var8 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var8 == nil {
+			templ_7745c5c3_Var8 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "<section class=\"bg-gradient-to-b from-[var(--pine-green)] to-[var(--pine-green-dark)] py-6\"><div class=\"max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "<section class=\"bg-gradient-to-b from-[var(--pine-green)] to-[var(--pine-green-dark)] py-6\"><div class=\"max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -248,7 +284,7 @@ func quickInfo() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</div></div></section>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</div></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -272,12 +308,12 @@ func statItem(value, label, iconType string) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var7 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var7 == nil {
-			templ_7745c5c3_Var7 = templ.NopComponent
+		templ_7745c5c3_Var9 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var9 == nil {
+			templ_7745c5c3_Var9 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "<div class=\"text-center py-4\"><div class=\"inline-flex items-center gap-3\"><div class=\"hidden sm:block\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "<div class=\"text-center py-4\"><div class=\"inline-flex items-center gap-3\"><div class=\"hidden sm:block\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -302,33 +338,33 @@ func statItem(value, label, iconType string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</div><div><div class=\"text-3xl sm:text-4xl font-bold text-white\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "</div><div><div class=\"text-3xl sm:text-4xl font-bold text-white\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var8 string
-		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(value)
+		var templ_7745c5c3_Var10 string
+		templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(value)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 108, Col: 66}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 113, Col: 66}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "</div><div class=\"text-white/60 uppercase tracking-wider text-xs sm:text-sm\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var9 string
-		templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(label)
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 109, Col: 82}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "</div><div class=\"text-white/60 uppercase tracking-wider text-xs sm:text-sm\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</div></div></div></div>")
+		var templ_7745c5c3_Var11 string
+		templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(label)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 114, Col: 82}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "</div></div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -352,25 +388,25 @@ func welcomeSection() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var10 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var10 == nil {
-			templ_7745c5c3_Var10 = templ.NopComponent
+		templ_7745c5c3_Var12 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var12 == nil {
+			templ_7745c5c3_Var12 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "<section class=\"py-12 sm:py-24 bg-white\"><div class=\"max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"grid lg:grid-cols-2 gap-8 lg:gap-20 items-center\"><div><span class=\"text-[var(--accent)] font-semibold tracking-wider uppercase text-sm\">Welcome to Whispering Pines</span><h2 class=\"text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--pine-green)] mt-3 mb-6\">A Championship Experience in the Heart of Wisconsin</h2><p class=\"text-gray-600 text-lg leading-relaxed mb-6\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "<section class=\"py-12 sm:py-24 bg-white\"><div class=\"max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"grid lg:grid-cols-2 gap-8 lg:gap-20 items-center\"><div><span class=\"text-[var(--accent)] font-semibold tracking-wider uppercase text-sm\">Welcome to Whispering Pines</span><h2 class=\"text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--pine-green)] mt-3 mb-6\">A Championship Experience in the Heart of Wisconsin</h2><p class=\"text-gray-600 text-lg leading-relaxed mb-6\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var11 string
-		templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(data.CourseInfo.Description)
+		var templ_7745c5c3_Var13 string
+		templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(data.CourseInfo.Description)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 127, Col: 35}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 132, Col: 35}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "</p><p class=\"text-gray-600 leading-relaxed mb-8\">Our course features challenging holes through towering 50-year-old pine trees, strategic water hazards, and meticulously maintained greens that will test golfers of all skill levels.</p><div class=\"space-y-4 mb-8\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "</p><p class=\"text-gray-600 leading-relaxed mb-8\">Our course features challenging holes through towering 50-year-old pine trees, strategic water hazards, and meticulously maintained greens that will test golfers of all skill levels.</p><div class=\"space-y-4 mb-8\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -390,7 +426,7 @@ func welcomeSection() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "</div><a href=\"/course\" class=\"btn-primary px-8 py-4 rounded-full inline-flex items-center gap-2\">View All 18 Holes")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "</div><a href=\"/course\" class=\"btn-primary px-8 py-4 rounded-full inline-flex items-center gap-2\">View All 18 Holes")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -398,7 +434,7 @@ func welcomeSection() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "</a></div><div class=\"relative\"><div class=\"grid grid-cols-2 gap-4\"><div class=\"space-y-4\"><div class=\"rounded-2xl overflow-hidden shadow-lg\"><img src=\"/static/images/holes/hole-8.jpg\" alt=\"Hole 8\" class=\"w-full h-48 sm:h-64 object-cover img-zoom\"></div><div class=\"rounded-2xl overflow-hidden shadow-lg\"><img src=\"/static/images/holes/hole-3.jpg\" alt=\"Hole 3\" class=\"w-full h-32 sm:h-40 object-cover img-zoom\"></div></div><div class=\"space-y-4 pt-8\"><div class=\"rounded-2xl overflow-hidden shadow-lg\"><img src=\"/static/images/holes/hole-14.jpg\" alt=\"Hole 14\" class=\"w-full h-32 sm:h-40 object-cover img-zoom\"></div><div class=\"rounded-2xl overflow-hidden shadow-lg\"><img src=\"/static/images/holes/hole-9.jpg\" alt=\"Hole 9\" class=\"w-full h-48 sm:h-64 object-cover img-zoom\"></div></div></div><div class=\"absolute -bottom-6 -left-6 bg-[var(--accent)] text-white p-6 rounded-2xl shadow-xl hidden lg:block\"><div class=\"text-4xl font-bold\">50+</div><div class=\"text-sm\">Years of Excellence</div></div></div></div></div></section>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 28, "</a></div><div class=\"relative\"><div class=\"grid grid-cols-2 gap-4\"><div class=\"space-y-4\"><div class=\"rounded-2xl overflow-hidden shadow-lg\"><img src=\"/static/images/holes/hole-8.jpg\" alt=\"Hole 8\" class=\"w-full h-48 sm:h-64 object-cover img-zoom\"></div><div class=\"rounded-2xl overflow-hidden shadow-lg\"><img src=\"/static/images/holes/hole-3.jpg\" alt=\"Hole 3\" class=\"w-full h-32 sm:h-40 object-cover img-zoom\"></div></div><div class=\"space-y-4 pt-8\"><div class=\"rounded-2xl overflow-hidden shadow-lg\"><img src=\"/static/images/holes/hole-14.jpg\" alt=\"Hole 14\" class=\"w-full h-32 sm:h-40 object-cover img-zoom\"></div><div class=\"rounded-2xl overflow-hidden shadow-lg\"><img src=\"/static/images/holes/hole-9.jpg\" alt=\"Hole 9\" class=\"w-full h-48 sm:h-64 object-cover img-zoom\"></div></div></div><div class=\"absolute -bottom-6 -left-6 bg-[var(--accent)] text-white p-6 rounded-2xl shadow-xl hidden lg:block\"><div class=\"text-4xl font-bold\">50+</div><div class=\"text-sm\">Years of Excellence</div></div></div></div></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -422,12 +458,12 @@ func featureItem(text string) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var12 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var12 == nil {
-			templ_7745c5c3_Var12 = templ.NopComponent
+		templ_7745c5c3_Var14 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var14 == nil {
+			templ_7745c5c3_Var14 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "<div class=\"flex items-center gap-3\"><div class=\"w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center flex-shrink-0\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 29, "<div class=\"flex items-center gap-3\"><div class=\"w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center flex-shrink-0\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -435,20 +471,20 @@ func featureItem(text string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "</div><span class=\"text-gray-700\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 30, "</div><span class=\"text-gray-700\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var13 string
-		templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(text)
+		var templ_7745c5c3_Var15 string
+		templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(text)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 177, Col: 36}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 182, Col: 36}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "</span></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 31, "</span></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -472,12 +508,12 @@ func featuredHoles() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var14 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var14 == nil {
-			templ_7745c5c3_Var14 = templ.NopComponent
+		templ_7745c5c3_Var16 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var16 == nil {
+			templ_7745c5c3_Var16 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 28, "<section class=\"py-12 sm:py-24 bg-gradient-to-b from-[var(--cream)] to-white\"><div class=\"max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"text-center mb-8 sm:mb-12\"><span class=\"text-[var(--accent)] font-semibold tracking-wider uppercase text-sm\">Course Highlights</span><h2 class=\"text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--pine-green)] mt-3 mb-4\">Featured Holes</h2><p class=\"text-gray-600 max-w-2xl mx-auto px-4 sm:px-0\">Discover what makes Whispering Pines one of the finest courses in the Chippewa Valley.</p></div><div class=\"grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 32, "<section class=\"py-12 sm:py-24 bg-gradient-to-b from-[var(--cream)] to-white\"><div class=\"max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"text-center mb-8 sm:mb-12\"><span class=\"text-[var(--accent)] font-semibold tracking-wider uppercase text-sm\">Course Highlights</span><h2 class=\"text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--pine-green)] mt-3 mb-4\">Featured Holes</h2><p class=\"text-gray-600 max-w-2xl mx-auto px-4 sm:px-0\">Discover what makes Whispering Pines one of the finest courses in the Chippewa Valley.</p></div><div class=\"grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -497,7 +533,7 @@ func featuredHoles() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 29, "</div><div class=\"text-center mt-10\"><a href=\"/course\" class=\"btn-secondary px-8 py-4 rounded-full inline-flex items-center gap-2\">View All 18 Holes")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 33, "</div><div class=\"text-center mt-10\"><a href=\"/course\" class=\"btn-secondary px-8 py-4 rounded-full inline-flex items-center gap-2\">View All 18 Holes")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -505,7 +541,7 @@ func featuredHoles() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 30, "</a></div></div></section>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "</a></div></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -529,113 +565,113 @@ func holeCard(hole data.HoleData) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var15 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var15 == nil {
-			templ_7745c5c3_Var15 = templ.NopComponent
+		templ_7745c5c3_Var17 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var17 == nil {
+			templ_7745c5c3_Var17 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 31, "<a href=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 35, "<a href=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var16 templ.SafeURL
-		templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL(fmt.Sprintf("/course/hole/%d", hole.Number)))
+		var templ_7745c5c3_Var18 templ.SafeURL
+		templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL(fmt.Sprintf("/course/hole/%d", hole.Number)))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 212, Col: 69}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 32, "\" class=\"group lux-card rounded-2xl overflow-hidden shadow-md card-hover\"><div class=\"relative h-48 overflow-hidden\"><img src=\"")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		var templ_7745c5c3_Var17 string
-		templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("/static/images/holes/hole-%d.jpg", hole.Number))
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 215, Col: 70}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 33, "\" alt=\"")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		var templ_7745c5c3_Var18 string
-		templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("Hole %d", hole.Number))
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 216, Col: 45}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 217, Col: 69}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "\" class=\"w-full h-full object-cover transition-transform duration-500 group-hover:scale-110\"><div class=\"absolute inset-0 bg-gradient-to-t from-black/60 to-transparent\"></div><div class=\"absolute top-4 right-4 w-12 h-12 bg-[var(--accent)] rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 36, "\" class=\"group lux-card rounded-2xl overflow-hidden shadow-md card-hover\"><div class=\"relative h-48 overflow-hidden\"><img src=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var19 string
-		templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(hole.Number))
+		templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("/static/images/holes/hole-%d.jpg", hole.Number))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 221, Col: 31}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 220, Col: 70}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 35, "</div>")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		if hole.Signature {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 36, "<div class=\"absolute top-4 left-4 bg-[var(--pine-green)] text-white px-3 py-1 rounded-full text-xs font-semibold\">Signature</div>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 37, "</div><div class=\"p-3 sm:p-5\"><div class=\"flex items-center justify-between mb-1 sm:mb-2\"><span class=\"text-[var(--accent)] font-bold text-sm sm:text-base\">Par ")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 37, "\" alt=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var20 string
-		templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(hole.Par))
+		templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("Hole %d", hole.Number))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 231, Col: 98}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 221, Col: 45}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 38, "</span> <span class=\"text-gray-500 text-xs sm:text-sm\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 38, "\" class=\"w-full h-full object-cover transition-transform duration-500 group-hover:scale-110\"><div class=\"absolute inset-0 bg-gradient-to-t from-black/60 to-transparent\"></div><div class=\"absolute top-4 right-4 w-12 h-12 bg-[var(--accent)] rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var21 string
-		templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(hole.GetYardage()))
+		templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(hole.Number))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 232, Col: 84}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 226, Col: 31}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 39, " yds</span></div><p class=\"text-gray-600 text-xs sm:text-sm line-clamp-2 mb-2 sm:mb-3 hidden sm:block\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 39, "</div>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		if hole.Signature {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 40, "<div class=\"absolute top-4 left-4 bg-[var(--pine-green)] text-white px-3 py-1 rounded-full text-xs font-semibold\">Signature</div>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 41, "</div><div class=\"p-3 sm:p-5\"><div class=\"flex items-center justify-between mb-1 sm:mb-2\"><span class=\"text-[var(--accent)] font-bold text-sm sm:text-base\">Par ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var22 string
-		templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(truncateDescription(hole.Description))
+		templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(hole.Par))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 235, Col: 43}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 236, Col: 98}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 40, "</p><span class=\"text-[var(--pine-green)] font-semibold text-xs sm:text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all\">View Details")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 42, "</span> <span class=\"text-gray-500 text-xs sm:text-sm\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var23 string
+		templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(hole.GetYardage()))
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 237, Col: 84}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 43, " yds</span></div><p class=\"text-gray-600 text-xs sm:text-sm line-clamp-2 mb-2 sm:mb-3 hidden sm:block\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var24 string
+		templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(truncateDescription(hole.Description))
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 240, Col: 43}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 44, "</p><span class=\"text-[var(--pine-green)] font-semibold text-xs sm:text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all\">View Details")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -643,7 +679,7 @@ func holeCard(hole data.HoleData) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 41, "</span></div></a>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 45, "</span></div></a>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -667,12 +703,12 @@ func photoGallery() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var23 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var23 == nil {
-			templ_7745c5c3_Var23 = templ.NopComponent
+		templ_7745c5c3_Var25 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var25 == nil {
+			templ_7745c5c3_Var25 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 42, "<section class=\"py-12 sm:py-24 bg-gradient-to-b from-[var(--pine-green)] to-[var(--pine-green-dark)]\"><div class=\"max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"text-center mb-8 sm:mb-12\"><span class=\"text-[var(--accent)] font-semibold tracking-wider uppercase text-sm\">Gallery</span><h2 class=\"text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-3 mb-4\">Scenic Views</h2><p class=\"text-white/70 max-w-2xl mx-auto px-4 sm:px-0\">Take a visual tour of our beautiful course and see what awaits you.</p></div><div class=\"grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4\"><div class=\"relative overflow-hidden rounded-lg sm:rounded-xl group md:col-span-2 md:row-span-2\"><img src=\"/static/images/holes/hole-8.jpg\" alt=\"Hole 8 - Signature Hole\" class=\"w-full h-48 md:h-full md:min-h-[400px] object-cover transition-transform duration-700 group-hover:scale-110\"><div class=\"absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300\"></div><div class=\"absolute bottom-0 left-0 right-0 p-2 sm:p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300\"><p class=\"text-white font-medium text-shadow text-sm sm:text-base\">Hole 8 - Signature Hole</p></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 46, "<section class=\"py-12 sm:py-24 bg-gradient-to-b from-[var(--pine-green)] to-[var(--pine-green-dark)]\"><div class=\"max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"text-center mb-8 sm:mb-12\"><span class=\"text-[var(--accent)] font-semibold tracking-wider uppercase text-sm\">Gallery</span><h2 class=\"text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-3 mb-4\">Scenic Views</h2><p class=\"text-white/70 max-w-2xl mx-auto px-4 sm:px-0\">Take a visual tour of our beautiful course and see what awaits you.</p></div><div class=\"grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4\"><div class=\"relative overflow-hidden rounded-lg sm:rounded-xl group md:col-span-2 md:row-span-2\"><img src=\"/static/images/holes/hole-8.jpg\" alt=\"Hole 8 - Signature Hole\" class=\"w-full h-48 md:h-full md:min-h-[400px] object-cover transition-transform duration-700 group-hover:scale-110\"><div class=\"absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300\"></div><div class=\"absolute bottom-0 left-0 right-0 p-2 sm:p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300\"><p class=\"text-white font-medium text-shadow text-sm sm:text-base\">Hole 8 - Signature Hole</p></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -692,7 +728,7 @@ func photoGallery() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 43, "</div></div></section>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 47, "</div></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -716,51 +752,51 @@ func galleryImage(src, alt string) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var24 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var24 == nil {
-			templ_7745c5c3_Var24 = templ.NopComponent
+		templ_7745c5c3_Var26 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var26 == nil {
+			templ_7745c5c3_Var26 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 44, "<div class=\"relative overflow-hidden rounded-lg sm:rounded-xl group\"><img src=\"")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		var templ_7745c5c3_Var25 string
-		templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(src)
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 278, Col: 16}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 45, "\" alt=\"")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		var templ_7745c5c3_Var26 string
-		templ_7745c5c3_Var26, templ_7745c5c3_Err = templ.JoinStringErrs(alt)
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 278, Col: 28}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var26))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 46, "\" class=\"w-full h-32 sm:h-48 object-cover transition-transform duration-700 group-hover:scale-110\"><div class=\"absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300\"></div><div class=\"absolute bottom-0 left-0 right-0 p-2 sm:p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300\"><p class=\"text-white font-medium text-shadow text-sm sm:text-base\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 48, "<div class=\"relative overflow-hidden rounded-lg sm:rounded-xl group\"><img src=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var27 string
-		templ_7745c5c3_Var27, templ_7745c5c3_Err = templ.JoinStringErrs(alt)
+		templ_7745c5c3_Var27, templ_7745c5c3_Err = templ.JoinStringErrs(src)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 281, Col: 75}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 283, Col: 16}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var27))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 47, "</p></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 49, "\" alt=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var28 string
+		templ_7745c5c3_Var28, templ_7745c5c3_Err = templ.JoinStringErrs(alt)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 283, Col: 28}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var28))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 50, "\" class=\"w-full h-32 sm:h-48 object-cover transition-transform duration-700 group-hover:scale-110\"><div class=\"absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300\"></div><div class=\"absolute bottom-0 left-0 right-0 p-2 sm:p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300\"><p class=\"text-white font-medium text-shadow text-sm sm:text-base\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var29 string
+		templ_7745c5c3_Var29, templ_7745c5c3_Err = templ.JoinStringErrs(alt)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 286, Col: 75}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var29))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 51, "</p></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -784,12 +820,12 @@ func amenitiesSection() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var28 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var28 == nil {
-			templ_7745c5c3_Var28 = templ.NopComponent
+		templ_7745c5c3_Var30 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var30 == nil {
+			templ_7745c5c3_Var30 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 48, "<section class=\"py-12 sm:py-24 bg-[var(--background)]\"><div class=\"max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"text-center mb-8 sm:mb-12\"><span class=\"text-[var(--accent)] font-semibold tracking-wider uppercase text-sm\">Amenities</span><h2 class=\"text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--pine-green)] mt-3 mb-4\">More Than Just Golf</h2><p class=\"text-gray-600 max-w-2xl mx-auto px-4 sm:px-0\">Discover everything Whispering Pines has to offer beyond our championship course.</p></div><div class=\"grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 52, "<section class=\"py-12 sm:py-24 bg-[var(--background)]\"><div class=\"max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"text-center mb-8 sm:mb-12\"><span class=\"text-[var(--accent)] font-semibold tracking-wider uppercase text-sm\">Amenities</span><h2 class=\"text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--pine-green)] mt-3 mb-4\">More Than Just Golf</h2><p class=\"text-gray-600 max-w-2xl mx-auto px-4 sm:px-0\">Discover everything Whispering Pines has to offer beyond our championship course.</p></div><div class=\"grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -799,7 +835,7 @@ func amenitiesSection() templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 49, "</div></div></section>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 53, "</div></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -823,12 +859,12 @@ func amenityCard(amenity data.Amenity) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var29 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var29 == nil {
-			templ_7745c5c3_Var29 = templ.NopComponent
+		templ_7745c5c3_Var31 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var31 == nil {
+			templ_7745c5c3_Var31 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 50, "<div class=\"lux-card rounded-xl sm:rounded-2xl p-4 sm:p-8 card-hover\"><div class=\"w-10 h-10 sm:w-14 sm:h-14 bg-[var(--accent)] rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-5\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 54, "<div class=\"lux-card rounded-xl sm:rounded-2xl p-4 sm:p-8 card-hover\"><div class=\"w-10 h-10 sm:w-14 sm:h-14 bg-[var(--accent)] rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-5\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -863,33 +899,33 @@ func amenityCard(amenity data.Amenity) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 51, "</div><h3 class=\"text-base sm:text-xl font-bold text-[var(--pine-green)] mb-1 sm:mb-3\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 55, "</div><h3 class=\"text-base sm:text-xl font-bold text-[var(--pine-green)] mb-1 sm:mb-3\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var30 string
-		templ_7745c5c3_Var30, templ_7745c5c3_Err = templ.JoinStringErrs(amenity.Title)
+		var templ_7745c5c3_Var32 string
+		templ_7745c5c3_Var32, templ_7745c5c3_Err = templ.JoinStringErrs(amenity.Title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 327, Col: 18}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 332, Col: 18}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var30))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 52, "</h3><p class=\"text-gray-600 text-xs sm:text-base leading-relaxed\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var32))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var31 string
-		templ_7745c5c3_Var31, templ_7745c5c3_Err = templ.JoinStringErrs(amenity.Description)
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 329, Col: 85}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var31))
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 56, "</h3><p class=\"text-gray-600 text-xs sm:text-base leading-relaxed\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 53, "</p></div>")
+		var templ_7745c5c3_Var33 string
+		templ_7745c5c3_Var33, templ_7745c5c3_Err = templ.JoinStringErrs(amenity.Description)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 334, Col: 85}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var33))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 57, "</p></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -913,61 +949,61 @@ func simulatorSection() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var32 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var32 == nil {
-			templ_7745c5c3_Var32 = templ.NopComponent
+		templ_7745c5c3_Var34 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var34 == nil {
+			templ_7745c5c3_Var34 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 54, "<section class=\"py-12 sm:py-24 bg-[var(--pine-green)] relative overflow-hidden\"><div class=\"max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10\"><div class=\"grid lg:grid-cols-2 gap-8 sm:gap-12 items-center\"><div><div class=\"inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full text-sm mb-6 text-white\"><span class=\"w-2 h-2 bg-[var(--accent)] rounded-full animate-pulse\"></span> Open All Winter</div><h2 class=\"text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6\">Play Year-Round with Our Indoor Simulator</h2><p class=\"text-white/80 text-lg mb-8 leading-relaxed\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 58, "<section class=\"py-12 sm:py-24 bg-[var(--pine-green)] relative overflow-hidden\"><div class=\"max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10\"><div class=\"grid lg:grid-cols-2 gap-8 sm:gap-12 items-center\"><div><div class=\"inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full text-sm mb-6 text-white\"><span class=\"w-2 h-2 bg-[var(--accent)] rounded-full animate-pulse\"></span> Open All Winter</div><h2 class=\"text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6\">Play Year-Round with Our Indoor Simulator</h2><p class=\"text-white/80 text-lg mb-8 leading-relaxed\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var33 string
-		templ_7745c5c3_Var33, templ_7745c5c3_Err = templ.JoinStringErrs(data.SimulatorInfo.Description)
+		var templ_7745c5c3_Var35 string
+		templ_7745c5c3_Var35, templ_7745c5c3_Err = templ.JoinStringErrs(data.SimulatorInfo.Description)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 346, Col: 38}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 351, Col: 38}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var33))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var35))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 55, "</p><div class=\"grid grid-cols-2 gap-4 mb-8\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 59, "</p><div class=\"grid grid-cols-2 gap-4 mb-8\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		for _, pricing := range data.SimulatorInfo.Pricing {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 56, "<div class=\"bg-white/10 rounded-xl p-5 backdrop-blur-sm border border-white/10\"><div class=\"text-3xl font-bold text-[var(--accent)] mb-1\">$")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 60, "<div class=\"bg-white/10 rounded-xl p-5 backdrop-blur-sm border border-white/10\"><div class=\"text-3xl font-bold text-[var(--accent)] mb-1\">$")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var34 string
-			templ_7745c5c3_Var34, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(pricing.Price))
+			var templ_7745c5c3_Var36 string
+			templ_7745c5c3_Var36, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(pricing.Price))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 352, Col: 39}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 357, Col: 39}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var34))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 57, "</div><div class=\"text-white/70 text-sm\">per ")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var36))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var35 string
-			templ_7745c5c3_Var35, templ_7745c5c3_Err = templ.JoinStringErrs(pricing.Duration)
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 354, Col: 65}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var35))
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 61, "</div><div class=\"text-white/70 text-sm\">per ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 58, "</div></div>")
+			var templ_7745c5c3_Var37 string
+			templ_7745c5c3_Var37, templ_7745c5c3_Err = templ.JoinStringErrs(pricing.Duration)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 359, Col: 65}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var37))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 62, "</div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 59, "</div><a href=\"/simulator\" class=\"btn-primary px-8 py-4 rounded-full inline-flex items-center gap-2\">Learn More & Book")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 63, "</div><a href=\"/simulator\" class=\"btn-primary px-8 py-4 rounded-full inline-flex items-center gap-2\">Learn More & Book")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -975,12 +1011,12 @@ func simulatorSection() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 60, "</a></div><div class=\"bg-white/5 rounded-3xl p-6 sm:p-8 backdrop-blur-sm border border-white/10\"><h3 class=\"text-xl font-bold text-[var(--accent)] mb-6\">Simulator Features</h3><ul class=\"space-y-4\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 64, "</a></div><div class=\"bg-white/5 rounded-3xl p-6 sm:p-8 backdrop-blur-sm border border-white/10\"><h3 class=\"text-xl font-bold text-[var(--accent)] mb-6\">Simulator Features</h3><ul class=\"space-y-4\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		for _, feature := range data.SimulatorInfo.Features {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 61, "<li class=\"flex items-start gap-3\"><div class=\"w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 65, "<li class=\"flex items-start gap-3\"><div class=\"w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -988,25 +1024,25 @@ func simulatorSection() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 62, "</div><span class=\"text-white/90\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 66, "</div><span class=\"text-white/90\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var36 string
-			templ_7745c5c3_Var36, templ_7745c5c3_Err = templ.JoinStringErrs(feature)
+			var templ_7745c5c3_Var38 string
+			templ_7745c5c3_Var38, templ_7745c5c3_Err = templ.JoinStringErrs(feature)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 371, Col: 45}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 376, Col: 45}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var36))
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var38))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 63, "</span></li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 67, "</span></li>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 64, "</ul></div></div></div></section>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 68, "</ul></div></div></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -1030,35 +1066,35 @@ func sponsorsSection() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var37 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var37 == nil {
-			templ_7745c5c3_Var37 = templ.NopComponent
+		templ_7745c5c3_Var39 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var39 == nil {
+			templ_7745c5c3_Var39 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 65, "<section class=\"py-10 sm:py-16 bg-gradient-to-b from-[var(--cream)] to-[var(--sand)]\"><div class=\"max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"text-center mb-6 sm:mb-8\"><h2 class=\"text-lg sm:text-2xl font-bold text-[var(--pine-green)]\">Our Sponsors</h2><p class=\"text-gray-500 text-xs sm:text-sm mt-1 sm:mt-2\">Thank you to our valued partners</p></div><div class=\"grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-6 items-center\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 69, "<section class=\"py-10 sm:py-16 bg-gradient-to-b from-[var(--cream)] to-[var(--sand)]\"><div class=\"max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"text-center mb-6 sm:mb-8\"><h2 class=\"text-lg sm:text-2xl font-bold text-[var(--pine-green)]\">Our Sponsors</h2><p class=\"text-gray-500 text-xs sm:text-sm mt-1 sm:mt-2\">Thank you to our valued partners</p></div><div class=\"grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-6 items-center\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		for i := 1; i <= 6; i++ {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 66, "<div class=\"lux-card rounded-lg sm:rounded-xl p-3 sm:p-4 flex items-center justify-center h-16 sm:h-20 shadow-sm hover:shadow-md transition-shadow\"><span class=\"text-gray-400 text-sm\">Sponsor ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 70, "<div class=\"lux-card rounded-lg sm:rounded-xl p-3 sm:p-4 flex items-center justify-center h-16 sm:h-20 shadow-sm hover:shadow-md transition-shadow\"><span class=\"text-gray-400 text-sm\">Sponsor ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var38 string
-			templ_7745c5c3_Var38, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(i))
+			var templ_7745c5c3_Var40 string
+			templ_7745c5c3_Var40, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(i))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 393, Col: 67}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 398, Col: 67}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var38))
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var40))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 67, "</span></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 71, "</span></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 68, "</div></div></section>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 72, "</div></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -1082,12 +1118,12 @@ func locationSection() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var39 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var39 == nil {
-			templ_7745c5c3_Var39 = templ.NopComponent
+		templ_7745c5c3_Var41 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var41 == nil {
+			templ_7745c5c3_Var41 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 69, "<section class=\"py-12 sm:py-24 bg-white\"><div class=\"max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"grid lg:grid-cols-2 gap-8 sm:gap-12 items-center\"><div class=\"lux-frame rounded-2xl sm:rounded-3xl overflow-hidden h-[280px] sm:h-[400px]\"><iframe src=\"https://maps.google.com/maps?q=Whispering+Pines+Golf+Course+24700+County+Highway+X+Cadott+WI&t=&z=14&ie=UTF8&iwloc=&output=embed\" width=\"100%\" height=\"100%\" style=\"border: 0;\" allowfullscreen loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\" title=\"Whispering Pines Golf Course Location\"></iframe></div><div><span class=\"text-[var(--accent)] font-semibold tracking-wider uppercase text-sm\">Visit Us</span><h2 class=\"text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--pine-green)] mt-3 mb-6\">Easy to Find, Hard to Leave</h2><p class=\"text-gray-600 text-lg mb-8 leading-relaxed\">Located just 12 miles east of Eau Claire on Highway 29, Whispering Pines is easily accessible from anywhere in the Chippewa Valley.</p><div class=\"space-y-5 mb-8\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 73, "<section class=\"py-12 sm:py-24 bg-white\"><div class=\"max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"grid lg:grid-cols-2 gap-8 sm:gap-12 items-center\"><div class=\"lux-frame rounded-2xl sm:rounded-3xl overflow-hidden h-[280px] sm:h-[400px]\"><iframe src=\"https://maps.google.com/maps?q=Whispering+Pines+Golf+Course+24700+County+Highway+X+Cadott+WI&t=&z=14&ie=UTF8&iwloc=&output=embed\" width=\"100%\" height=\"100%\" style=\"border: 0;\" allowfullscreen loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\" title=\"Whispering Pines Golf Course Location\"></iframe></div><div><span class=\"text-[var(--accent)] font-semibold tracking-wider uppercase text-sm\">Visit Us</span><h2 class=\"text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--pine-green)] mt-3 mb-6\">Easy to Find, Hard to Leave</h2><p class=\"text-gray-600 text-lg mb-8 leading-relaxed\">Located just 12 miles east of Eau Claire on Highway 29, Whispering Pines is easily accessible from anywhere in the Chippewa Valley.</p><div class=\"space-y-5 mb-8\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -1103,20 +1139,20 @@ func locationSection() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 70, "</div><a href=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 74, "</div><a href=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var40 templ.SafeURL
-		templ_7745c5c3_Var40, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL("https://maps.google.com/maps?q=" + data.CourseInfo.Address))
+		var templ_7745c5c3_Var42 templ.SafeURL
+		templ_7745c5c3_Var42, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL("https://maps.google.com/maps?q=" + data.CourseInfo.Address))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 433, Col: 87}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 438, Col: 87}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var40))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var42))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 71, "\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-secondary px-8 py-4 rounded-full inline-flex items-center gap-2\">Get Directions")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 75, "\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-secondary px-8 py-4 rounded-full inline-flex items-center gap-2\">Get Directions")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -1124,7 +1160,7 @@ func locationSection() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 72, "</a></div></div></div></section>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 76, "</a></div></div></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -1148,45 +1184,45 @@ func contactItem(iconType, text string) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var41 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var41 == nil {
-			templ_7745c5c3_Var41 = templ.NopComponent
+		templ_7745c5c3_Var43 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var43 == nil {
+			templ_7745c5c3_Var43 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 73, "<div class=\"flex items-start gap-4\"><div class=\"w-12 h-12 bg-[var(--accent)] rounded-xl flex items-center justify-center flex-shrink-0\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 77, "<div class=\"flex items-start gap-4\"><div class=\"w-12 h-12 bg-[var(--accent)] rounded-xl flex items-center justify-center flex-shrink-0\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		if iconType == "location" {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 74, "<svg class=\"w-6 h-6 text-white\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z\"></path> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 11a3 3 0 11-6 0 3 3 0 016 0z\"></path></svg>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 78, "<svg class=\"w-6 h-6 text-white\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z\"></path> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 11a3 3 0 11-6 0 3 3 0 016 0z\"></path></svg>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 75, "</div><div><div class=\"font-semibold text-[var(--pine-green)] mb-1\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 79, "</div><div><div class=\"font-semibold text-[var(--pine-green)] mb-1\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		if iconType == "location" {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 76, "Address")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 80, "Address")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 77, "</div><div class=\"text-gray-600\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 81, "</div><div class=\"text-gray-600\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var42 string
-		templ_7745c5c3_Var42, templ_7745c5c3_Err = templ.JoinStringErrs(text)
+		var templ_7745c5c3_Var44 string
+		templ_7745c5c3_Var44, templ_7745c5c3_Err = templ.JoinStringErrs(text)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 463, Col: 36}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 468, Col: 36}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var42))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var44))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 78, "</div></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 82, "</div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -1210,68 +1246,68 @@ func contactItemLink(iconType, text, href string) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var43 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var43 == nil {
-			templ_7745c5c3_Var43 = templ.NopComponent
+		templ_7745c5c3_Var45 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var45 == nil {
+			templ_7745c5c3_Var45 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 79, "<div class=\"flex items-start gap-4\"><div class=\"w-12 h-12 bg-[var(--accent)] rounded-xl flex items-center justify-center flex-shrink-0\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 83, "<div class=\"flex items-start gap-4\"><div class=\"w-12 h-12 bg-[var(--accent)] rounded-xl flex items-center justify-center flex-shrink-0\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		if iconType == "phone" {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 80, "<svg class=\"w-6 h-6 text-white\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z\"></path></svg>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 84, "<svg class=\"w-6 h-6 text-white\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z\"></path></svg>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		} else if iconType == "email" {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 81, "<svg class=\"w-6 h-6 text-white\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z\"></path></svg>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 85, "<svg class=\"w-6 h-6 text-white\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z\"></path></svg>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 82, "</div><div><div class=\"font-semibold text-[var(--pine-green)] mb-1\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 86, "</div><div><div class=\"font-semibold text-[var(--pine-green)] mb-1\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		if iconType == "phone" {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 83, "Phone")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 87, "Phone")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		} else if iconType == "email" {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 84, "Email")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 88, "Email")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 85, "</div><a href=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 89, "</div><a href=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var44 templ.SafeURL
-		templ_7745c5c3_Var44, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL(href))
+		var templ_7745c5c3_Var46 templ.SafeURL
+		templ_7745c5c3_Var46, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL(href))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 489, Col: 32}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 494, Col: 32}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var44))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 86, "\" class=\"text-gray-600 hover:text-[var(--accent)] transition-colors\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var46))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var45 string
-		templ_7745c5c3_Var45, templ_7745c5c3_Err = templ.JoinStringErrs(text)
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 490, Col: 10}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var45))
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 90, "\" class=\"text-gray-600 hover:text-[var(--accent)] transition-colors\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 87, "</a></div></div>")
+		var templ_7745c5c3_Var47 string
+		templ_7745c5c3_Var47, templ_7745c5c3_Err = templ.JoinStringErrs(text)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 495, Col: 10}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var47))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 91, "</a></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -1295,25 +1331,25 @@ func ctaSection() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var46 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var46 == nil {
-			templ_7745c5c3_Var46 = templ.NopComponent
+		templ_7745c5c3_Var48 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var48 == nil {
+			templ_7745c5c3_Var48 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 88, "<section class=\"py-12 sm:py-24 bg-gradient-to-b from-[var(--sand)] to-[var(--cream)] relative overflow-hidden\"><div class=\"absolute top-0 right-0 w-32 sm:w-64 h-32 sm:h-64 bg-[var(--accent)]/10 rounded-full translate-x-1/2 -translate-y-1/2\"></div><div class=\"absolute bottom-0 left-0 w-24 sm:w-48 h-24 sm:h-48 bg-[var(--pine-green)]/10 rounded-full -translate-x-1/2 translate-y-1/2\"></div><div class=\"max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10\"><h2 class=\"text-2xl sm:text-4xl lg:text-5xl font-bold text-[var(--pine-green)] mb-4 sm:mb-6\">Ready to Play?</h2><p class=\"text-base sm:text-lg text-gray-600 mb-8 sm:mb-10 max-w-2xl mx-auto px-4 sm:px-0\">Book your tee time today and experience the beauty and challenge of Whispering Pines Golf Course.</p><div class=\"flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center\"><a href=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 92, "<section class=\"py-12 sm:py-24 bg-gradient-to-b from-[var(--sand)] to-[var(--cream)] relative overflow-hidden\"><div class=\"absolute top-0 right-0 w-32 sm:w-64 h-32 sm:h-64 bg-[var(--accent)]/10 rounded-full translate-x-1/2 -translate-y-1/2\"></div><div class=\"absolute bottom-0 left-0 w-24 sm:w-48 h-24 sm:h-48 bg-[var(--pine-green)]/10 rounded-full -translate-x-1/2 translate-y-1/2\"></div><div class=\"max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10\"><h2 class=\"text-2xl sm:text-4xl lg:text-5xl font-bold text-[var(--pine-green)] mb-4 sm:mb-6\">Ready to Play?</h2><p class=\"text-base sm:text-lg text-gray-600 mb-8 sm:mb-10 max-w-2xl mx-auto px-4 sm:px-0\">Book your tee time today and experience the beauty and challenge of Whispering Pines Golf Course.</p><div class=\"flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center\"><a href=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var47 templ.SafeURL
-		templ_7745c5c3_Var47, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL(data.BookingURL))
+		var templ_7745c5c3_Var49 templ.SafeURL
+		templ_7745c5c3_Var49, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL(data.BookingURL))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 508, Col: 44}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/home.templ`, Line: 513, Col: 44}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var47))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var49))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 89, "\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-primary px-8 sm:px-10 py-4 sm:py-5 rounded-full text-base sm:text-lg inline-flex items-center justify-center gap-2 sm:gap-3 shadow-lg\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 93, "\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-primary px-8 sm:px-10 py-4 sm:py-5 rounded-full text-base sm:text-lg inline-flex items-center justify-center gap-2 sm:gap-3 shadow-lg\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -1321,7 +1357,7 @@ func ctaSection() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 90, "Book Online</a> <a href=\"tel:7152894653\" class=\"px-8 sm:px-10 py-4 sm:py-5 rounded-full text-base sm:text-lg border-2 border-[var(--pine-green)] text-[var(--pine-green)] hover:bg-[var(--pine-green)] hover:text-white transition-all inline-flex items-center justify-center gap-2 sm:gap-3\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 94, "Book Online</a> <a href=\"tel:7152894653\" class=\"px-8 sm:px-10 py-4 sm:py-5 rounded-full text-base sm:text-lg border-2 border-[var(--pine-green)] text-[var(--pine-green)] hover:bg-[var(--pine-green)] hover:text-white transition-all inline-flex items-center justify-center gap-2 sm:gap-3\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -1329,7 +1365,7 @@ func ctaSection() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 91, "Call Us</a></div></div></section>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 95, "Call Us</a></div></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
