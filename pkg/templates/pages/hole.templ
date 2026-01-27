@@ -13,6 +13,9 @@ templ HoleDetail(hole data.HoleData) {
 	@layouts.Base(meta.New(fmt.Sprintf("Hole %d - Par %d", hole.Number, hole.Par), hole.Description)) {
 		@holeHero(hole)
 		@holeInfo(hole)
+		if hole.VideoID != "" {
+			@holeVideo(hole)
+		}
 		@holeNavigation(hole.Number)
 	}
 }
@@ -117,6 +120,33 @@ templ holeInfo(hole data.HoleData) {
 							Book Tee Time
 						</a>
 					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+}
+
+templ holeVideo(hole data.HoleData) {
+	<section class="py-12 sm:py-16 bg-[var(--cream)]">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-8">
+				<span class="text-[var(--accent)] font-semibold tracking-wider uppercase text-sm">
+					Hole Flyover
+				</span>
+				<h2 class="text-2xl sm:text-3xl font-bold text-[var(--pine-green)] mt-2">
+					Watch Hole { strconv.Itoa(hole.Number) }
+				</h2>
+			</div>
+			<div class="rounded-2xl overflow-hidden shadow-lg">
+				<div class="relative w-full" style="padding-bottom: 56.25%;">
+					<iframe
+						class="absolute top-0 left-0 w-full h-full"
+						src={ fmt.Sprintf("https://www.youtube.com/embed/%s", hole.VideoID) }
+						title={ fmt.Sprintf("Hole %d Flyover Video", hole.Number) }
+						frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen
+					></iframe>
 				</div>
 			</div>
 		</div>
