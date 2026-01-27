@@ -12,12 +12,10 @@ import (
 templ HoleDetail(hole data.HoleData) {
 	@layouts.Base(meta.New(fmt.Sprintf("Hole %d - Par %d", hole.Number, hole.Par), hole.Description)) {
 		@holeHeader(hole)
-		if hole.VideoID != "" {
-			@holeVideo(hole)
-		}
+		@holeMediaSection(hole)
 		@holeInfo(hole)
-		@holeImage(hole)
 		@holeNavigation(hole.Number)
+		@holeNavigationArrows(hole.Number)
 	}
 }
 
@@ -49,15 +47,48 @@ templ holeHeader(hole data.HoleData) {
 	</section>
 }
 
-templ holeImage(hole data.HoleData) {
-	<section class="py-8 bg-white">
-		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div class="rounded-2xl overflow-hidden shadow-lg">
-				<img
-					src={ fmt.Sprintf("/static/images/holes/hole-%d.jpg", hole.Number) }
-					alt={ fmt.Sprintf("Hole %d at Whispering Pines", hole.Number) }
-					class="w-full h-auto"
-				/>
+templ holeMediaSection(hole data.HoleData) {
+	<section class="py-6 sm:py-8 bg-[var(--cream)]">
+		<div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid lg:grid-cols-2 gap-6">
+				<!-- Video -->
+				if hole.VideoID != "" {
+					<div>
+						<div class="text-center mb-4">
+							<h2 class="text-xl sm:text-2xl font-bold text-[var(--pine-green)]">
+								Hole { strconv.Itoa(hole.Number) } Flyover
+							</h2>
+						</div>
+						<div class="rounded-2xl overflow-hidden shadow-lg">
+							<div class="relative w-full" style="padding-bottom: 56.25%;">
+								<iframe
+									class="absolute top-0 left-0 w-full h-full"
+									src={ fmt.Sprintf("https://www.youtube.com/embed/%s", hole.VideoID) }
+									title={ fmt.Sprintf("Hole %d Flyover Video", hole.Number) }
+									frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen
+								></iframe>
+							</div>
+						</div>
+					</div>
+				}
+				<!-- Image -->
+				<div>
+					<div class="text-center mb-4">
+						<h2 class="text-xl sm:text-2xl font-bold text-[var(--pine-green)]">
+							Hole { strconv.Itoa(hole.Number) } Marker
+						</h2>
+					</div>
+					<div class="rounded-2xl overflow-hidden shadow-lg">
+						<img
+							src={ fmt.Sprintf("/static/images/holes/hole-%d.jpg", hole.Number) }
+							alt={ fmt.Sprintf("Hole %d at Whispering Pines", hole.Number) }
+							class="w-full h-auto object-cover"
+							style="aspect-ratio: 16/9;"
+						/>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -135,28 +166,45 @@ templ holeInfo(hole data.HoleData) {
 	</section>
 }
 
-templ holeVideo(hole data.HoleData) {
-	<section class="py-6 sm:py-8 bg-[var(--cream)]">
-		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div class="text-center mb-4">
-				<h2 class="text-xl sm:text-2xl font-bold text-[var(--pine-green)]">
-					Hole { strconv.Itoa(hole.Number) } Flyover
-				</h2>
-			</div>
-			<div class="rounded-2xl overflow-hidden shadow-lg">
-				<div class="relative w-full" style="padding-bottom: 56.25%;">
-					<iframe
-						class="absolute top-0 left-0 w-full h-full"
-						src={ fmt.Sprintf("https://www.youtube.com/embed/%s", hole.VideoID) }
-						title={ fmt.Sprintf("Hole %d Flyover Video", hole.Number) }
-						frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowfullscreen
-					></iframe>
-				</div>
-			</div>
-		</div>
-	</section>
+templ holeNavigationArrows(currentHole int) {
+	<!-- Fixed navigation arrows -->
+	<div class="fixed top-1/2 -translate-y-1/2 left-4 z-50 hidden lg:block">
+		if currentHole > 1 {
+			<a
+				href={ templ.SafeURL(fmt.Sprintf("/course/hole/%d", currentHole-1)) }
+				class="w-12 h-12 bg-[var(--pine-green)] hover:bg-[var(--accent)] text-white rounded-full flex items-center justify-center shadow-lg transition-colors"
+				title={ fmt.Sprintf("Previous: Hole %d", currentHole-1) }
+			>
+				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+				</svg>
+			</a>
+		}
+	</div>
+	<div class="fixed top-1/2 -translate-y-1/2 right-4 z-50 hidden lg:block">
+		if currentHole < 18 {
+			<a
+				href={ templ.SafeURL(fmt.Sprintf("/course/hole/%d", currentHole+1)) }
+				class="w-12 h-12 bg-[var(--pine-green)] hover:bg-[var(--accent)] text-white rounded-full flex items-center justify-center shadow-lg transition-colors"
+				title={ fmt.Sprintf("Next: Hole %d", currentHole+1) }
+			>
+				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+				</svg>
+			</a>
+		}
+	</div>
+	<!-- Keyboard navigation script -->
+	<script>
+		document.addEventListener('keydown', function(e) {
+			const currentHole = parseInt(window.location.pathname.split('/').pop());
+			if (e.key === 'ArrowLeft' && currentHole > 1) {
+				window.location.href = '/course/hole/' + (currentHole - 1);
+			} else if (e.key === 'ArrowRight' && currentHole < 18) {
+				window.location.href = '/course/hole/' + (currentHole + 1);
+			}
+		});
+	</script>
 }
 
 templ holeNavigation(currentHole int) {
