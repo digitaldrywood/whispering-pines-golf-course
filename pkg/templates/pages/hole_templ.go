@@ -111,7 +111,7 @@ func holeHero(hole data.HoleData) templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<section class=\"relative pt-20 pb-0\"><div class=\"relative h-[50vh] min-h-[400px]\"><img src=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<section class=\"relative pt-20 pb-0\"><div class=\"relative h-[30vh] min-h-[200px]\"><img src=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -137,50 +137,50 @@ func holeHero(hole data.HoleData) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "\" class=\"w-full h-full object-cover\"><div class=\"absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent\"></div><div class=\"absolute bottom-0 left-0 right-0 p-8\"><div class=\"max-w-[1600px] mx-auto\"><div class=\"flex items-center gap-4 mb-4\"><div class=\"w-16 h-16 bg-[var(--accent)] rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "\" class=\"w-full h-full object-cover\"><div class=\"absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/80 to-transparent\"></div><div class=\"absolute bottom-0 left-0 right-0 px-4 sm:px-8 pb-4\"><div class=\"max-w-[1600px] mx-auto flex items-center gap-4\"><div class=\"w-12 h-12 sm:w-14 sm:h-14 bg-[var(--accent)] rounded-full flex items-center justify-center text-white font-bold text-xl sm:text-2xl shadow-lg flex-shrink-0\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var6 string
 		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(hole.Number))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 36, Col: 34}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 35, Col: 33}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</div>")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		if hole.Signature {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "<span class=\"bg-[var(--pine-green)] text-white px-4 py-2 rounded-full text-sm font-semibold\">Signature Hole</span>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</div><h1 class=\"text-4xl sm:text-5xl font-bold text-white mb-2\">Hole ")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</div><div><div class=\"flex items-center gap-3\"><h1 class=\"text-2xl sm:text-3xl font-bold text-white\">Hole ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var7 string
 		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(hole.Number))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 45, Col: 38}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 40, Col: 40}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</h1><div class=\"flex items-center gap-6 text-white/80\"><span class=\"text-xl font-semibold text-[var(--accent)]\">Par ")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</h1>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		if hole.Signature {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "<span class=\"bg-[var(--pine-green)] text-white px-3 py-1 rounded-full text-xs font-semibold\">Signature</span>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</div><div class=\"flex items-center gap-4 text-white/80 text-sm sm:text-base\"><span class=\"font-semibold text-[var(--accent)]\">Par ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var8 string
 		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(hole.Par))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 48, Col: 91}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 49, Col: 84}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 		if templ_7745c5c3_Err != nil {
@@ -193,13 +193,13 @@ func holeHero(hole data.HoleData) templ.Component {
 		var templ_7745c5c3_Var9 string
 		templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(hole.GetYardage()))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 49, Col: 45}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 50, Col: 46}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, " yards</span></div></div></div></div></section>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, " yards</span></div></div></div></div></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -228,14 +228,14 @@ func holeInfo(hole data.HoleData) templ.Component {
 			templ_7745c5c3_Var10 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "<section class=\"py-12 sm:py-16 bg-white\"><div class=\"max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"grid lg:grid-cols-3 gap-8\"><!-- Main Content --><div class=\"lg:col-span-2\"><h2 class=\"text-2xl font-bold text-[var(--pine-green)] mb-4\">About This Hole</h2><p class=\"text-gray-600 text-lg leading-relaxed mb-8\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "<section class=\"py-6 sm:py-8 bg-white\"><div class=\"max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"grid lg:grid-cols-3 gap-8\"><!-- Main Content --><div class=\"lg:col-span-2\"><h2 class=\"text-2xl font-bold text-[var(--pine-green)] mb-4\">About This Hole</h2><p class=\"text-gray-600 text-lg leading-relaxed mb-8\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var11 string
 		templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(hole.Description)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 65, Col: 24}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 67, Col: 24}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 		if templ_7745c5c3_Err != nil {
@@ -261,7 +261,7 @@ func holeInfo(hole data.HoleData) templ.Component {
 			var templ_7745c5c3_Var12 string
 			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(feature)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 75, Col: 45}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 77, Col: 45}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -279,7 +279,7 @@ func holeInfo(hole data.HoleData) templ.Component {
 		var templ_7745c5c3_Var13 string
 		templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(hole.Tips)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 87, Col: 58}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 89, Col: 58}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 		if templ_7745c5c3_Err != nil {
@@ -292,7 +292,7 @@ func holeInfo(hole data.HoleData) templ.Component {
 		var templ_7745c5c3_Var14 string
 		templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(hole.Par))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 97, Col: 86}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 99, Col: 86}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 		if templ_7745c5c3_Err != nil {
@@ -310,7 +310,7 @@ func holeInfo(hole data.HoleData) templ.Component {
 			var templ_7745c5c3_Var15 string
 			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(hole.YardageWhite))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 102, Col: 70}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 104, Col: 70}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {
@@ -329,7 +329,7 @@ func holeInfo(hole data.HoleData) templ.Component {
 			var templ_7745c5c3_Var16 string
 			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(hole.YardageTips))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 108, Col: 69}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 110, Col: 69}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
@@ -348,7 +348,7 @@ func holeInfo(hole data.HoleData) templ.Component {
 			var templ_7745c5c3_Var17 string
 			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(hole.YardageBlue))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 114, Col: 69}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 116, Col: 69}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 			if templ_7745c5c3_Err != nil {
@@ -396,27 +396,27 @@ func holeVideo(hole data.HoleData) templ.Component {
 			templ_7745c5c3_Var18 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 29, "<section class=\"py-12 sm:py-16 bg-[var(--cream)]\"><div class=\"max-w-4xl mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"text-center mb-8\"><span class=\"text-[var(--accent)] font-semibold tracking-wider uppercase text-sm\">Hole Flyover</span><h2 class=\"text-2xl sm:text-3xl font-bold text-[var(--pine-green)] mt-2\">Watch Hole ")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 29, "<section class=\"py-6 sm:py-8 bg-[var(--cream)]\"><div class=\"max-w-4xl mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"text-center mb-4\"><h2 class=\"text-xl sm:text-2xl font-bold text-[var(--pine-green)]\">Hole ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var19 string
 		templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(hole.Number))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 137, Col: 43}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 136, Col: 37}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 30, "</h2></div><div class=\"rounded-2xl overflow-hidden shadow-lg\"><div class=\"relative w-full\" style=\"padding-bottom: 56.25%;\"><iframe class=\"absolute top-0 left-0 w-full h-full\" src=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 30, " Flyover</h2></div><div class=\"rounded-2xl overflow-hidden shadow-lg\"><div class=\"relative w-full\" style=\"padding-bottom: 56.25%;\"><iframe class=\"absolute top-0 left-0 w-full h-full\" src=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var20 string
 		templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("https://www.youtube.com/embed/%s", hole.VideoID))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 144, Col: 73}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 143, Col: 73}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
 		if templ_7745c5c3_Err != nil {
@@ -429,7 +429,7 @@ func holeVideo(hole data.HoleData) templ.Component {
 		var templ_7745c5c3_Var21 string
 		templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("Hole %d Flyover Video", hole.Number))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 145, Col: 63}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 144, Col: 63}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 		if templ_7745c5c3_Err != nil {
@@ -476,7 +476,7 @@ func holeNavigation(currentHole int) templ.Component {
 			var templ_7745c5c3_Var23 templ.SafeURL
 			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL(fmt.Sprintf("/course/hole/%d", currentHole-1)))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 161, Col: 75}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 160, Col: 75}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
 			if templ_7745c5c3_Err != nil {
@@ -489,7 +489,7 @@ func holeNavigation(currentHole int) templ.Component {
 			var templ_7745c5c3_Var24 string
 			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(currentHole - 1))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 165, Col: 42}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 164, Col: 42}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
 			if templ_7745c5c3_Err != nil {
@@ -517,7 +517,7 @@ func holeNavigation(currentHole int) templ.Component {
 			var templ_7745c5c3_Var25 templ.SafeURL
 			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL(fmt.Sprintf("/course/hole/%d", currentHole+1)))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 174, Col: 75}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 173, Col: 75}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
 			if templ_7745c5c3_Err != nil {
@@ -530,7 +530,7 @@ func holeNavigation(currentHole int) templ.Component {
 			var templ_7745c5c3_Var26 string
 			templ_7745c5c3_Var26, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(currentHole + 1))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 175, Col: 42}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/hole.templ`, Line: 174, Col: 42}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var26))
 			if templ_7745c5c3_Err != nil {

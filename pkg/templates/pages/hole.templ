@@ -22,31 +22,33 @@ templ HoleDetail(hole data.HoleData) {
 
 templ holeHero(hole data.HoleData) {
 	<section class="relative pt-20 pb-0">
-		<div class="relative h-[50vh] min-h-[400px]">
+		<div class="relative h-[30vh] min-h-[200px]">
 			<img
 				src={ fmt.Sprintf("/static/images/holes/hole-%d.jpg", hole.Number) }
 				alt={ fmt.Sprintf("Hole %d", hole.Number) }
 				class="w-full h-full object-cover"
 			/>
-			<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-			<div class="absolute bottom-0 left-0 right-0 p-8">
-				<div class="max-w-[1600px] mx-auto">
-					<div class="flex items-center gap-4 mb-4">
-						<div class="w-16 h-16 bg-[var(--accent)] rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg">
-							{ strconv.Itoa(hole.Number) }
-						</div>
-						if hole.Signature {
-							<span class="bg-[var(--pine-green)] text-white px-4 py-2 rounded-full text-sm font-semibold">
-								Signature Hole
-							</span>
-						}
+			<div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/80 to-transparent"></div>
+			<div class="absolute bottom-0 left-0 right-0 px-4 sm:px-8 pb-4">
+				<div class="max-w-[1600px] mx-auto flex items-center gap-4">
+					<div class="w-12 h-12 sm:w-14 sm:h-14 bg-[var(--accent)] rounded-full flex items-center justify-center text-white font-bold text-xl sm:text-2xl shadow-lg flex-shrink-0">
+						{ strconv.Itoa(hole.Number) }
 					</div>
-					<h1 class="text-4xl sm:text-5xl font-bold text-white mb-2">
-						Hole { strconv.Itoa(hole.Number) }
-					</h1>
-					<div class="flex items-center gap-6 text-white/80">
-						<span class="text-xl font-semibold text-[var(--accent)]">Par { strconv.Itoa(hole.Par) }</span>
-						<span>{ strconv.Itoa(hole.GetYardage()) } yards</span>
+					<div>
+						<div class="flex items-center gap-3">
+							<h1 class="text-2xl sm:text-3xl font-bold text-white">
+								Hole { strconv.Itoa(hole.Number) }
+							</h1>
+							if hole.Signature {
+								<span class="bg-[var(--pine-green)] text-white px-3 py-1 rounded-full text-xs font-semibold">
+									Signature
+								</span>
+							}
+						</div>
+						<div class="flex items-center gap-4 text-white/80 text-sm sm:text-base">
+							<span class="font-semibold text-[var(--accent)]">Par { strconv.Itoa(hole.Par) }</span>
+							<span>{ strconv.Itoa(hole.GetYardage()) } yards</span>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -55,7 +57,7 @@ templ holeHero(hole data.HoleData) {
 }
 
 templ holeInfo(hole data.HoleData) {
-	<section class="py-12 sm:py-16 bg-white">
+	<section class="py-6 sm:py-8 bg-white">
 		<div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="grid lg:grid-cols-3 gap-8">
 				<!-- Main Content -->
@@ -127,14 +129,11 @@ templ holeInfo(hole data.HoleData) {
 }
 
 templ holeVideo(hole data.HoleData) {
-	<section class="py-12 sm:py-16 bg-[var(--cream)]">
+	<section class="py-6 sm:py-8 bg-[var(--cream)]">
 		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div class="text-center mb-8">
-				<span class="text-[var(--accent)] font-semibold tracking-wider uppercase text-sm">
-					Hole Flyover
-				</span>
-				<h2 class="text-2xl sm:text-3xl font-bold text-[var(--pine-green)] mt-2">
-					Watch Hole { strconv.Itoa(hole.Number) }
+			<div class="text-center mb-4">
+				<h2 class="text-xl sm:text-2xl font-bold text-[var(--pine-green)]">
+					Hole { strconv.Itoa(hole.Number) } Flyover
 				</h2>
 			</div>
 			<div class="rounded-2xl overflow-hidden shadow-lg">
