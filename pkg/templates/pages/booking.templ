@@ -12,9 +12,27 @@ templ Booking() {
 		@PageHero("Book Tee Time", "Reserve your spot on the course")
 		<section class="py-12 sm:py-24 bg-white">
 			<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-				<h2 class="text-2xl sm:text-3xl font-bold text-[var(--pine-green)] mb-6">Ready to Play?</h2>
+				<!-- Online Booking CTA -->
+				<div class="bg-gradient-to-br from-[var(--pine-green)] to-[var(--pine-green-dark)] rounded-2xl p-8 sm:p-12 mb-10 text-white">
+					<h2 class="text-2xl sm:text-3xl font-bold mb-4">Book Your Tee Time Online</h2>
+					<p class="text-white/80 text-lg mb-8">
+						Quick and easy online booking available 24/7. Reserve your preferred tee time now!
+					</p>
+					<a
+						href={ templ.SafeURL(data.BookingURL) }
+						target="_blank"
+						rel="noopener noreferrer"
+						class="inline-flex items-center justify-center gap-3 bg-[var(--accent)] hover:bg-[var(--accent-dark)] text-white px-10 py-5 rounded-full text-xl font-bold transition-colors shadow-lg"
+					>
+						@components.CalendarIcon()
+						BOOK TEE TIME NOW
+						@components.ExternalLinkIcon()
+					</a>
+				</div>
+
+				<h2 class="text-2xl sm:text-3xl font-bold text-[var(--pine-green)] mb-6">Prefer to Call?</h2>
 				<p class="text-gray-600 text-lg mb-8">
-					Contact us to book your tee time. We recommend calling ahead, especially on weekends and holidays.
+					Our pro shop staff is happy to help you book your tee time. We recommend calling ahead, especially on weekends and holidays.
 				</p>
 				<div class="grid md:grid-cols-2 gap-6 mb-8">
 					<div class="lux-card rounded-2xl p-8">

@@ -11,6 +11,7 @@ import templruntime "github.com/a-h/templ/runtime"
 import (
 	"whispering-pines/pkg/data"
 	"whispering-pines/pkg/meta"
+	"whispering-pines/pkg/templates/components"
 	"whispering-pines/pkg/templates/layouts"
 )
 
@@ -47,43 +48,108 @@ func Rates() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = PageHero("Rates and Membership", "Affordable golf for everyone").Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = PageHero("2026 Rates & Memberships", "Affordable golf for everyone").Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, " <section class=\"py-12 sm:py-24 bg-white\"><div class=\"max-w-4xl mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"text-center mb-12\"><p class=\"text-gray-600 text-lg\">Contact us for current rates and membership information. We offer competitive pricing for all golfers.</p></div><div class=\"grid md:grid-cols-2 gap-6\"><div class=\"lux-card rounded-2xl p-8\"><h3 class=\"text-2xl font-bold text-[var(--pine-green)] mb-4\">Green Fees</h3><p class=\"text-gray-600 mb-4\">Call for current daily rates including weekday and weekend pricing.</p><a href=\"tel:7152894653\" class=\"text-[var(--accent)] font-semibold hover:underline\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, " <section class=\"py-8 sm:py-12 bg-white\"><div class=\"max-w-5xl mx-auto px-4 sm:px-6 lg:px-8\"><!-- Book Tee Time Banner --><a href=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var3 string
-			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(data.CourseInfo.Phone)
+			var templ_7745c5c3_Var3 templ.SafeURL
+			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL(data.BookingURL))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/rates.templ`, Line: 24, Col: 30}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/rates.templ`, Line: 17, Col: 42}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</a></div><div class=\"lux-card rounded-2xl p-8\"><h3 class=\"text-2xl font-bold text-[var(--pine-green)] mb-4\">Memberships</h3><p class=\"text-gray-600 mb-4\">Annual and seasonal memberships available. Ask about family rates.</p><a href=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"block w-full bg-[var(--accent)] hover:bg-[var(--accent-dark)] text-white text-center py-4 sm:py-5 px-6 rounded-xl mb-8 transition-colors shadow-lg\"><span class=\"text-xl sm:text-2xl font-bold tracking-wide\">CLICK HERE TO BOOK YOUR TEE TIME</span></a><!-- Daily Rates --><div class=\"mb-10\"><h2 class=\"text-2xl font-bold text-[var(--pine-green)] mb-4 flex items-center gap-2\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var4 templ.SafeURL
-			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL("mailto:" + data.CourseInfo.Email))
+			templ_7745c5c3_Err = components.GolfFlagIcon().Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/rates.templ`, Line: 30, Col: 64}
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "Daily Rates</h2><div class=\"overflow-x-auto\"><table class=\"w-full border-collapse bg-white rounded-xl overflow-hidden shadow-sm\"><thead><tr class=\"bg-[var(--pine-green)] text-white\"><th class=\"text-left py-3 px-4 font-semibold\">Category</th><th class=\"text-center py-3 px-4 font-semibold\">Walking</th><th class=\"text-center py-3 px-4 font-semibold\">With Cart</th></tr></thead> <tbody class=\"divide-y divide-gray-200\"><tr class=\"hover:bg-gray-50\"><td class=\"py-3 px-4\">9 Holes Monday - Thursday</td><td class=\"py-3 px-4 text-center font-semibold\">$22</td><td class=\"py-3 px-4 text-center font-semibold\">$36</td></tr><tr class=\"hover:bg-gray-50\"><td class=\"py-3 px-4\">18 Holes Monday - Thursday</td><td class=\"py-3 px-4 text-center font-semibold\">$32</td><td class=\"py-3 px-4 text-center font-semibold\">$52</td></tr><tr class=\"hover:bg-gray-50\"><td class=\"py-3 px-4\">9 Holes Friday - Sunday (and Holidays)</td><td class=\"py-3 px-4 text-center font-semibold\">$25</td><td class=\"py-3 px-4 text-center font-semibold\">$39</td></tr><tr class=\"hover:bg-gray-50\"><td class=\"py-3 px-4\">18 Holes Friday - Sunday (and Holidays)</td><td class=\"py-3 px-4 text-center font-semibold\">$35</td><td class=\"py-3 px-4 text-center font-semibold\">$57</td></tr><tr class=\"hover:bg-gray-50\"><td class=\"py-3 px-4\">Friday All Day Golf</td><td class=\"py-3 px-4 text-center font-semibold\">$38</td><td class=\"py-3 px-4 text-center font-semibold\">$68</td></tr><tr class=\"hover:bg-gray-50 bg-green-50\"><td class=\"py-3 px-4\">9 Holes Juniors (13-17) - All Days</td><td class=\"py-3 px-4 text-center font-semibold\">$13</td><td class=\"py-3 px-4 text-center text-gray-400\">-</td></tr><tr class=\"hover:bg-gray-50 bg-green-50\"><td class=\"py-3 px-4\">18 Holes Juniors (13-17) - All Days</td><td class=\"py-3 px-4 text-center font-semibold\">$21</td><td class=\"py-3 px-4 text-center text-gray-400\">-</td></tr></tbody></table></div></div><!-- Annual Memberships --><div class=\"mb-10\"><h2 class=\"text-2xl font-bold text-[var(--pine-green)] mb-4 flex items-center gap-2\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = components.StarIcon().Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "Annual Memberships</h2><div class=\"overflow-x-auto\"><table class=\"w-full border-collapse bg-white rounded-xl overflow-hidden shadow-sm\"><thead><tr class=\"bg-[var(--pine-green)] text-white\"><th class=\"text-left py-3 px-4 font-semibold\">Category</th><th class=\"text-center py-3 px-4 font-semibold\">No Cart</th><th class=\"text-center py-3 px-4 font-semibold\">With Cart</th></tr></thead> <tbody class=\"divide-y divide-gray-200\"><tr class=\"hover:bg-gray-50\"><td class=\"py-3 px-4\">Single</td><td class=\"py-3 px-4 text-center font-semibold\">$925</td><td class=\"py-3 px-4 text-center font-semibold\">$1,575</td></tr><tr class=\"hover:bg-gray-50\"><td class=\"py-3 px-4\">Couple</td><td class=\"py-3 px-4 text-center font-semibold\">$1,125</td><td class=\"py-3 px-4 text-center font-semibold\">$2,025</td></tr><tr class=\"hover:bg-gray-50\"><td class=\"py-3 px-4\">Senior Single</td><td class=\"py-3 px-4 text-center font-semibold\">$875</td><td class=\"py-3 px-4 text-center font-semibold\">$1,500</td></tr><tr class=\"hover:bg-gray-50\"><td class=\"py-3 px-4\">Senior Couple</td><td class=\"py-3 px-4 text-center font-semibold\">$1,050</td><td class=\"py-3 px-4 text-center font-semibold\">$1,925</td></tr><tr class=\"hover:bg-gray-50\"><td class=\"py-3 px-4\">College</td><td class=\"py-3 px-4 text-center font-semibold\">$400</td><td class=\"py-3 px-4 text-center text-gray-400\">-</td></tr><tr class=\"hover:bg-gray-50\"><td class=\"py-3 px-4\">Junior (13-17)</td><td class=\"py-3 px-4 text-center font-semibold\">$300</td><td class=\"py-3 px-4 text-center text-gray-400\">-</td></tr></tbody></table></div></div><!-- Monthly Memberships --><div class=\"mb-10\"><h2 class=\"text-2xl font-bold text-[var(--pine-green)] mb-4 flex items-center gap-2\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = components.CalendarIcon().Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "Monthly Memberships</h2><div class=\"overflow-x-auto\"><table class=\"w-full border-collapse bg-white rounded-xl overflow-hidden shadow-sm\"><thead><tr class=\"bg-[var(--pine-green)] text-white\"><th class=\"text-left py-3 px-4 font-semibold\">Category</th><th class=\"text-center py-3 px-4 font-semibold\">No Cart</th><th class=\"text-center py-3 px-4 font-semibold\">With Cart</th></tr></thead> <tbody class=\"divide-y divide-gray-200\"><tr class=\"hover:bg-gray-50\"><td class=\"py-3 px-4\">Single Monthly Membership</td><td class=\"py-3 px-4 text-center font-semibold\">$250</td><td class=\"py-3 px-4 text-center font-semibold\">$375</td></tr><tr class=\"hover:bg-gray-50\"><td class=\"py-3 px-4\">Couple Monthly Membership</td><td class=\"py-3 px-4 text-center font-semibold\">$350</td><td class=\"py-3 px-4 text-center font-semibold\">$550</td></tr><tr class=\"hover:bg-gray-50\"><td class=\"py-3 px-4\">Single Senior Monthly Membership</td><td class=\"py-3 px-4 text-center font-semibold\">$215</td><td class=\"py-3 px-4 text-center font-semibold\">$335</td></tr><tr class=\"hover:bg-gray-50\"><td class=\"py-3 px-4\">Senior Couple Monthly Membership</td><td class=\"py-3 px-4 text-center font-semibold\">$280</td><td class=\"py-3 px-4 text-center font-semibold\">$450</td></tr></tbody></table></div></div><!-- Punch Cards --><div class=\"mb-10\"><h2 class=\"text-2xl font-bold text-[var(--pine-green)] mb-4 flex items-center gap-2\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = components.TicketIcon().Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "Punch Cards</h2><div class=\"overflow-x-auto\"><table class=\"w-full border-collapse bg-white rounded-xl overflow-hidden shadow-sm\"><thead><tr class=\"bg-[var(--pine-green)] text-white\"><th class=\"text-left py-3 px-4 font-semibold\">Category</th><th class=\"text-center py-3 px-4 font-semibold\">No Cart</th><th class=\"text-center py-3 px-4 font-semibold\">With Cart</th></tr></thead> <tbody class=\"divide-y divide-gray-200\"><tr class=\"hover:bg-gray-50\"><td class=\"py-3 px-4\">10 - 9 Hole Rounds</td><td class=\"py-3 px-4 text-center font-semibold\">$200</td><td class=\"py-3 px-4 text-center font-semibold\">$325</td></tr><tr class=\"hover:bg-gray-50\"><td class=\"py-3 px-4\">10 - 18 Hole Rounds</td><td class=\"py-3 px-4 text-center font-semibold\">$290</td><td class=\"py-3 px-4 text-center font-semibold\">$510</td></tr></tbody></table></div></div><!-- Additional Fees --><div class=\"mb-10\"><h2 class=\"text-2xl font-bold text-[var(--pine-green)] mb-4 flex items-center gap-2\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = components.InfoIcon().Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "Additional Options</h2><div class=\"overflow-x-auto\"><table class=\"w-full border-collapse bg-white rounded-xl overflow-hidden shadow-sm\"><thead><tr class=\"bg-[var(--pine-green)] text-white\"><th class=\"text-left py-3 px-4 font-semibold\">Category</th><th class=\"text-center py-3 px-4 font-semibold\">Price</th></tr></thead> <tbody class=\"divide-y divide-gray-200\"><tr class=\"hover:bg-gray-50\"><td class=\"py-3 px-4\">Trail Fee (Member/Non-Member)</td><td class=\"py-3 px-4 text-center font-semibold\">$200</td></tr><tr class=\"hover:bg-gray-50\"><td class=\"py-3 px-4\">Driving Range - Member</td><td class=\"py-3 px-4 text-center font-semibold\">$175</td></tr><tr class=\"hover:bg-gray-50\"><td class=\"py-3 px-4\">Driving Range - Non Member</td><td class=\"py-3 px-4 text-center font-semibold\">$300</td></tr></tbody></table></div></div><!-- Contact Section --><div class=\"bg-[var(--cream)] rounded-2xl p-6 sm:p-8 text-center\"><h3 class=\"text-xl font-bold text-[var(--pine-green)] mb-4\">Questions About Rates or Memberships?</h3><p class=\"text-gray-600 mb-6\">Contact us for more information or to sign up for a membership.</p><div class=\"flex flex-col sm:flex-row gap-4 justify-center\"><a href=\"tel:7152894653\" class=\"btn-primary px-6 py-3 rounded-full inline-flex items-center justify-center gap-2\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = components.PhoneIcon().Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var4 string
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(data.CourseInfo.Phone)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/rates.templ`, Line: 243, Col: 30}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\" class=\"text-[var(--accent)] font-semibold hover:underline\">Email for Details</a></div></div></div></section>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</a> <a href=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var5 templ.SafeURL
+			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL("mailto:" + data.CourseInfo.Email))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/templates/pages/rates.templ`, Line: 245, Col: 64}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "\" class=\"btn-secondary px-6 py-3 rounded-full inline-flex items-center justify-center gap-2\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = components.MailIcon().Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "Email Us</a></div></div></div></section>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layouts.Base(meta.New("Rates and Membership", "View golf rates and membership options.")).Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layouts.Base(meta.New("2026 Rates & Memberships", "View golf rates and membership options at Whispering Pines Golf Course.")).Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

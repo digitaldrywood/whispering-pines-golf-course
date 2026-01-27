@@ -1,5 +1,8 @@
 package data
 
+// BookingURL is the ForeUp tee time booking link
+const BookingURL = "https://foreupsoftware.com/index.php/booking/21807/8973#/teetimes"
+
 // HoleData contains information about a single hole
 type HoleData struct {
 	Number       int
