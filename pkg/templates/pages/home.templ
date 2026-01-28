@@ -261,14 +261,8 @@ templ photoGallery() {
 					Take a visual tour of our beautiful course and see what awaits you.
 				</p>
 			</div>
-			<div class="grid grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4">
-				<div class="relative overflow-hidden rounded-lg sm:rounded-xl group md:col-span-2 md:row-span-2">
-					<img src="/static/images/holes/hole-8.jpg" alt="Hole 8 - Signature Hole" class="w-full h-24 sm:h-48 md:h-full md:min-h-[400px] object-cover transition-transform duration-700 group-hover:scale-110"/>
-					<div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300"></div>
-					<div class="absolute bottom-0 left-0 right-0 p-1 sm:p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-						<p class="text-white font-medium text-shadow text-xs sm:text-base">Hole 8</p>
-					</div>
-				</div>
+			<div class="grid grid-cols-3 gap-2 sm:gap-4">
+				@galleryImage("/static/images/holes/hole-8.jpg", "Hole 8")
 				@galleryImage("/static/images/holes/hole-3.jpg", "Hole 3")
 				@galleryImage("/static/images/holes/hole-14.jpg", "Hole 14")
 				@galleryImage("/static/images/holes/hole-9.jpg", "Hole 9")
@@ -281,7 +275,7 @@ templ photoGallery() {
 
 templ galleryImage(src, alt string) {
 	<div class="relative overflow-hidden rounded-lg sm:rounded-xl group">
-		<img src={ src } alt={ alt } class="w-full h-24 sm:h-48 object-cover transition-transform duration-700 group-hover:scale-110"/>
+		<img src={ src } alt={ alt } class="w-full h-24 sm:h-48 lg:h-56 object-cover transition-transform duration-700 group-hover:scale-110"/>
 		<div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300"></div>
 		<div class="absolute bottom-0 left-0 right-0 p-1 sm:p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
 			<p class="text-white font-medium text-shadow text-xs sm:text-base">{ alt }</p>
