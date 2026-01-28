@@ -493,7 +493,7 @@ func holeNavigationArrows(currentHole int) templ.Component {
 			templ_7745c5c3_Var23 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 37, "<!-- Fixed navigation arrows -->")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 37, "<!-- Fixed swipe-style navigation arrows -->")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -511,7 +511,7 @@ func holeNavigationArrows(currentHole int) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 39, "\" class=\"fixed top-1/2 -translate-y-1/2 left-2 sm:left-4 z-50 w-10 h-10 sm:w-12 sm:h-12 bg-[var(--pine-green)] hover:bg-[var(--accent)] text-white rounded-full flex items-center justify-center shadow-lg transition-colors\" title=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 39, "\" class=\"fixed top-1/2 -translate-y-1/2 left-1 sm:left-3 lg:left-6 z-50 w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-black/30 hover:bg-black/50 backdrop-blur-sm text-white rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 group\" title=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -524,7 +524,7 @@ func holeNavigationArrows(currentHole int) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 40, "\"><svg class=\"w-5 h-5 sm:w-6 sm:h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 19l-7-7 7-7\"></path></svg></a> ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 40, "\"><svg class=\"w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 group-hover:-translate-x-0.5 transition-transform\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" d=\"M15 19l-7-7 7-7\"></path></svg></a> ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -543,7 +543,7 @@ func holeNavigationArrows(currentHole int) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 42, "\" class=\"fixed top-1/2 -translate-y-1/2 right-2 sm:right-4 z-50 w-10 h-10 sm:w-12 sm:h-12 bg-[var(--pine-green)] hover:bg-[var(--accent)] text-white rounded-full flex items-center justify-center shadow-lg transition-colors\" title=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 42, "\" class=\"fixed top-1/2 -translate-y-1/2 right-1 sm:right-3 lg:right-6 z-50 w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-black/30 hover:bg-black/50 backdrop-blur-sm text-white rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 group\" title=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -556,7 +556,7 @@ func holeNavigationArrows(currentHole int) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 43, "\"><svg class=\"w-5 h-5 sm:w-6 sm:h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 5l7 7-7 7\"></path></svg></a>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 43, "\"><svg class=\"w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 group-hover:translate-x-0.5 transition-transform\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" d=\"M9 5l7 7-7 7\"></path></svg></a>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
